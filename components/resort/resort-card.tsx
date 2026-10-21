@@ -1,4 +1,5 @@
 import { useFormatter, useLocale, useTranslations } from "next-intl";
+import { PowderAlarmBadge } from "@/components/forecast/powder-alarm-badge";
 import { Link } from "@/i18n/navigation";
 import { countryName } from "@/lib/format";
 import type { Resort } from "@/lib/schemas/resort";
@@ -7,11 +8,17 @@ export function ResortCard({
   resort,
   rank,
   score,
+  freshSnowCm,
+  powderAlarm,
 }: {
   resort: Resort;
   rank?: number;
   /** Rounded 0-100 ranking score. */
   score?: number;
+  /** Live snowfall in the last 72 h; omitted when live data is unavailable. */
+  freshSnowCm?: number;
+  /** Live Powder Alarm only; never set from sample data. */
+  powderAlarm?: boolean;
 }) {
   const t = useTranslations("Resorts");
   const tr = useTranslations("Ranking");
@@ -53,6 +60,11 @@ export function ResortCard({
           {resort.region}, {countryName(resort.country, locale)}
         </p>
       </header>
+      {powderAlarm && (
+        <div>
+          <PowderAlarmBadge label={tr("alarmBadge")} />
+        </div>
+      )}
       <p className="text-sm">{resort.description[locale]}</p>
       <dl className="mt-auto grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
         <dt className="text-muted">{t("top")}</dt>
@@ -61,6 +73,14 @@ export function ResortCard({
         <dd className="text-right font-medium">{m(resort.elevation.bottom)}</dd>
         <dt className="text-muted">{t("vertical")}</dt>
         <dd className="text-right font-medium">{m(resort.verticalDrop)}</dd>
+        {freshSnowCm !== undefined && (
+          <>
+            <dt className="text-muted">{tr("freshSnow")}</dt>
+            <dd className="text-right font-medium">
+              {tr("freshSnowValue", { cm: format.number(freshSnowCm) })}
+            </dd>
+          </>
+        )}
         <dt className="text-muted">{t("dayPass")}</dt>
         <dd className="text-right font-medium">
           {eur(resort.liftPass.dayPriceEUR.min)}–

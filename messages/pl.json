@@ -83,7 +83,10 @@
     "allZero": "Wszystkie priorytety są ustawione na 0, więc każdy ośrodek ma 0 punktów, a lista jest alfabetyczna.",
     "rank": "Miejsce {rank}",
     "scoreLabel": "Wynik {score} na 100",
-    "conditionsNote": "„Świeży śnieg teraz” jest pomijany, dopóki nie podłączymy bieżących danych pogodowych."
+    "conditionsUnavailable": "Bieżące dane o śniegu są teraz niedostępne, więc „Świeży śnieg teraz” jest pomijany.",
+    "freshSnow": "Ostatnie 72 h",
+    "freshSnowValue": "{cm} cm",
+    "alarmBadge": "Alarm puchu"
   },
   "HowWeRank": {
     "title": "Jak tworzymy ranking",
@@ -103,7 +106,7 @@
       "steepness": "Górna granica typowego nachylenia terenu off-piste, w stopniach.",
       "liftAccess": "Liczba rejonów freeride dostępnych z wyciągów, które podajemy dla ośrodka.",
       "price": "Środek typowego przedziału cen karnetu dziennego. Taniej oznacza więcej punktów.",
-      "conditions": "Świeży śnieg z ostatnich 72 godzin. Pomijany, dopóki nie podłączymy bieżących danych pogodowych.",
+      "conditions": "Świeży śnieg z ostatnich 72 godzin z modelu prognoz Open-Meteo. Pomijany, gdy bieżące dane są niedostępne: dane przykładowe nigdy nie wpływają na ranking.",
       "safety": "Połowa za dostępnych przewodników freeride, połowa za off-piste przyjazne początkującym."
     },
     "missingTitle": "Brakujące dane",
@@ -151,5 +154,43 @@
     "disclaimer": "To nie zastępuje oficjalnego komunikatu lawinowego. Zawsze czytaj pełny komunikat i sprawdzaj warunki na miejscu.",
     "weatherData": "Dane pogodowe: Open-Meteo.com (CC BY 4.0).",
     "howWeRank": "Jak tworzymy ranking"
+  },
+  "Forecast": {
+    "title": "Prognoza śniegu",
+    "caption": "Prognoza 7-dniowa: {name}",
+    "forElevation": "Prognoza dla szczytu na wysokości {elevation} m",
+    "day": "Dzień",
+    "snow": "Śnieg",
+    "temp": "Temp. min / max",
+    "freezing": "Granica zera",
+    "wind": "Wiatr maks.",
+    "gusts": "Porywy",
+    "windFrom": "z kierunku {dir}",
+    "snowValue": "{value} cm",
+    "past72": "Ostatnie 72 h",
+    "next48": "Najbliższe 48 h",
+    "powderAlarm": "Alarm puchu: prognozowane {cm} cm w ciągu najbliższych 48 h",
+    "windWarning": "Prognozowany silny wiatr: do {wind} km/h w ciągu 3 dni. Wiatr przenosi śnieg i tworzy lawinowe płyty wietrzne.",
+    "windLink": "Sprawdź sytuację lawinową",
+    "windNote": "Wiatr jest modelowany przy gruncie. Na odsłoniętych granicach może być znacznie silniejszy.",
+    "statusLive": "Prognoza na żywo: Open-Meteo.com",
+    "statusMock": "Dane przykładowe: prognoza na żywo jest teraz niedostępna. Nie używaj jej do planowania.",
+    "updated": "Zaktualizowano {time}",
+    "noDays": "Brak dni prognozy."
+  },
+  "Powder": {
+    "title": "Gdzie jest puch w ten weekend?",
+    "subtitle": "Ośrodki posortowane według prognozowanego nowego śniegu: {range}. Prognozy się zmieniają, więc sprawdź ponownie przed wyjazdem.",
+    "caption": "Prognozowane opady śniegu w ośrodkach na weekend",
+    "colResort": "Ośrodek",
+    "colWeekend": "Śnieg w weekend",
+    "col48": "Najbliższe 48 h",
+    "colWind": "Wiatr maks.",
+    "colAlerts": "Alerty",
+    "incomplete": "Prognoza nie obejmuje jeszcze całego weekendu.",
+    "seasonNote": "Wiele ośrodków jest zamkniętych poza sezonem, a śnieg może padać tylko na wysokich lodowcach. Sprawdź, czy Twój ośrodek jest otwarty.",
+    "alarmShort": "Alarm puchu",
+    "windShort": "Silny wiatr",
+    "none": "Brak"
   }
 }

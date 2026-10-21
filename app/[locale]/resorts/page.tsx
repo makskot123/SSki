@@ -4,6 +4,7 @@ import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/locale-param";
 import { parseRankingQuery } from "@/lib/ranking-query";
 import { getResorts } from "@/lib/resorts";
+import { getForecasts } from "@/lib/weather";
 
 export default async function Page({
   params,
@@ -14,6 +15,20 @@ export default async function Page({
   const resorts = getResorts();
   // Weights and filters live in the query string so a ranking can be shared as a link.
   const initial = parseRankingQuery(await searchParams);
+
+  // Live snow feeds the ranking and card badges. Sample data is never used for either.
+  const { bySlug, status } = await getForecasts();
+  const live = status === "live";
+  const conditions = live
+    ? Object.fromEntries(
+        Object.values(bySlug).map((f) => [f.resortSlug, f.past72hSnowfallCm]),
+      )
+    : undefined;
+  const alarmSlugs = live
+    ? Object.values(bySlug)
+        .filter((f) => f.powderAlarm)
+        .map((f) => f.resortSlug)
+    : [];
 
   return (
     <div className="space-y-6">
@@ -29,7 +44,12 @@ export default async function Page({
           {t("approxNote")}
         </p>
       </header>
-      <RankingExplorer resorts={resorts} initial={initial} />
+      <RankingExplorer
+        resorts={resorts}
+        initial={initial}
+        conditions={conditions}
+        alarmSlugs={alarmSlugs}
+      />
     </div>
   );
 }

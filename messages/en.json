@@ -83,7 +83,10 @@
     "allZero": "All priorities are set to 0, so every resort scores 0 and the list is alphabetical.",
     "rank": "Rank {rank}",
     "scoreLabel": "Score {score} out of 100",
-    "conditionsNote": "\"Fresh snow now\" is skipped until live weather data is connected."
+    "conditionsUnavailable": "Live snow data is unavailable right now, so “Fresh snow now” is skipped.",
+    "freshSnow": "Last 72 h",
+    "freshSnowValue": "{cm} cm",
+    "alarmBadge": "Powder alarm"
   },
   "HowWeRank": {
     "title": "How we rank",
@@ -103,7 +106,7 @@
       "steepness": "Upper end of the typical off-piste steepness range, in degrees.",
       "liftAccess": "Number of lift-accessed freeride areas we list for the resort.",
       "price": "Midpoint of the typical day-pass price range. Cheaper scores higher.",
-      "conditions": "Fresh snow in the last 72 hours. This is skipped until live weather data is connected.",
+      "conditions": "Fresh snow in the last 72 hours from the Open-Meteo forecast model. Skipped whenever live data is unavailable: sample data is never used for ranking.",
       "safety": "Half for freeride guides being available, half for beginner-friendly off-piste."
     },
     "missingTitle": "Missing data",
@@ -151,5 +154,43 @@
     "disclaimer": "Not a substitute for the official bulletin. Always read the full bulletin and check conditions on site.",
     "weatherData": "Weather data by Open-Meteo.com (CC BY 4.0).",
     "howWeRank": "How we rank"
+  },
+  "Forecast": {
+    "title": "Snow forecast",
+    "caption": "7-day forecast for {name}",
+    "forElevation": "Forecast for the summit at {elevation} m",
+    "day": "Day",
+    "snow": "Snow",
+    "temp": "Temp. min / max",
+    "freezing": "Freezing level",
+    "wind": "Wind max",
+    "gusts": "Gusts",
+    "windFrom": "from {dir}",
+    "snowValue": "{value} cm",
+    "past72": "Last 72 h",
+    "next48": "Next 48 h",
+    "powderAlarm": "Powder alarm: {cm} cm forecast in the next 48 h",
+    "windWarning": "Strong wind forecast: up to {wind} km/h in the next 3 days. Wind moves snow and builds wind slabs.",
+    "windLink": "Check the avalanche situation",
+    "windNote": "Wind is modelled near the ground. On exposed ridges it can be much stronger.",
+    "statusLive": "Live forecast by Open-Meteo.com",
+    "statusMock": "Sample data: the live forecast is unavailable right now. Do not use it for planning.",
+    "updated": "Updated {time}",
+    "noDays": "No forecast days available."
+  },
+  "Powder": {
+    "title": "Where is the powder this weekend?",
+    "subtitle": "Resorts sorted by forecast new snow for {range}. Forecasts change, so check again before you travel.",
+    "caption": "Forecast snowfall by resort for the weekend",
+    "colResort": "Resort",
+    "colWeekend": "Weekend snow",
+    "col48": "Next 48 h",
+    "colWind": "Max wind",
+    "colAlerts": "Alerts",
+    "incomplete": "The forecast does not cover the whole weekend yet.",
+    "seasonNote": "Many resorts are closed outside their season, and snow may only fall on high glaciers. Check that your resort is open.",
+    "alarmShort": "Powder alarm",
+    "windShort": "Strong wind",
+    "none": "None"
   }
 }

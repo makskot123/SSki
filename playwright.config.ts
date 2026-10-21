@@ -10,6 +10,8 @@ export default defineConfig({
     command: "npm run build && npm run start",
     url: "http://localhost:3000/en",
     reuseExistingServer: true,
+    // Deterministic tests: never hit the live weather API.
+    env: { FORCE_MOCK_DATA: "1" },
     timeout: 240_000,
   },
 });

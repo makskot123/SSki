@@ -32,7 +32,7 @@ test("resort list links to a resort detail page", async ({ page }) => {
   await page.getByRole("link", { name: "View Chamonix" }).click();
   await expect(page).toHaveURL(/\/en\/resorts\/chamonix$/);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Chamonix");
-  await expect(page.getByText("3,842 m")).toBeVisible();
+  await expect(page.getByText("3,842 m", { exact: true })).toBeVisible();
 });
 
 test("presets and sliders re-sort live without a reload and update the URL", async ({
@@ -99,6 +99,60 @@ test("filters narrow the list and are restored from the URL", async ({
   ).toBeVisible();
 });
 
+test("resort page shows a 7-day forecast labelled as sample data", async ({
+  page,
+}) => {
+  await page.goto("/en/resorts/chamonix");
+  await expect(
+    page.getByRole("heading", { name: "Snow forecast" }),
+  ).toBeVisible();
+  await expect(
+    page.getByText("Forecast for the summit at 3,842 m"),
+  ).toBeVisible();
+  await expect(page.getByRole("status")).toContainText("Sample data");
+  await expect(
+    page
+      .getByRole("table", { name: "7-day forecast for Chamonix" })
+      .locator("tbody tr"),
+  ).toHaveCount(7);
+  // Sample data must never raise alerts.
+  await expect(page.getByText(/Powder alarm/)).toHaveCount(0);
+  await expect(page.getByText(/Strong wind forecast/)).toHaveCount(0);
+});
+
+test("powder page lists all resorts sorted by weekend snow", async ({
+  page,
+}) => {
+  await page.goto("/en/powder");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Where is the powder this weekend?",
+  );
+  await expect(page.getByRole("status")).toContainText("Sample data");
+  const rows = page.getByRole("table").locator("tbody tr");
+  await expect(rows).toHaveCount(30);
+  const weekend = await rows.locator("td:nth-child(2)").allTextContents();
+  const values = weekend.map((t) => parseFloat(t.replace(",", ".")));
+  expect(values.every((v) => !Number.isNaN(v))).toBe(true);
+  expect(values).toEqual([...values].sort((a, b) => b - a));
+
+  await page.goto("/pl/powder");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Gdzie jest puch w ten weekend?",
+  );
+});
+
+test("ranking skips live-only factor and says so when data is sample", async ({
+  page,
+}) => {
+  await page.goto("/en/resorts");
+  await expect(
+    page.getByText(
+      "Live snow data is unavailable right now, so “Fresh snow now” is skipped.",
+    ),
+  ).toBeVisible();
+  await expect(page.getByText(/Last 72 h/)).toHaveCount(0);
+});
+
 test("how we rank page lists every factor", async ({ page }) => {
   await page.goto("/en/how-we-rank");
   await expect(page.getByRole("heading", { level: 1 })).toHaveText(
@@ -145,6 +199,8 @@ for (const theme of ["light", "dark"] as const) {
     "/en/resorts/chamonix",
     "/pl/resorts/kasprowy-wierch",
     "/en/how-we-rank",
+    "/en/powder",
+    "/pl/powder",
     "/pl/resorts?country=PL&maxPrice=50",
   ]) {
     test(`no axe violations on ${path} (${theme})`, async ({ page }) => {

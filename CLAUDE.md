@@ -36,7 +36,7 @@ npm run data:regions # rebuild simplified EAWS GeoJSON (added in M6)
 
 ## Data rules (non-negotiable)
 
-- **Always use a mock-data fallback when an API fails.** Every external call goes through `lib/fetch-with-fallback.ts`, which applies a timeout, `revalidate` caching, Zod validation, and falls back to `data/mocks/*`. Mock data is always labelled "sample data" in the UI.
+- **Always use a mock-data fallback when an API fails.** Every external call goes through `lib/fetch-with-fallback.ts`, which applies a timeout, `revalidate` caching, Zod validation, and falls back to sample data (`lib/*/mock.ts` generators or `data/mocks/*`). Mock data is always labelled "sample data" in the UI, never raises alerts, and never feeds the ranking. `FORCE_MOCK_DATA=1` skips the network (used by e2e).
 - **Never scrape sites that forbid it.** Use only official APIs/feeds listed as ✅ in PLAN.md §5; everything else is a link-out. No hotlinking images or webcams.
 - Avalanche data older than 24 h, or outside its valid window, shows **"No current data"**, never a stale level.
 - Never compute, interpolate or forecast avalanche danger ourselves. Display the official values only.

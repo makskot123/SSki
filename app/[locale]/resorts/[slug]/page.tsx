@@ -1,14 +1,17 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
+import { ForecastSection } from "@/components/forecast/forecast-section";
 import { ResortFacts } from "@/components/resort/resort-facts";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/locale-param";
 import { routing } from "@/i18n/routing";
 import { countryName } from "@/lib/format";
 import { getResortBySlug, getResorts } from "@/lib/resorts";
+import { getForecasts } from "@/lib/weather";
 
 export const dynamicParams = false;
+export const revalidate = 3600;
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -36,6 +39,8 @@ export default async function ResortPage({
 
   const t = await getTranslations("ResortDetail");
   const newTab = t("opensInNewTab");
+  const { bySlug } = await getForecasts();
+  const forecast = bySlug[resort.slug];
 
   return (
     <article className="space-y-8">
@@ -116,6 +121,8 @@ export default async function ResortPage({
           </section>
         </div>
       </div>
+
+      <ForecastSection forecast={forecast} resortName={resort.name} />
     </article>
   );
 }

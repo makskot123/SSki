@@ -14,6 +14,7 @@ import { aspectSchema, type Resort } from "@/lib/schemas/resort";
 import {
   FACTOR_KEYS,
   MAX_WEIGHT,
+  type Conditions,
   PRESET_KEYS,
   PRESETS,
   scoreResorts,
@@ -34,9 +35,15 @@ const inputClass =
 export function RankingExplorer({
   resorts,
   initial,
+  conditions,
+  alarmSlugs,
 }: {
   resorts: Resort[];
   initial: RankingState;
+  /** Fresh snow (cm, last 72 h) per slug; undefined when live data is unavailable. */
+  conditions?: Conditions;
+  /** Resorts with a live Powder Alarm. */
+  alarmSlugs: string[];
 }) {
   const t = useTranslations("Ranking");
   const locale = useLocale();
@@ -54,8 +61,8 @@ export function RankingExplorer({
   }, [state]);
 
   const scored = useMemo(
-    () => scoreResorts(resorts, weights),
-    [resorts, weights],
+    () => scoreResorts(resorts, weights, conditions),
+    [resorts, weights, conditions],
   );
   const visible = useMemo(
     () => scored.filter((s) => applyFilters(s.resort, filters)),
@@ -149,7 +156,11 @@ export function RankingExplorer({
                 />
               </div>
             ))}
-            <p className="text-xs text-muted">{t("conditionsNote")}</p>
+            {!conditions && (
+              <p role="note" className="text-xs text-muted">
+                {t("conditionsUnavailable")}
+              </p>
+            )}
           </section>
 
           <section aria-labelledby="filters-title" className="space-y-4">
@@ -293,6 +304,8 @@ export function RankingExplorer({
                   resort={s.resort}
                   rank={i + 1}
                   score={Math.round(s.score)}
+                  freshSnowCm={conditions?.[s.resort.slug]}
+                  powderAlarm={alarmSlugs.includes(s.resort.slug)}
                 />
               </li>
             ))}
