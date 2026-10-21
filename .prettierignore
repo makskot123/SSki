@@ -1,0 +1,7 @@
+.next
+node_modules
+package-lock.json
+PLAN.md
+data/mocks
+playwright-report
+test-results

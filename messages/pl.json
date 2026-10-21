@@ -1,0 +1,42 @@
+{
+  "Metadata": {
+    "title": "FreerideAtlas",
+    "description": "Ośrodki freeride w Europie: ranking, zagrożenie lawinowe i prognoza puchu."
+  },
+  "Nav": {
+    "home": "Strona główna",
+    "resorts": "Ośrodki",
+    "avalanche": "Lawinomierz",
+    "powder": "Puch",
+    "safety": "Bezpieczeństwo",
+    "menu": "Nawigacja główna",
+    "skipToContent": "Przejdź do treści"
+  },
+  "Home": {
+    "title": "Znajdź swój następny dzień z puchem",
+    "subtitle": "Ranking ośrodków freeride, zagrożenie lawinowe i prognoza śniegu dla Europy.",
+    "comingSoon": "W budowie. Funkcje pojawiają się etap po etapie."
+  },
+  "Placeholder": {
+    "title": "Wkrótce",
+    "body": "Ta sekcja nie jest jeszcze gotowa."
+  },
+  "NotFound": {
+    "title": "Nie znaleziono strony",
+    "back": "Wróć na stronę główną"
+  },
+  "Theme": {
+    "toggle": "Przełącz tryb ciemny",
+    "light": "Jasny",
+    "dark": "Ciemny"
+  },
+  "Locale": {
+    "label": "Język",
+    "en": "English",
+    "pl": "Polski"
+  },
+  "Footer": {
+    "disclaimer": "To nie zastępuje oficjalnego komunikatu lawinowego. Zawsze czytaj pełny komunikat i sprawdzaj warunki na miejscu.",
+    "weatherData": "Dane pogodowe: Open-Meteo.com (CC BY 4.0)."
+  }
+}

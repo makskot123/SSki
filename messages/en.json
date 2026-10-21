@@ -1,0 +1,42 @@
+{
+  "Metadata": {
+    "title": "FreerideAtlas",
+    "description": "Freeride resorts in Europe: ranking, avalanche danger and powder forecast."
+  },
+  "Nav": {
+    "home": "Home",
+    "resorts": "Resorts",
+    "avalanche": "Avalanche meter",
+    "powder": "Powder",
+    "safety": "Safety",
+    "menu": "Main navigation",
+    "skipToContent": "Skip to content"
+  },
+  "Home": {
+    "title": "Find your next powder day",
+    "subtitle": "Freeride resort ranking, avalanche danger and snow forecast for Europe.",
+    "comingSoon": "Under construction. Features arrive milestone by milestone."
+  },
+  "Placeholder": {
+    "title": "Coming soon",
+    "body": "This section is not built yet."
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "back": "Back to home"
+  },
+  "Theme": {
+    "toggle": "Toggle dark mode",
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "Locale": {
+    "label": "Language",
+    "en": "English",
+    "pl": "Polski"
+  },
+  "Footer": {
+    "disclaimer": "Not a substitute for the official bulletin. Always read the full bulletin and check conditions on site.",
+    "weatherData": "Weather data by Open-Meteo.com (CC BY 4.0)."
+  }
+}
