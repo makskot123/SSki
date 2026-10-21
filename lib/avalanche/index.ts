@@ -3,7 +3,12 @@ import type { AvalancheBulletin } from "@/lib/schemas/avalanche";
 import { z } from "zod";
 import { buildRegionIndex, type RegionStatus } from "./freshness";
 import { parseCaamlFeed } from "./normalise";
-import { PROVIDER_IDS, PROVIDERS, type ProviderId } from "./providers";
+import {
+  feedUrlFor,
+  PROVIDER_IDS,
+  PROVIDERS,
+  type ProviderId,
+} from "./providers";
 
 export type FeedState = "live" | "unavailable";
 
@@ -25,11 +30,12 @@ export async function getAvalancheData(
     PROVIDER_IDS.map(async (id) => {
       const provider = PROVIDERS[id];
       const { data, status } = await fetchWithFallback<AvalancheBulletin[]>({
-        url: provider.feedUrl,
+        url: feedUrlFor(id),
         schema: z.unknown().transform((json) => parseCaamlFeed(json, provider)),
         fallback: () => [],
         revalidate: 900,
         label: `avalanche feed ${id}`,
+        respectForceMock: false,
       });
       return {
         id,

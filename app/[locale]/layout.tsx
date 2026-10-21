@@ -15,6 +15,7 @@ const geistSans = Geist({
 });
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
+  preload: false, // only used for the formula on /how-we-rank, so do not delay every page for it
   subsets: ["latin"],
 });
 

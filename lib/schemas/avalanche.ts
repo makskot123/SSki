@@ -49,6 +49,8 @@ export interface ProviderInfo {
 export interface AvalancheBulletin {
   bulletinId: string;
   regionIds: string[];
+  /** Region names as published by the provider (English), where given. */
+  regionNames: Record<string, string>;
   /** All times are ISO 8601 with an explicit offset (as published). */
   publicationTime: string;
   validFrom: string;
@@ -92,7 +94,11 @@ export const caamlBulletinSchema = z.object({
   publicationTime: timestamp,
   validTime: z.object({ startTime: timestamp, endTime: timestamp }),
   lang: z.string().optional(),
-  regions: z.array(z.object({ regionID: z.string().min(1) })).min(1),
+  regions: z
+    .array(
+      z.object({ regionID: z.string().min(1), name: z.string().optional() }),
+    )
+    .min(1),
   dangerRatings: z
     .array(
       z.object({

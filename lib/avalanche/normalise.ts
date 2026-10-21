@@ -55,6 +55,9 @@ export function normaliseBulletin(
   return {
     bulletinId: b.bulletinID,
     regionIds: b.regions.map((r) => r.regionID),
+    regionNames: Object.fromEntries(
+      b.regions.flatMap((r) => (r.name ? [[r.regionID, r.name]] : [])),
+    ),
     publicationTime: b.publicationTime,
     validFrom: b.validTime.startTime,
     validUntil: b.validTime.endTime,

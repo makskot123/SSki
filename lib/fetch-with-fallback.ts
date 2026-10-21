@@ -17,6 +17,11 @@ interface Options<T> {
   revalidate?: number;
   timeoutMs?: number;
   label?: string;
+  /**
+   * FORCE_MOCK_DATA=1 only applies to calls that have sample data. Safety-critical feeds without a
+   * mock (avalanche bulletins) pass false: they always try the real source and fail to "no data".
+   */
+  respectForceMock?: boolean;
 }
 
 /**
@@ -30,8 +35,9 @@ export async function fetchWithFallback<T>({
   revalidate = 3600,
   timeoutMs = 8000,
   label = url,
+  respectForceMock = true,
 }: Options<T>): Promise<FetchResult<T>> {
-  if (process.env.FORCE_MOCK_DATA === "1") {
+  if (respectForceMock && process.env.FORCE_MOCK_DATA === "1") {
     return { data: fallback(), status: "mock" };
   }
   try {

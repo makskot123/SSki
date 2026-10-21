@@ -49,3 +49,6 @@ next-env.d.ts
 
 # local SWC native-binding cache (Windows workaround, see README)
 /.swc-cache/
+
+# copied from node_modules by scripts/copy-maplibre-worker.mjs
+/public/maplibre/

@@ -566,9 +566,11 @@ describe("getAvalancheData", () => {
     expect(offline.index.size).toBe(0);
     expect(offline.feeds.euregio.state).toBe("unavailable");
 
+    // FORCE_MOCK_DATA does not apply here: there is no mock, so it still tries the source and fails to "no data".
     vi.stubEnv("FORCE_MOCK_DATA", "1");
     const forced = await getAvalancheData();
     expect(forced.index.size).toBe(0);
+    expect(forced.feeds.slf.state).toBe("unavailable");
   });
 
   it("treats a malformed response as an outage", async () => {

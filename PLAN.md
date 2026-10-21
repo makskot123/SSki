@@ -30,6 +30,7 @@ Date: 2026-10-21
 - Next.js is 16.4 here and its `create-next-app` enables `cacheComponents` by default. We turned it **off** and use the classic model (`fetch(..., { next: { revalidate } })`), which matches the "revalidate + mock fallback" rule and avoids Suspense constraints.
 - Next 16 calls middleware `proxy.ts`; next-intl's locale middleware lives there.
 - `@types/node` is 24 (Vitest 5 requires ≥ 22).
+- M6: MapLibre's worker cannot be bundled by Next/Turbopack, so it is copied to `public/maplibre/` on dev/build. The map starts on first user interaction (or a button) to keep `/avalanche` at Lighthouse >= 90; the region list and panel work without it. Avalanche feed URLs can be overridden by env so e2e tests can serve recorded real bulletins from a local stub.
 - Windows: `@swc/core` (via next-intl) may need `SWC_NATIVE_BINDING_CACHE`, see README.
 
 ---

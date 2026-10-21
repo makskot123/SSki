@@ -6,3 +6,6 @@ data/mocks
 playwright-report
 test-results
 data/resorts.json
+public/data
+public/maplibre
+tests/fixtures

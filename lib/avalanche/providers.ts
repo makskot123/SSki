@@ -33,3 +33,16 @@ export const PROVIDERS = {
 
 export type ProviderId = keyof typeof PROVIDERS;
 export const PROVIDER_IDS = Object.keys(PROVIDERS) as ProviderId[];
+
+const FEED_URL_ENV: Record<ProviderId, string> = {
+  euregio: "AVALANCHE_EUREGIO_FEED_URL",
+  slf: "AVALANCHE_SLF_FEED_URL",
+};
+
+/**
+ * The feed URL, optionally overridden by an environment variable (a mirror/proxy, or the local
+ * stub that serves recorded bulletins to the end-to-end tests). Production uses the defaults.
+ */
+export function feedUrlFor(id: ProviderId): string {
+  return process.env[FEED_URL_ENV[id]] || PROVIDERS[id].feedUrl;
+}
