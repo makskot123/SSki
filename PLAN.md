@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **DRAFT — awaiting approval** (Stage 1). No application code yet.
+Status: **Phase 1 built (M1–M8)**. **Phase 2 (3D avalanche map + app) is a DRAFT awaiting approval**, see [§8](#8-phase-2--3d-avalanche-map-and-app-draft). No Phase 2 code yet.
 Date: 2026-10-21
 
 ---
@@ -398,3 +398,116 @@ Dates + country/region → shortlist ranked by forecast + current score + avalan
 5. **Hosting / domain:** Vercel default subdomain for now? *Default: yes, no custom domain.*
 6. **Gear guide scope:** avalanche safety gear + helmets only, with skis/boots in the backlog? *Default: yes.*
 7. **Gear links:** plain links to manufacturer pages, no affiliate links? Affiliate links would make the site commercial (see question 1). *Default: no affiliate links.*
+
+---
+
+## 8. Phase 2 — 3D avalanche map and app (DRAFT)
+
+Direction change (2026-10-21): the avalanche map becomes **3D**, and FreerideAtlas becomes an **app** on phones. Everything built in Phase 1 (data layers, scoring, safety rules, tests) is kept. The non-negotiable data rules still apply: official bulletins only, no level without a current bulletin, sample data never raises alerts.
+
+### 8.1 What "app" can mean: options and recommendation
+
+| | A. Installable web app (PWA) | B. Store app with Capacitor 8 | C. Native app with Expo 58 (React Native) |
+|---|---|---|---|
+| Where users get it | "Install" / "Add to Home Screen" from the website | Google Play and App Store | Google Play and App Store |
+| Reuses current code | All of it | The web UI runs inside a native shell | Only `lib/` (scoring, CAAML, freshness, safety logic); every screen is rewritten |
+| 3D map | MapLibre GL JS, same as the web | Same, inside the WebView | No documented 3D terrain in `@maplibre/maplibre-react-native` 11.5 (checked); the map would run as a web view inside the app |
+| Offline, push, location | Yes (service worker, Web Push incl. iOS 16.4+ home-screen apps, Geolocation API) | Yes, native plugins | Yes, native |
+| iOS build from Windows | Not needed | Needs macOS/Xcode: a Mac or a cloud macOS runner | EAS Build compiles iOS in the cloud |
+| Cost | Free | Google Play $25 once, Apple $99/year | Same as B |
+| Main risk | Not in the stores | Apple may reject a "repackaged website" (guideline 4.2); native features reduce the risk | Largest effort; two UIs to maintain |
+
+**Recommendation:** do **A first** (one milestone gets the app onto phones, with offline mode, install and later push), then **B for the stores**, Android first because it builds on Windows. Choose C only if a fully native feel matters more than reuse. The milestones below assume A then B; C would replace A8 with a separate rewrite plan.
+
+### 8.2 3D avalanche map
+
+- **Engine:** MapLibre GL JS 6 (already used). Verified in the installed typings: `setTerrain` / `TerrainSpecification`, `SkySpecification`, `raster-dem` sources, `maxPitch`, hillshade and globe.
+- **Terrain:** a `raster-dem` source (Terrarium encoding) with `map.setTerrain({ source, exaggeration })`, a hillshade layer for relief and a sky layer. Region colours and outlines are drawn onto the terrain, so the official colouring rule is unchanged: a colour only where a bulletin is current.
+- **Camera:** pitch up to ~70°, rotation with the compass enabled in 3D, a 2D/3D toggle (`TerrainControl`) and "fly to region" when a region is selected. `prefers-reduced-motion` means jump instead of fly.
+- **Defaults:** 3D on desktop. On phones the default is open question 4. The choice is remembered on the device. Low-memory devices and missing WebGL2 fall back to 2D, and the region list stays the complete non-visual alternative.
+- **Performance:** keep the interaction-deferred loading from M6. Elevation tiles load only in 3D. Target: Lighthouse ≥ 90 on first load, unchanged, because the map still does not load before interaction.
+- **Resort pages:** the small region map becomes a tilted 3D view centred on the resort, with its region outline on the terrain.
+- **Not planned without a separate decision: "critical terrain" shading** (slopes ≥ 30° within the bulletin's aspects and elevations). Coarse elevation data (25–30 m) smooths steep slopes and *under*-estimates steepness, which could hide dangerous terrain. This would need high-resolution data and official slope layers. Candidates to check later, not yet verified: swisstopo "slope over 30°" and IGN slope layers. It is a research spike (A0b) with a go/no-go decision.
+
+### 8.3 Data sources for Phase 2 (checked 2026-10-21)
+
+| Source | What | Status | Notes |
+|---|---|---|---|
+| **AWS Terrain Tiles** (`elevation-tiles-prod`, Terrarium PNG) | Elevation for 3D terrain and hillshade | ✅ tiles answered (z10 Chamonix, 200) | Open data; sources are public domain / CC BY. The required attribution includes Mapzen, "Europe terrain data produced using Copernicus data and information funded by the European Union - EU-DEM layers" and "Austria terrain data © offene Daten Österreichs", among others. Resolution is ~30 m in Europe: good for overview, not for judging slopes. |
+| **Mapterhorn** (`tiles.mapterhorn.com`, Terrarium WebP, 512 px) | Higher-resolution elevation (down to 0.25 m in parts of CH/DE) | ⚠️ tiles answered, terms for the hosted endpoint unclear | Code BSD-3; data from several open sources listed in `attribution.json`. No stated terms or rate limits for public apps. Ask the maintainer or self-host before using. |
+| MapLibre demo terrain (`demotiles.maplibre.org`) | Demo elevation | ❌ for production | Demo only. |
+| OpenFreeMap (existing basemap) | Vector basemap in 3D | ✅ already in use | Unchanged. |
+
+### 8.4 Architecture changes for the app
+
+- **Data API:** JSON route handlers `/api/resorts`, `/api/forecasts` and `/api/avalanche` (versioned, Zod-validated, cache headers). The app and the service worker read these instead of server-rendered HTML only. They reuse the existing `lib/` code, and avalanche JSON keeps the freshness rule.
+- **Offline (PWA):** a service worker with Serwist (`@serwist/turbopack` 9.5, made for Next's Turbopack). The caching rules:
+  - **Cached for offline:** the app shell, safety pages, checklist and quiz.
+  - **Network first, with time shown:** forecasts and bulletins. Offline bulletin data still passes the 24-hour rule, so an old cached bulletin shows "No current data", never a level.
+  - **Capped tile cache:** map and elevation tiles.
+- **Mobile app shell:** in installed / small-screen mode, a bottom tab bar (Resorts, Avalanche, Powder, Safety, More), a full-screen map screen, safe-area insets and larger touch targets. Desktop keeps the current website layout.
+- **Notifications (later milestone):** a powder alarm for favourite resorts, and "new bulletin published" for a favourite region. To avoid stale numbers on the lock screen, a bulletin notification only says a new bulletin exists, never the level. This needs a scheduler and a store of subscriptions. Vercel Hobby cron limits must be checked; GitHub Actions schedules or Supabase are the fallbacks.
+- **Privacy:** location is used on the device only ("near me", "my region") and never sent or stored. Store apps need a privacy policy and data-safety forms.
+
+### 8.5 Phase 2 milestones
+
+Each milestone still ends with lint, typecheck, unit tests, e2e and axe green, a short summary, then waiting for "NEXT".
+
+**A0 — Decisions and spikes**
+Answer §8.7. Confirm the elevation source and its attribution. Measure 3D map frame rate and memory on a mid-range phone and a laptop.
+*AC:* the decisions are recorded in this plan. The elevation source is ✅ with its attribution text, and there is a written device budget (pitch, exaggeration, tile limits).
+
+**A1 — 3D avalanche map**
+Terrain, hillshade, sky, 2D/3D toggle (remembered), rotation and compass, fly-to on region select, reduced-motion support, 2D fallback, elevation attribution. Colours unchanged: current bulletins only.
+*AC:* e2e covers toggling 3D, the remembered choice, region select flying to the region, stale data never coloured in 3D, and the 2D fallback when WebGL2 is missing. Lighthouse ≥ 90 on `/avalanche` (map still deferred). axe clean.
+
+**A2 — 3D resort maps**
+A tilted terrain view per resort with its region outline and marker, the same deferred loading and the same freshness rule.
+*AC:* the 3 test resorts (CH, Tyrol, PL) show the right state in 3D, and Lighthouse ≥ 90 on resort pages.
+
+**A3 — Data API**
+`/api/resorts`, `/api/forecasts` and `/api/avalanche`, sharing the existing `lib/` code, with cache headers and schema tests.
+*AC:* contract tests on the JSON shape. Avalanche JSON never contains a level for a stale region, and sample weather data is labelled `"status": "mock"`.
+
+**A4 — Installable app (PWA) and offline mode**
+Manifest, icons, Serwist service worker, offline caching (§8.4), an install prompt, an update notice and an offline indicator.
+*AC:* the app installs on Android Chrome and as an iOS home-screen app. With the network off, the checklist, quiz and safety pages work, and the last data shows its time. A cached bulletin older than 24 h shows "No current data" (e2e with an offline browser). Lighthouse PWA checks pass.
+
+**A5 — Mobile app shell**
+Bottom tab navigation in installed or small-screen mode, a full-screen map screen, safe areas, touch targets ≥ 44 px, and system dark mode by default.
+*AC:* e2e on a phone viewport (iPhone and Pixel profiles), axe clean, and no horizontal scrolling.
+
+**A6 — Favourites and location**
+Favourite resorts (on the device), a "Near me" list from the device location with permission, and a "My region" bulletin card.
+*AC:* works without location permission. The location is never sent to the server (tested by checking the network log), and it is translated (EN/PL).
+
+**A7 — Notifications** *(needs the open question 5 decision)*
+Web Push (VAPID) for the PWA, a scheduler, subscription storage, a powder alarm for favourites and "new bulletin" notices without levels. Opt-in only, with easy unsubscribe.
+*AC:* end-to-end test with a mocked push service. No notification is ever sent from sample data.
+
+**A8 — Store apps** *(route per open question 1)*
+Capacitor 8: Android first, iOS through a cloud macOS build. Native push and geolocation plugins, a bundled offline shell, icons, splash screens, store listings, a privacy policy and data-safety forms.
+*AC:* a signed Android build installs on a device and passes the same e2e smoke on the WebView. iOS builds in CI. Store submission checklists are complete.
+
+**Remaining Phase 1 milestones, re-ordered to fit the app:** M8b gear guide after A5 (as a tab under Safety), M9 trip planner after A6 (uses favourites and location), M10 polish last.
+
+### 8.6 Phase 2 risks
+
+1. **Device performance and battery:** 3D terrain is heavy on older phones. Mitigated by deferred loading, a 2D default on phones if chosen, tile limits and the list fallback.
+2. **Elevation data resolution:** 30 m data must never be presented as slope-accurate. 3D is for orientation, and any slope or critical-terrain shading waits for spike A0b.
+3. **App Store review (route B):** risk of rejection as a "repackaged website". Mitigated by native push, location and offline mode, and Android first.
+4. **iOS builds from Windows:** route B needs a Mac or cloud macOS CI; route C uses EAS cloud builds.
+5. **Push notifications need a backend:** scheduler limits on free plans and subscription storage. It is also personal data, so it needs privacy work.
+6. **Stale data offline:** handled by the existing freshness rule, re-checked with the device clock (downgrade only).
+7. **Commercial-use limits still apply** (Open-Meteo, Vercel Hobby) if the app is ever monetised.
+8. **Third-party tile hosts** (OpenFreeMap, elevation tiles) can change terms or availability. Mitigated by the plain-background fallback and keeping 2D usable.
+
+### 8.7 Open questions for Phase 2 (please answer with your approval)
+
+1. **What should "app" mean?** (a) installable from the browser (PWA), (b) in Google Play / App Store, or (c) both. *Default: (c) — PWA first (A4), then store apps (A8).*
+2. **Store route and platforms:** Capacitor (reuse the web UI) or Expo (native rewrite)? Android, iOS or both? Do you have a Mac, or are cloud builds fine, and are you OK with the store fees ($25 Google once, $99/year Apple)? *Default: Capacitor, Android first, iOS later via cloud build.*
+3. **Keep the website?** *Default: yes, the same codebase serves the web and the app.*
+4. **3D on phones:** on by default, or 2D by default with a 3D button (saves battery and data)? *Default: 2D on phones, 3D on desktop.*
+5. **Push notifications:** wanted (powder alarm, new bulletin)? It needs a small backend and stored subscriptions. *Default: yes, as a later milestone (A7), opt-in only.*
+
+The earlier gear-guide questions (6, 7 in §7) are still open and only matter when M8b starts.
