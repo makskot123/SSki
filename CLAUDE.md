@@ -21,6 +21,7 @@ npm run typecheck    # tsc --noEmit
 npm test             # vitest run
 npm run test:e2e     # playwright smoke test
 npm run format       # prettier
+npm run data:regions-assign # EAWS micro-region ids per resort (point-in-polygon, EAWS CC0 polygons)
 npm run data:snowfall # ERA5 avg snowfall per resort into data/resorts.json (resumable, rate-limited)
 npm run data:regions # rebuild simplified EAWS GeoJSON (added in M6)
 ```
@@ -38,6 +39,7 @@ npm run data:regions # rebuild simplified EAWS GeoJSON (added in M6)
 
 - **Always use a mock-data fallback when an API fails.** Every external call goes through `lib/fetch-with-fallback.ts`, which applies a timeout, `revalidate` caching, Zod validation, and falls back to sample data (`lib/*/mock.ts` generators or `data/mocks/*`). Mock data is always labelled "sample data" in the UI, never raises alerts, and never feeds the ranking. `FORCE_MOCK_DATA=1` skips the network (used by e2e).
 - **Never scrape sites that forbid it.** Use only official APIs/feeds listed as ✅ in PLAN.md §5; everything else is a link-out. No hotlinking images or webcams.
+- **Exception to the mock rule: avalanche data has no sample-data fallback.** If a feed is down or invalid, its regions show "No current data" (see `lib/avalanche/index.ts`). Never invent, interpolate or recycle danger levels, not even in tests/e2e of the running app. A bulletin that fails validation is dropped, never partially shown.
 - Avalanche data older than 24 h, or outside its valid window, shows **"No current data"**, never a stale level.
 - Never compute, interpolate or forecast avalanche danger ourselves. Display the official values only.
 - Always show the disclaimer near avalanche data: "Not a substitute for the official bulletin. Always read the full bulletin and check conditions on site."

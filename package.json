@@ -12,7 +12,8 @@
     "test:e2e": "playwright test",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "data:snowfall": "node scripts/compute-snow-climatology.ts"
+    "data:snowfall": "node scripts/compute-snow-climatology.ts",
+    "data:regions-assign": "node scripts/assign-regions.ts"
   },
   "dependencies": {
     "next": "16.4.2",

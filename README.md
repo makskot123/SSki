@@ -44,6 +44,6 @@ $env:SWC_NATIVE_BINDING_CACHE = "$PWD\.swc-cache"
 Current: weather attribution in the footer only. Sources are added as milestones land; the full verified table is in [PLAN.md §5](PLAN.md).
 
 - Weather: [Open-Meteo.com](https://open-meteo.com/), CC BY 4.0 (free tier is non-commercial only).
-- Avalanche bulletins (planned): Euregio avalanche.report (CC BY 4.0), SLF Switzerland (CC BY 4.0, "WSL Institute for Snow and Avalanche Research SLF"), region polygons from EAWS (CC0).
+- Avalanche bulletins (data layer built, UI in progress): Euregio avalanche.report (CC BY 4.0), SLF Switzerland (CC BY 4.0, "WSL Institute for Snow and Avalanche Research SLF"), region polygons from EAWS (CC0).
 
 Sources without a usable open API are linked to, never scraped.

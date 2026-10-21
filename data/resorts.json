@@ -59,7 +59,9 @@
       "opens": "12-01",
       "closes": "04-30"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "FR-03"
+    ],
     "links": {
       "official": "https://www.chamonix.com/",
       "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
@@ -134,7 +136,9 @@
       "opens": "12-01",
       "closes": "04-20"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "CH-4115"
+    ],
     "links": {
       "official": "https://www.verbier.ch/",
       "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
@@ -206,7 +210,10 @@
       "opens": "12-15",
       "closes": "05-01"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "FR-12",
+      "FR-15"
+    ],
     "links": {
       "official": "https://www.la-grave.com/",
       "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
@@ -281,7 +288,9 @@
       "opens": "11-15",
       "closes": "05-01"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "CH-2122"
+    ],
     "links": {
       "official": "https://www.engelberg.ch/",
       "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
@@ -356,7 +365,9 @@
       "opens": "12-01",
       "closes": "04-25"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "AT-07-07"
+    ],
     "links": {
       "official": "https://www.stantonamarlberg.com/",
       "avalancheBulletin": "https://avalanche.report/"
@@ -431,7 +442,10 @@
       "opens": "11-28",
       "closes": "04-20"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "AT-08-03-01",
+      "AT-08-03-02"
+    ],
     "links": {
       "official": "https://www.lechzuers.com/",
       "avalancheBulletin": "https://www.vorarlberg.at/lawine"
@@ -499,7 +513,10 @@
       "opens": "11-25",
       "closes": "05-01"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "CH-2223",
+      "CH-2224"
+    ],
     "links": {
       "official": "https://www.andermatt.ch/",
       "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
@@ -574,7 +591,12 @@
       "opens": "12-01",
       "closes": "04-25"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "IT-21-VB-01",
+      "IT-23-AO-06",
+      "IT-MeteoMont-06-2",
+      "IT-MeteoMont-VA-1"
+    ],
     "links": {
       "official": "https://www.alagnavalsesia.com/",
       "avalancheBulletin": "https://www.aineva.it/"
@@ -649,7 +671,9 @@
       "opens": "11-22",
       "closes": "05-04"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "FR-06"
+    ],
     "links": {
       "official": "https://www.valdisere.com/",
       "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
@@ -717,7 +741,9 @@
       "opens": "12-01",
       "closes": "04-15"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "AT-07-18"
+    ],
     "links": {
       "official": "https://www.fieberbrunn.com/",
       "avalancheBulletin": "https://avalanche.report/"
@@ -789,7 +815,9 @@
       "opens": "01-01",
       "closes": "12-31"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "AT-07-23-02"
+    ],
     "links": {
       "official": "https://www.hintertuxergletscher.at/",
       "avalancheBulletin": "https://avalanche.report/"
@@ -850,7 +878,9 @@
       "opens": "12-01",
       "closes": "04-30"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "PL-12"
+    ],
     "links": {
       "official": "https://www.pkl.pl/",
       "avalancheBulletin": "https://lawiny.topr.pl/"
@@ -918,7 +948,9 @@
       "opens": "12-05",
       "closes": "04-10"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "SK-05"
+    ],
     "links": {
       "official": "https://www.jasna.sk/",
       "avalancheBulletin": "https://www.laviny.sk/"
@@ -1132,7 +1164,9 @@
       "opens": "02-15",
       "closes": "06-15"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "SE-02"
+    ],
     "links": {
       "official": "https://www.riksgransen.nu/",
       "avalancheBulletin": "https://www.lavinprognoser.se/"
@@ -1207,7 +1241,10 @@
       "opens": "11-20",
       "closes": "05-01"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "CH-7111",
+      "CH-7114"
+    ],
     "links": {
       "official": "https://www.stmoritz.com/",
       "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
@@ -1279,7 +1316,10 @@
       "opens": "09-20",
       "closes": "05-01"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "AT-07-20",
+      "AT-07-21"
+    ],
     "links": {
       "official": "https://www.soelden.com/",
       "avalancheBulletin": "https://avalanche.report/"
@@ -1351,7 +1391,9 @@
       "opens": "01-01",
       "closes": "12-31"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "AT-05-10"
+    ],
     "links": {
       "official": "https://www.kitzsteinhorn.at/",
       "avalancheBulletin": "https://lawine.salzburg.at/"
@@ -1423,7 +1465,11 @@
       "opens": "11-28",
       "closes": "05-01"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "IT-25-SO-03",
+      "IT-25-SO-LI",
+      "IT-MeteoMont-04-1"
+    ],
     "links": {
       "official": "https://www.livigno.eu/",
       "avalancheBulletin": "https://www.aineva.it/"
@@ -1498,7 +1544,10 @@
       "opens": "11-15",
       "closes": "05-01"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "CH-4222",
+      "CH-4224"
+    ],
     "links": {
       "official": "https://www.zermatt.ch/",
       "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
@@ -1570,7 +1619,11 @@
       "opens": "12-01",
       "closes": "04-25"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "FR-03",
+      "IT-23-AO-14",
+      "IT-MeteoMont-VA-1"
+    ],
     "links": {
       "official": "https://www.courmayeur-montblanc.com/",
       "avalancheBulletin": "https://www.aineva.it/"
@@ -1645,7 +1698,9 @@
       "opens": "12-10",
       "closes": "04-20"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "FR-13"
+    ],
     "links": {
       "official": "https://www.serrechevalier.com/",
       "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
@@ -1717,7 +1772,9 @@
       "opens": "11-20",
       "closes": "05-01"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "AT-07-21"
+    ],
     "links": {
       "official": "https://www.obergurgl.com/",
       "avalancheBulletin": "https://avalanche.report/"
@@ -1789,7 +1846,10 @@
       "opens": "11-25",
       "closes": "05-01"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "AT-07-10",
+      "AT-07-12"
+    ],
     "links": {
       "official": "https://www.ischgl.com/",
       "avalancheBulletin": "https://avalanche.report/"
@@ -1861,7 +1921,9 @@
       "opens": "12-01",
       "closes": "04-20"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "AT-05-05"
+    ],
     "links": {
       "official": "https://www.gastein.com/",
       "avalancheBulletin": "https://lawine.salzburg.at/"
@@ -1933,7 +1995,9 @@
       "opens": "11-20",
       "closes": "05-01"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "AT-07-09"
+    ],
     "links": {
       "official": "https://www.kuehtai.info/",
       "avalancheBulletin": "https://avalanche.report/"
@@ -2005,7 +2069,9 @@
       "opens": "12-01",
       "closes": "04-20"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "CH-5211"
+    ],
     "links": {
       "official": "https://www.disentis.ch/",
       "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
@@ -2077,7 +2143,9 @@
       "opens": "12-06",
       "closes": "04-25"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "FR-15"
+    ],
     "links": {
       "official": "https://www.les2alpes.com/",
       "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
@@ -2149,7 +2217,10 @@
       "opens": "09-25",
       "closes": "05-01"
     },
-    "avalancheRegionIds": [],
+    "avalancheRegionIds": [
+      "IT-23-AO-20",
+      "IT-MeteoMont-VA-1"
+    ],
     "links": {
       "official": "https://www.cervinia.it/",
       "avalancheBulletin": "https://www.aineva.it/"
