@@ -35,6 +35,82 @@ test("resort list links to a resort detail page", async ({ page }) => {
   await expect(page.getByText("3,842 m")).toBeVisible();
 });
 
+test("presets and sliders re-sort live without a reload and update the URL", async ({
+  page,
+}) => {
+  await page.goto("/en/resorts");
+  await page.evaluate(() => {
+    (window as unknown as { __marker: number }).__marker = 1;
+  });
+  const names = () =>
+    page.locator("ol h2").evaluateAll((els) => els.map((e) => e.textContent));
+  const before = await names();
+
+  await page.getByRole("button", { name: "Budget" }).click();
+  await expect.poll(names).not.toEqual(before);
+  await expect(page).toHaveURL(/price=5/);
+
+  const priceSlider = page.getByRole("slider", {
+    name: "Price (cheaper is better)",
+  });
+  await priceSlider.fill("0");
+  await expect(page).toHaveURL(/price=0/);
+
+  await page.getByRole("button", { name: "Reset all" }).click();
+  await expect.poll(names).toEqual(before);
+  await expect(page).not.toHaveURL(/\?/);
+  expect(
+    await page.evaluate(
+      () => (window as unknown as { __marker: number }).__marker,
+    ),
+  ).toBe(1);
+});
+
+test("filters narrow the list and are restored from the URL", async ({
+  page,
+}) => {
+  await page.goto("/en/resorts?country=PL,SK&guides=1");
+  await expect(page.getByText(/^\d+ of 30 resorts$/)).toHaveText(
+    "1 of 30 resorts",
+  );
+  await expect(page.getByRole("checkbox", { name: "Poland" })).toBeChecked();
+  await expect(
+    page.getByRole("checkbox", { name: "Has freeride guides" }),
+  ).toBeChecked();
+
+  await page.goto("/en/resorts");
+  await page.getByRole("checkbox", { name: "Poland" }).check();
+  await page.getByRole("checkbox", { name: "Slovakia" }).check();
+  await expect(page.getByText(/^\d+ of 30 resorts$/)).toHaveText(
+    "2 of 30 resorts",
+  );
+  await page.getByRole("checkbox", { name: "Has freeride guides" }).check();
+  await expect(page.getByText(/^\d+ of 30 resorts$/)).toHaveText(
+    "1 of 30 resorts",
+  );
+
+  await page
+    .getByRole("combobox", { name: "Highest lift at least" })
+    .selectOption("3500");
+  await expect(
+    page.getByText(
+      "No resorts match these filters. Try loosening one of them.",
+    ),
+  ).toBeVisible();
+});
+
+test("how we rank page lists every factor", async ({ page }) => {
+  await page.goto("/en/how-we-rank");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "How we rank",
+  );
+  await expect(page.getByRole("row")).toHaveCount(10); // header + 9 factors
+  await page.goto("/pl/how-we-rank");
+  await expect(page.getByRole("heading", { level: 1 })).toHaveText(
+    "Jak tworzymy ranking",
+  );
+});
+
 test("unknown resort slug is a 404 and Polish detail page is translated", async ({
   page,
 }) => {
@@ -68,6 +144,8 @@ for (const theme of ["light", "dark"] as const) {
     "/en/resorts",
     "/en/resorts/chamonix",
     "/pl/resorts/kasprowy-wierch",
+    "/en/how-we-rank",
+    "/pl/resorts?country=PL&maxPrice=50",
   ]) {
     test(`no axe violations on ${path} (${theme})`, async ({ page }) => {
       await page.addInitScript((t) => localStorage.setItem("theme", t), theme);

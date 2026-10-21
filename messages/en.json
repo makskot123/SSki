@@ -37,13 +37,87 @@
   },
   "Resorts": {
     "title": "Freeride resorts",
-    "subtitle": "{count} resorts across Europe, sorted A to Z. Ranking and filters arrive in the next milestone.",
+    "subtitle": "{count} resorts across Europe, ranked by what matters to you. Move the sliders and the list re-sorts live.",
+    "howWeRankLink": "How we rank",
     "viewResort": "View {name}",
     "top": "Top",
     "base": "Base",
     "vertical": "Vertical",
     "dayPass": "Day pass",
     "approxNote": "Elevations, prices and terrain ratings are approximate estimates, not yet checked against official sources. Always check the resort's website for current numbers."
+  },
+  "Ranking": {
+    "panelToggle": "Priorities and filters",
+    "prioritiesTitle": "Your priorities",
+    "prioritiesHelp": "0 = ignore, 5 = very important.",
+    "presetsTitle": "Presets",
+    "presets": {
+      "balanced": "Balanced",
+      "powder": "Powder hunter",
+      "budget": "Budget",
+      "steep": "Steep and deep",
+      "safety": "Safety first"
+    },
+    "factors": {
+      "terrain": "Terrain variety",
+      "vertical": "Vertical drop",
+      "snowfall": "Snowfall",
+      "altitude": "Altitude (snow reliability)",
+      "steepness": "Steepness",
+      "liftAccess": "Lift access",
+      "price": "Price (cheaper is better)",
+      "conditions": "Fresh snow now",
+      "safety": "Guides and beginner support"
+    },
+    "filtersTitle": "Filters",
+    "country": "Country",
+    "maxPrice": "Typical day pass up to",
+    "minTop": "Highest lift at least",
+    "anyValue": "Any",
+    "aspect": "Has off-piste terrain facing",
+    "guides": "Has freeride guides",
+    "beginner": "Good for off-piste beginners",
+    "reset": "Reset all",
+    "results": "{count} of {total} resorts",
+    "noResults": "No resorts match these filters. Try loosening one of them.",
+    "allZero": "All priorities are set to 0, so every resort scores 0 and the list is alphabetical.",
+    "rank": "Rank {rank}",
+    "scoreLabel": "Score {score} out of 100",
+    "conditionsNote": "\"Fresh snow now\" is skipped until live weather data is connected."
+  },
+  "HowWeRank": {
+    "title": "How we rank",
+    "intro": "The ranking is a transparent weighted average. You choose the weights, we do the arithmetic. It tells you which resorts fit your priorities, never which terrain is safe.",
+    "formulaTitle": "The formula",
+    "formula": "score = 100 × Σ (weight × factor) ÷ Σ weight",
+    "formulaBody": "Every factor is first converted to a value between 0 (worst resort in our list) and 1 (best resort) by min-max scaling across all resorts. Filters never change the scores, they only hide resorts. Price is inverted, so the cheapest resort gets 1. If all resorts have the same value for a factor, it counts as a neutral 0.5.",
+    "factorsTitle": "The factors",
+    "colFactor": "Factor",
+    "colMeasure": "What we measure",
+    "colWeight": "Default weight",
+    "measures": {
+      "terrain": "Our editorial rating from 1 to 5 for how varied the off-piste terrain is.",
+      "vertical": "Vertical drop in metres between the highest lift and the base.",
+      "snowfall": "Average November to April snowfall at summit elevation over the winters 2015/16 to 2024/25, from the ERA5 reanalysis via Open-Meteo.",
+      "altitude": "Average of top and base elevation, as a proxy for snow reliability.",
+      "steepness": "Upper end of the typical off-piste steepness range, in degrees.",
+      "liftAccess": "Number of lift-accessed freeride areas we list for the resort.",
+      "price": "Midpoint of the typical day-pass price range. Cheaper scores higher.",
+      "conditions": "Fresh snow in the last 72 hours. This is skipped until live weather data is connected.",
+      "safety": "Half for freeride guides being available, half for beginner-friendly off-piste."
+    },
+    "missingTitle": "Missing data",
+    "missingBody": "If a factor has no data for a resort, it is left out of that resort's average instead of counting as zero.",
+    "safetyTitle": "What the safety slider does and does not do",
+    "safetyBody": "The safety factor only rewards resorts where guides are available and where beginner-friendly off-piste exists. It does not rate how dangerous a mountain is, and a high rank never means the terrain is safe. Avalanche danger changes daily: always read the official bulletin for the region.",
+    "limitsTitle": "Limitations",
+    "limits": [
+      "Terrain variety and the beginner flag are editorial judgements, not measurements.",
+      "Elevations, prices and steepness are approximate estimates that we have not yet verified against official sources.",
+      "ERA5 is a coarse (about 25 km) reanalysis. Snowfall values are good for comparing resorts, not for predicting a specific day.",
+      "The same November to April window is used for every resort, so late-season resorts such as Riksgränsen are under-counted."
+    ],
+    "back": "Back to the ranking"
   },
   "ResortDetail": {
     "back": "All resorts",
@@ -75,6 +149,7 @@
   },
   "Footer": {
     "disclaimer": "Not a substitute for the official bulletin. Always read the full bulletin and check conditions on site.",
-    "weatherData": "Weather data by Open-Meteo.com (CC BY 4.0)."
+    "weatherData": "Weather data by Open-Meteo.com (CC BY 4.0).",
+    "howWeRank": "How we rank"
   }
 }

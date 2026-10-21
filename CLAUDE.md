@@ -21,6 +21,7 @@ npm run typecheck    # tsc --noEmit
 npm test             # vitest run
 npm run test:e2e     # playwright smoke test
 npm run format       # prettier
+npm run data:snowfall # ERA5 avg snowfall per resort into data/resorts.json (resumable, rate-limited)
 npm run data:regions # rebuild simplified EAWS GeoJSON (added in M6)
 ```
 

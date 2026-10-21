@@ -3,8 +3,18 @@ import { Link } from "@/i18n/navigation";
 import { countryName } from "@/lib/format";
 import type { Resort } from "@/lib/schemas/resort";
 
-export function ResortCard({ resort }: { resort: Resort }) {
+export function ResortCard({
+  resort,
+  rank,
+  score,
+}: {
+  resort: Resort;
+  rank?: number;
+  /** Rounded 0-100 ranking score. */
+  score?: number;
+}) {
   const t = useTranslations("Resorts");
+  const tr = useTranslations("Ranking");
   const locale = useLocale();
   const format = useFormatter();
   const m = (n: number) => `${format.number(n)} m`;
@@ -17,7 +27,19 @@ export function ResortCard({ resort }: { resort: Resort }) {
 
   return (
     <article className="relative flex h-full flex-col gap-3 rounded-lg border border-border bg-surface p-4 focus-within:ring-2 focus-within:ring-accent hover:border-accent">
-      <header>
+      <header className="space-y-1">
+        {rank !== undefined && score !== undefined && (
+          <p className="flex items-baseline justify-between text-sm font-semibold text-accent">
+            <span>
+              <span aria-hidden="true">#{rank}</span>
+              <span className="sr-only">{tr("rank", { rank })}</span>
+            </span>
+            <span>
+              <span aria-hidden="true">{score}/100</span>
+              <span className="sr-only">{tr("scoreLabel", { score })}</span>
+            </span>
+          </p>
+        )}
         <h2 className="text-lg font-semibold">
           <Link
             href={`/resorts/${resort.slug}`}

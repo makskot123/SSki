@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "data:snowfall": "node scripts/compute-snow-climatology.ts"
   },
   "dependencies": {
     "next": "16.4.2",

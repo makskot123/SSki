@@ -68,7 +68,11 @@
       "en": "Home of the Vallée Blanche and steep high-alpine descents under Mont Blanc. Serious terrain: guide, glacier and avalanche skills expected.",
       "pl": "Dom Vallée Blanche i stromych, wysokogórskich zjazdów pod Mont Blanc. Poważny teren: wymagany przewodnik oraz umiejętności lodowcowe i lawinowe."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 652,
+      "source": "era5"
+    }
   },
   {
     "slug": "verbier",
@@ -139,7 +143,11 @@
       "en": "Large 4 Vallées lift system with famous off-piste from Mont Fort and Tortin; a Freeride World Tour finals venue.",
       "pl": "Rozległy system wyciągów 4 Vallées ze słynnym off-piste spod Mont Fort i Tortin; miejsce finałów Freeride World Tour."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 557,
+      "source": "era5"
+    }
   },
   {
     "slug": "la-grave",
@@ -207,7 +215,11 @@
       "en": "Ungroomed, unpatrolled mountain above the village, served by a single cable car. Raw, expert-only terrain with glaciers and big exposure.",
       "pl": "Niewyratrakowana, nieratrowana góra nad wioską z jedną kolejką. Surowy teren tylko dla ekspertów, z lodowcami i dużą ekspozycją."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 527,
+      "source": "era5"
+    }
   },
   {
     "slug": "engelberg",
@@ -278,7 +290,11 @@
       "en": "Titlis offers some of Switzerland's best lift-accessed off-piste, including Laub and Galtiberg, with a big vertical drop.",
       "pl": "Titlis oferuje jedne z najlepszych w Szwajcarii tras off-piste dostępnych z wyciągów, w tym Laub i Galtiberg, z dużym przewyższeniem."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 636,
+      "source": "era5"
+    }
   },
   {
     "slug": "st-anton",
@@ -349,7 +365,11 @@
       "en": "Arlberg's steep, wind-affected bowls around Valluga and Rendl; a classic freeride destination. The upper Valluga cable car is guide-only.",
       "pl": "Strome, wietrzne kotły Arlbergu wokół Valluga i Rendl; klasyczny cel freeride'owy. Najwyższy odcinek kolejki na Valluga tylko z przewodnikiem."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 489,
+      "source": "era5"
+    }
   },
   {
     "slug": "lech-zuers",
@@ -420,7 +440,11 @@
       "en": "Famously snow-sure Arlberg resort with extensive off-piste from Rüfikopf and Zürs; mostly open terrain with real avalanche exposure.",
       "pl": "Znany z pewnego śniegu ośrodek Arlbergu z rozległym off-piste spod Rüfikopf i Zürs; teren głównie otwarty, z realnym zagrożeniem lawinowym."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 528,
+      "source": "era5"
+    }
   },
   {
     "slug": "andermatt",
@@ -484,7 +508,11 @@
       "en": "Gemsstock is a steep, north-facing off-piste mountain reached by cable car, with couloirs and open faces.",
       "pl": "Gemsstock to stroma, północna góra off-piste dostępna kolejką linową, z żlebami i otwartymi stokami."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 565,
+      "source": "era5"
+    }
   },
   {
     "slug": "alagna",
@@ -555,7 +583,11 @@
       "en": "The Italian side of Monte Rosa: long descents from Punta Indren and Olen, famed for deep snow. A guide is strongly advised.",
       "pl": "Włoska strona Monte Rosa: długie zjazdy spod Punta Indren i Olen, słynne z głębokiego śniegu. Zdecydowanie zalecany przewodnik."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 465,
+      "source": "era5"
+    }
   },
   {
     "slug": "val-disere-tignes",
@@ -626,7 +658,11 @@
       "en": "Espace Killy: glacier skiing from Grande Motte and large off-piste areas such as Pays Désert; a long season.",
       "pl": "Espace Killy: narciarstwo lodowcowe z Grande Motte i rozległe tereny off-piste, jak Pays Désert; długi sezon."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 590,
+      "source": "era5"
+    }
   },
   {
     "slug": "fieberbrunn",
@@ -690,7 +726,11 @@
       "en": "Tyrolean resort around the Wildseeloder, a Freeride World Tour stop, with off-piste routes and safety training offers.",
       "pl": "Tyrolski ośrodek wokół Wildseeloder, przystanku Freeride World Tour, z trasami off-piste i szkoleniami z bezpieczeństwa."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 365,
+      "source": "era5"
+    }
   },
   {
     "slug": "hintertux",
@@ -758,7 +798,11 @@
       "en": "Austria's only year-round glacier ski area, with moderate open terrain and lift-served off-piste on and around the glacier.",
       "pl": "Jedyny w Austrii całoroczny ośrodek lodowcowy, z umiarkowanym, otwartym terenem i off-piste dostępnym z wyciągów na lodowcu i wokół niego."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 451,
+      "source": "era5"
+    }
   },
   {
     "slug": "kasprowy-wierch",
@@ -815,7 +859,11 @@
       "en": "Iconic Tatra peak with a cable car from Kuźnice. Off-piste rules in the Tatra National Park are strict, so check the regulations and the TOPR bulletin first.",
       "pl": "Kultowy tatrzański szczyt z kolejką z Kuźnic. Zasady jazdy poza trasami w Tatrzańskim Parku Narodowym są restrykcyjne, więc najpierw sprawdź przepisy i komunikat TOPR."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 326,
+      "source": "era5"
+    }
   },
   {
     "slug": "jasna",
@@ -879,7 +927,11 @@
       "en": "Low Tatras resort whose Chopok north side offers lift-accessed freeride terrain; a popular choice in Central Europe.",
       "pl": "Ośrodek w Niżnych Tatrach, którego północna strona Chopoka oferuje tereny freeride dostępne z wyciągów; popularny cel w Europie Środkowej."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 182,
+      "source": "era5"
+    }
   },
   {
     "slug": "bansko",
@@ -946,7 +998,11 @@
       "en": "Pirin Mountains ski area with a gondola from town and affordable guided off-piste; official avalanche bulletin coverage is limited.",
       "pl": "Ośrodek w górach Pirin z gondolą z miasta i niedrogim off-piste z przewodnikiem; oficjalne komunikaty lawinowe są ograniczone."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 385,
+      "source": "era5"
+    }
   },
   {
     "slug": "gudauri",
@@ -1013,7 +1069,11 @@
       "en": "Greater Caucasus resort with lift- and heli-accessed off-piste and a high base; avalanche information is limited, so go with local guides.",
       "pl": "Ośrodek w Wielkim Kaukazie z off-piste dostępnym z wyciągów i helikopterem oraz wysoką bazą; informacje lawinowe są ograniczone, więc jedź z lokalnymi przewodnikami."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 372,
+      "source": "era5"
+    }
   },
   {
     "slug": "riksgransen",
@@ -1081,7 +1141,11 @@
       "en": "Arctic Sweden: the season runs into June under the midnight sun, with steep terrain at the lift and serious backcountry beyond.",
       "pl": "Arktyczna Szwecja: sezon trwa do czerwca w świetle nocy polarnej, ze stromym terenem przy wyciągu i poważnym backcountry dalej."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 496,
+      "source": "era5"
+    }
   },
   {
     "slug": "st-moritz",
@@ -1152,7 +1216,11 @@
       "en": "Engadin: Corvatsch, Piz Nair and Diavolezza offer high-altitude off-piste and glacier skiing with reliable snow.",
       "pl": "Engadyna: Corvatsch, Piz Nair i Diavolezza oferują wysokogórskie off-piste i narciarstwo lodowcowe z pewnym śniegiem."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 415,
+      "source": "era5"
+    }
   },
   {
     "slug": "soelden",
@@ -1220,7 +1288,11 @@
       "en": "Two 3,000 m peaks and glacier access give long lift-served off-piste lines from Gaislachkogl and Schwarze Schneid.",
       "pl": "Dwa trzytysięczniki i dostęp do lodowca dają długie linie off-piste z wyciągów spod Gaislachkogl i Schwarze Schneid."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 384,
+      "source": "era5"
+    }
   },
   {
     "slug": "kaprun",
@@ -1288,7 +1360,11 @@
       "en": "The Kitzsteinhorn glacier gives early and late-season skiing and high-alpine lift-served off-piste lines.",
       "pl": "Lodowiec Kitzsteinhorn zapewnia narty na początku i końcu sezonu oraz wysokogórskie linie off-piste dostępne z wyciągów."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 520,
+      "source": "era5"
+    }
   },
   {
     "slug": "livigno",
@@ -1356,7 +1432,11 @@
       "en": "Duty-free valley at around 1,800 m with reliable cold snow and open off-piste at Carosello and Mottolino.",
       "pl": "Bezcłowa dolina na wysokości ok. 1800 m z pewnym, zimnym śniegiem i otwartym off-piste na Carosello i Mottolino."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 290,
+      "source": "era5"
+    }
   },
   {
     "slug": "zermatt",
@@ -1427,7 +1507,11 @@
       "en": "Matterhorn views, Klein Matterhorn at 3,883 m and long off-piste runs such as Stockhorn–Triftji; high, snow-sure and serious.",
       "pl": "Widoki na Matterhorn, Klein Matterhorn na 3883 m i długie zjazdy off-piste, jak Stockhorn–Triftji; wysoko, pewny śnieg i poważny teren."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 486,
+      "source": "era5"
+    }
   },
   {
     "slug": "courmayeur",
@@ -1495,7 +1579,11 @@
       "en": "The Italian side of Mont Blanc: the Skyway to Pointe Helbronner gives access to the Vallée Blanche and high off-piste.",
       "pl": "Włoska strona Mont Blanc: kolejka Skyway do Pointe Helbronner daje dostęp do Vallée Blanche i wysokiego off-piste."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 704,
+      "source": "era5"
+    }
   },
   {
     "slug": "serre-chevalier",
@@ -1566,7 +1654,11 @@
       "en": "Large southern Alps area with good tree skiing in storms and off-piste above Chantemerle and Villeneuve.",
       "pl": "Duży ośrodek w południowych Alpach z dobrą jazdą w lesie podczas opadów i off-piste nad Chantemerle i Villeneuve."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 509,
+      "source": "era5"
+    }
   },
   {
     "slug": "obergurgl",
@@ -1634,7 +1726,11 @@
       "en": "Ötztal resort above 1,800 m with a long season and open, lift-served off-piste at Hohe Mut and Hochgurgl.",
       "pl": "Ośrodek w Ötztal powyżej 1800 m z długim sezonem i otwartym off-piste dostępnym z wyciągów na Hohe Mut i Hochgurgl."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 376,
+      "source": "era5"
+    }
   },
   {
     "slug": "ischgl",
@@ -1702,7 +1798,11 @@
       "en": "Silvretta Arena with high, snow-reliable terrain and off-piste around Palinkopf, linked to Samnaun in Switzerland.",
       "pl": "Silvretta Arena z wysokim, pewnym śnieżnie terenem i off-piste wokół Palinkopf, połączona ze szwajcarskim Samnaun."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 453,
+      "source": "era5"
+    }
   },
   {
     "slug": "bad-gastein",
@@ -1770,7 +1870,11 @@
       "en": "Gastein valley with Sportgastein and Graukogel: high-alpine off-piste and quieter slopes, from moderate to steep terrain.",
       "pl": "Dolina Gastein ze Sportgastein i Graukogel: wysokogórskie off-piste i spokojniejsze stoki, od umiarkowanego do stromego terenu."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 442,
+      "source": "era5"
+    }
   },
   {
     "slug": "kuehtai",
@@ -1838,7 +1942,11 @@
       "en": "High-altitude Tyrolean resort near Innsbruck with a 2,020 m base: very snow-sure, with open terrain and quick access.",
       "pl": "Wysokogórski tyrolski ośrodek niedaleko Innsbrucka z bazą na 2020 m: bardzo pewny śnieg, otwarty teren i szybki dojazd."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 395,
+      "source": "era5"
+    }
   },
   {
     "slug": "disentis",
@@ -1906,7 +2014,11 @@
       "en": "Surselva resort with a big vertical drop, relatively quiet slopes and a long off-piste tradition.",
       "pl": "Ośrodek w Surselva z dużym przewyższeniem, stosunkowo spokojnymi stokami i długą tradycją off-piste."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 492,
+      "source": "era5"
+    }
   },
   {
     "slug": "les-deux-alpes",
@@ -1974,7 +2086,11 @@
       "en": "Glacier resort topping out near 3,570 m with open lift-served off-piste and a long season.",
       "pl": "Ośrodek lodowcowy sięgający ok. 3570 m z otwartym off-piste dostępnym z wyciągów i długim sezonem."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 594,
+      "source": "era5"
+    }
   },
   {
     "slug": "cervinia",
@@ -2042,6 +2158,10 @@
       "en": "High resort under the Matterhorn with a snow-reliable season and off-piste from Plateau Rosa, linked to Zermatt.",
       "pl": "Wysoko położony ośrodek pod Matterhornem z pewnym sezonem śnieżnym i off-piste z Plateau Rosa, połączony z Zermatt."
     },
-    "lastVerified": null
+    "lastVerified": null,
+    "climatology": {
+      "avgSeasonSnowfallCm": 486,
+      "source": "era5"
+    }
   }
 ]

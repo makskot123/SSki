@@ -37,13 +37,87 @@
   },
   "Resorts": {
     "title": "Ośrodki freeride",
-    "subtitle": "{count} ośrodków w Europie, posortowane od A do Z. Ranking i filtry pojawią się w następnym etapie.",
+    "subtitle": "{count} ośrodków w Europie, uszeregowanych według tego, co dla Ciebie ważne. Przesuń suwaki, a lista zmieni się na bieżąco.",
+    "howWeRankLink": "Jak tworzymy ranking",
     "viewResort": "Zobacz: {name}",
     "top": "Szczyt",
     "base": "Baza",
     "vertical": "Przewyższenie",
     "dayPass": "Karnet dzienny",
     "approxNote": "Wysokości, ceny i oceny terenu są przybliżonymi szacunkami, jeszcze niesprawdzonymi z oficjalnymi źródłami. Aktualne dane zawsze sprawdzaj na stronie ośrodka."
+  },
+  "Ranking": {
+    "panelToggle": "Priorytety i filtry",
+    "prioritiesTitle": "Twoje priorytety",
+    "prioritiesHelp": "0 = ignoruj, 5 = bardzo ważne.",
+    "presetsTitle": "Gotowe ustawienia",
+    "presets": {
+      "balanced": "Zrównoważone",
+      "powder": "Łowca puchu",
+      "budget": "Oszczędnie",
+      "steep": "Stromo i głęboko",
+      "safety": "Bezpieczeństwo przede wszystkim"
+    },
+    "factors": {
+      "terrain": "Różnorodność terenu",
+      "vertical": "Przewyższenie",
+      "snowfall": "Opady śniegu",
+      "altitude": "Wysokość (pewność śniegu)",
+      "steepness": "Stromość",
+      "liftAccess": "Dostęp z wyciągów",
+      "price": "Cena (taniej = lepiej)",
+      "conditions": "Świeży śnieg teraz",
+      "safety": "Przewodnicy i wsparcie dla początkujących"
+    },
+    "filtersTitle": "Filtry",
+    "country": "Kraj",
+    "maxPrice": "Typowy karnet dzienny do",
+    "minTop": "Najwyższy wyciąg co najmniej",
+    "anyValue": "Dowolne",
+    "aspect": "Ma off-piste o wystawie",
+    "guides": "Są przewodnicy freeride",
+    "beginner": "Dobre dla początkujących w off-piste",
+    "reset": "Zresetuj wszystko",
+    "results": "{count} z {total} ośrodków",
+    "noResults": "Żaden ośrodek nie spełnia tych filtrów. Spróbuj poluzować któryś z nich.",
+    "allZero": "Wszystkie priorytety są ustawione na 0, więc każdy ośrodek ma 0 punktów, a lista jest alfabetyczna.",
+    "rank": "Miejsce {rank}",
+    "scoreLabel": "Wynik {score} na 100",
+    "conditionsNote": "„Świeży śnieg teraz” jest pomijany, dopóki nie podłączymy bieżących danych pogodowych."
+  },
+  "HowWeRank": {
+    "title": "Jak tworzymy ranking",
+    "intro": "Ranking to przejrzysta średnia ważona. Ty wybierasz wagi, my liczymy. Pokazuje, które ośrodki pasują do Twoich priorytetów, a nigdy – który teren jest bezpieczny.",
+    "formulaTitle": "Wzór",
+    "formula": "wynik = 100 × Σ (waga × czynnik) ÷ Σ wag",
+    "formulaBody": "Każdy czynnik jest najpierw przeliczany na wartość od 0 (najsłabszy ośrodek na naszej liście) do 1 (najlepszy) skalowaniem min-max w całym zbiorze ośrodków. Filtry nie zmieniają wyników, tylko ukrywają ośrodki. Cena jest odwrócona, więc najtańszy ośrodek dostaje 1. Jeśli wszystkie ośrodki mają taką samą wartość czynnika, liczy się on neutralnie jako 0,5.",
+    "factorsTitle": "Czynniki",
+    "colFactor": "Czynnik",
+    "colMeasure": "Co mierzymy",
+    "colWeight": "Domyślna waga",
+    "measures": {
+      "terrain": "Nasza redakcyjna ocena od 1 do 5, jak zróżnicowany jest teren off-piste.",
+      "vertical": "Przewyższenie w metrach między najwyższym wyciągiem a bazą.",
+      "snowfall": "Średnie opady śniegu od listopada do kwietnia na wysokości szczytu w zimach 2015/16–2024/25, z reanalizy ERA5 przez Open-Meteo.",
+      "altitude": "Średnia z wysokości szczytu i bazy, jako wskaźnik pewności śniegu.",
+      "steepness": "Górna granica typowego nachylenia terenu off-piste, w stopniach.",
+      "liftAccess": "Liczba rejonów freeride dostępnych z wyciągów, które podajemy dla ośrodka.",
+      "price": "Środek typowego przedziału cen karnetu dziennego. Taniej oznacza więcej punktów.",
+      "conditions": "Świeży śnieg z ostatnich 72 godzin. Pomijany, dopóki nie podłączymy bieżących danych pogodowych.",
+      "safety": "Połowa za dostępnych przewodników freeride, połowa za off-piste przyjazne początkującym."
+    },
+    "missingTitle": "Brakujące dane",
+    "missingBody": "Jeśli dla ośrodka brakuje danych o jakimś czynniku, jest on pomijany w jego średniej, zamiast liczyć się jako zero.",
+    "safetyTitle": "Co robi, a czego nie robi suwak bezpieczeństwa",
+    "safetyBody": "Czynnik bezpieczeństwa tylko nagradza ośrodki z dostępnymi przewodnikami i off-piste przyjaznym początkującym. Nie ocenia, jak niebezpieczna jest góra, a wysokie miejsce w rankingu nigdy nie oznacza, że teren jest bezpieczny. Zagrożenie lawinowe zmienia się codziennie: zawsze czytaj oficjalny komunikat dla danego regionu.",
+    "limitsTitle": "Ograniczenia",
+    "limits": [
+      "Różnorodność terenu i oznaczenie „dla początkujących” to oceny redakcyjne, a nie pomiary.",
+      "Wysokości, ceny i nachylenia są przybliżonymi szacunkami, których jeszcze nie zweryfikowaliśmy z oficjalnymi źródłami.",
+      "ERA5 to zgrubna reanaliza (ok. 25 km). Wartości opadów nadają się do porównywania ośrodków, a nie do przewidywania konkretnego dnia.",
+      "Dla każdego ośrodka użyto tego samego okna od listopada do kwietnia, więc ośrodki o późnym sezonie, jak Riksgränsen, są niedoszacowane."
+    ],
+    "back": "Wróć do rankingu"
   },
   "ResortDetail": {
     "back": "Wszystkie ośrodki",
@@ -75,6 +149,7 @@
   },
   "Footer": {
     "disclaimer": "To nie zastępuje oficjalnego komunikatu lawinowego. Zawsze czytaj pełny komunikat i sprawdzaj warunki na miejscu.",
-    "weatherData": "Dane pogodowe: Open-Meteo.com (CC BY 4.0)."
+    "weatherData": "Dane pogodowe: Open-Meteo.com (CC BY 4.0).",
+    "howWeRank": "Jak tworzymy ranking"
   }
 }
