@@ -17,10 +17,6 @@
     "subtitle": "Ranking ośrodków freeride, zagrożenie lawinowe i prognoza śniegu dla Europy.",
     "comingSoon": "W budowie. Funkcje pojawiają się etap po etapie."
   },
-  "Placeholder": {
-    "title": "Wkrótce",
-    "body": "Ta sekcja nie jest jeszcze gotowa."
-  },
   "NotFound": {
     "title": "Nie znaleziono strony",
     "back": "Wróć na stronę główną"
@@ -316,5 +312,367 @@
     "alarm": "Alarm puchu",
     "windWarning": "Prognozowany silny wiatr",
     "backToRanking": "Wróć do rankingu"
+  },
+  "Safety": {
+    "title": "Bezpieczeństwo",
+    "intro": "Darmowe narzędzia do przygotowania się do jazdy poza trasami. Wspierają, ale nigdy nie zastępują kursu lawinowego z wykwalifikowanym instruktorem, oficjalnego komunikatu i Twojej własnej oceny danego dnia.",
+    "notSubstitute": "Wyłącznie w celach edukacyjnych. To nie zastępuje kursu lawinowego, wykwalifikowanego przewodnika, oficjalnego komunikatu lawinowego ani Twojej własnej oceny danego dnia.",
+    "open": "Otwórz",
+    "tools": {
+      "checklist": {
+        "title": "Lista sprzętu i wyjazdu",
+        "body": "Wszystko, co trzeba spakować, zaplanować i sprawdzić. Zapisywane na Twoim urządzeniu, z możliwością wydruku."
+      },
+      "aspects": {
+        "title": "Wystawa i stromość stoku",
+        "body": "Interaktywny kompas i przewodnik po nachyleniu: dlaczego liczą się wystawa, wiatr i zakres 30–45°."
+      },
+      "quiz": {
+        "title": "Quiz o bezpieczeństwie lawinowym",
+        "body": "13 pytań o stopnie zagrożenia, teren, sygnały ostrzegawcze i ratownictwo, z wyjaśnieniami."
+      }
+    },
+    "dangerTitle": "Pięć stopni zagrożenia lawinowego",
+    "dangerIntro": "Europejska skala zagrożenia lawinowego (EAWS), której używają oficjalne komunikaty. Większość wypadków lawinowych zdarza się przy stopniu 2 (umiarkowane) i 3 (znaczne). Zawsze czytaj pełny komunikat dla swojego regionu.",
+    "dangerMeaning": {
+      "1": "Warunki ogólnie korzystne. Uruchomienie lawiny możliwe tylko przy dużym dodatkowym obciążeniu, na nielicznych bardzo stromych stokach.",
+      "2": "Pokrywa śnieżna jest słaba na niektórych stromych stokach, a gdzie indziej stabilna. Uruchomienie możliwe głównie przy dużym dodatkowym obciążeniu, na stokach wskazanych w komunikacie.",
+      "3": "Niebezpieczne warunki. Uruchomienie możliwe nawet przy małym dodatkowym obciążeniu, np. jednego narciarza, zwłaszcza na stromych stokach wskazanych w komunikacie.",
+      "4": "Niebezpieczne warunki. Uruchomienie jest prawdopodobne nawet przy małym dodatkowym obciążeniu na wielu stromych stokach. Prawdopodobne są też lawiny samoistne.",
+      "5": "Bardzo niebezpieczne warunki. Spodziewanych jest wiele dużych lawin samoistnych, nawet na stokach średnio stromych."
+    },
+    "learnTitle": "Ucz się od profesjonalistów",
+    "learnBody": "Zrób kurs lawinowy z wykwalifikowanym instruktorem i co sezon ćwicz ratownictwo ze swoją grupą. Dobre punkty startowe:",
+    "learnSlf": "SLF (Szwajcarski Instytut Badań Śniegu i Lawin WSL): informacje o lawinach",
+    "learnIcar": "ICAR, Międzynarodowa Komisja Ratownictwa Alpejskiego",
+    "opensInNewTab": "(otwiera się w nowej karcie)"
+  },
+  "Checklist": {
+    "title": "Lista sprzętu i wyjazdu",
+    "intro": "Odhaczaj pozycje po kolei. Lista jest zapisywana tylko na tym urządzeniu i możesz ją wydrukować.",
+    "progress": "{done} z {total} gotowe",
+    "reset": "Wyczyść wszystkie zaznaczenia",
+    "print": "Wydrukuj listę",
+    "storageNote": "Zaznaczenia są zapisywane w tej przeglądarce. Jeśli pamięć jest zablokowana, lista działa, ale nie jest zapamiętywana.",
+    "essentialTag": "Niezbędne",
+    "groups": {
+      "gear": "Sprzęt (każda osoba)",
+      "planning": "Planowanie (przed wyjazdem)",
+      "trailhead": "Na starcie trasy"
+    },
+    "items": {
+      "transceiver": {
+        "label": "Detektor lawinowy (lawinowy aparat odbiorczo-nadawczy)",
+        "hint": "Świeże baterie, noszony pod wierzchnią warstwą ubrania, włączony i w trybie nadawania."
+      },
+      "probe": {
+        "label": "Sonda lawinowa",
+        "hint": "Co najmniej 240 cm długości. Złóż ją i sprawdź przed wyjściem."
+      },
+      "shovel": {
+        "label": "Łopata lawinowa",
+        "hint": "Z metalowym ostrzem. Plastikowe może pęknąć w twardym śniegu."
+      },
+      "airbag": {
+        "label": "Plecak z poduszką lawinową (zalecany)",
+        "hint": "Przed każdym wyjazdem sprawdź nabój lub butlę, uchwyt i plecak."
+      },
+      "helmet": {
+        "label": "Kask",
+        "hint": "Chroni przy upadkach oraz przy zderzeniu z drzewami i skałami."
+      },
+      "firstaid": {
+        "label": "Apteczka i koc ratunkowy",
+        "hint": "Wiedz, jak użyć jej zawartości."
+      },
+      "phone": {
+        "label": "Naładowany telefon z zapisanym numerem alarmowym",
+        "hint": "112 działa w całej Europie. Zapisz też lokalny numer ratownictwa górskiego."
+      },
+      "headlamp": {
+        "label": "Czołówka i zapasowe baterie",
+        "hint": "Dni są krótkie, a wyjścia trwają dłużej, niż planowano."
+      },
+      "navigation": {
+        "label": "Mapa, kompas lub nawigacja offline",
+        "hint": "Nie polegaj na jednym telefonie na mrozie."
+      },
+      "clothing": {
+        "label": "Zapasowa ciepła warstwa, rękawice, gogle i ochrona przed słońcem",
+        "hint": ""
+      },
+      "food": {
+        "label": "Jedzenie i woda",
+        "hint": ""
+      },
+      "bulletin": {
+        "label": "Przeczytaj oficjalny komunikat lawinowy dla swojego regionu",
+        "hint": "Sprawdź stopień zagrożenia, wystawy i wysokości oraz problemy lawinowe."
+      },
+      "weather": {
+        "label": "Sprawdź prognozę pogody i wiatru",
+        "hint": "Świeży śnieg i silny wiatr szybko zmieniają zagrożenie lawinowe."
+      },
+      "route": {
+        "label": "Zaplanuj trasę dopasowaną do warunków i grupy",
+        "hint": "Gdy zagrożenie jest duże, wybieraj łagodniejszy teren bez stromych stoków nad sobą."
+      },
+      "inform": {
+        "label": "Powiedz komuś, którędy idziesz i kiedy wrócisz",
+        "hint": ""
+      },
+      "skills": {
+        "label": "Upewnij się, że każdy potrafi użyć sprzętu ratunkowego",
+        "hint": "Ćwicz poszukiwanie detektorem regularnie, nie tylko raz."
+      },
+      "daylight": {
+        "label": "Zaplanuj wyjście pod kątem światła dziennego i ustal godzinę odwrotu",
+        "hint": ""
+      },
+      "groupcheck": {
+        "label": "Sprawdź detektory całej grupy",
+        "hint": "Wszyscy w trybie nadawania, jedna osoba w trybie szukania sprawdza każde urządzenie, potem wszyscy wracają do nadawania."
+      },
+      "airbagcheck": {
+        "label": "Sprawdź, czy plecaki z poduszką są gotowe do użycia",
+        "hint": ""
+      },
+      "agree": {
+        "label": "Ustalcie plan, zasady i kto za co odpowiada",
+        "hint": "Odstępy, pojedynczo na stromych stokach, gdzie się spotykacie i kto prowadzi akcję ratunkową."
+      },
+      "signs": {
+        "label": "Obserwuj sygnały ostrzegawcze po drodze",
+        "hint": "Niedawne lawiny, odgłosy zapadania się śniegu, pęknięcia rozchodzące się spod nart, świeży śnieg naniesiony wiatrem."
+      }
+    }
+  },
+  "Aspects": {
+    "title": "Wystawa i stromość stoku",
+    "intro": "O tym, gdzie mogą schodzić lawiny, decydują dwie rzeczy: w którą stronę zwrócony jest stok (jego wystawa) i jak jest stromy. Wypróbuj narzędzia poniżej.",
+    "aspectTitle": "Wystawa: w którą stronę zwrócony jest stok?",
+    "aspectHelp": "Wystawa to kierunek świata, w którym zwrócony jest stok, czyli strona, na którą patrzysz, stojąc twarzą w dół. Wybierz kierunek na kompasie, aby zobaczyć, co oznacza.",
+    "modeLabel": "Co chcesz zbadać?",
+    "modeAspect": "Słońce i śnieg na każdej wystawie",
+    "modeWind": "Gdzie wiatr nawiewa śnieg?",
+    "roseLabel": "Róża kompasu. Wybierz kierunek.",
+    "directions": {
+      "N": "Północ",
+      "NE": "Północny wschód",
+      "E": "Wschód",
+      "SE": "Południowy wschód",
+      "S": "Południe",
+      "SW": "Południowy zachód",
+      "W": "Zachód",
+      "NW": "Północny zachód"
+    },
+    "aspectInfo": {
+      "N": "Stoki o wystawie północnej zimą dostają najmniej słońca. Śnieg dłużej pozostaje zimny i puszysty, a warstwy osłabione mogą dłużej przetrwać w pokrywie śnieżnej.",
+      "NE": "Stoki o wystawie północno-wschodniej dostają mało słońca, głównie rano. Podobnie jak północne, zachowują zimny śnieg, a warstwy osłabione mogą się utrzymywać.",
+      "E": "Stoki o wystawie wschodniej dostają poranne słońce. Śnieg nagrzewa się wcześniej w ciągu dnia, zwłaszcza wiosną.",
+      "SE": "Stoki o wystawie południowo-wschodniej dostają mocne poranne słońce. Śnieg nagrzewa się wcześnie, a lawiny mokre są bardziej prawdopodobne w słoneczne wiosenne dni.",
+      "S": "Stoki o wystawie południowej dostają najwięcej słońca. Śnieg szybko się nagrzewa, a lawiny mokre i ześlizgowe są bardziej prawdopodobne przy słonecznej pogodzie.",
+      "SW": "Stoki o wystawie południowo-zachodniej dostają mocne popołudniowe słońce. Najcieplej jest później w ciągu dnia, gdy wiosną rośnie ryzyko lawin mokrych.",
+      "W": "Stoki o wystawie zachodniej dostają popołudniowe słońce. To, czy wiatr je obciąża, zależy od kierunku wiatru danego dnia.",
+      "NW": "Stoki o wystawie północno-zachodniej dostają mało słońca, głównie późno w ciągu dnia. Podobnie jak północne, zachowują zimny śnieg, a warstwy osłabione mogą się utrzymywać."
+    },
+    "windFrom": "Wiatr wieje z kierunku: {dir}",
+    "windResult": "Wiatr z kierunku {from}: śnieg jest przenoszony przez grzbiet i najczęściej osadza się po stronie osłoniętej (zawietrznej), na stokach o wystawie {lee}. Stoki położone w poprzek wiatru też mogą być obciążone. Płyty wietrzne mogą powstać w ciągu godzin i często wyglądają na gładkie, jakby poduszkowe.",
+    "leeLegend": "Wyróżnione: najbardziej narażone na obciążenie",
+    "selectedLegend": "Wybrany kierunek",
+    "steepnessTitle": "Stromość: dlaczego liczy się 30–45°",
+    "steepnessHelp": "Przesuń suwak, aby zobaczyć, jak stromy jest stok i co to oznacza dla lawin.",
+    "sliderLabel": "Nachylenie stoku w stopniach",
+    "degrees": "{deg}°",
+    "grade": "{deg}° to około {percent}% nachylenia.",
+    "diagramLabel": "Stok o nachyleniu {deg} stopni",
+    "bands": {
+      "flat": {
+        "title": "Poniżej 25°: łagodnie",
+        "body": "Lawiny deskowe rzadko schodzą na takim terenie. Ale sprawdź teren nad sobą: lawiny z bardziej stromych stoków mogą wybiec na łagodny teren."
+      },
+      "borderline": {
+        "title": "25–29°: granica",
+        "body": "Lawiny są rzadkie, ale możliwe, na przykład gdy zagrożenie jest duże albo śnieg jest mokry lub ześlizguje się."
+      },
+      "terrain": {
+        "title": "30–34°: teren lawinowy",
+        "body": "Mogą schodzić lawiny suchych desek. Tu zaczynają obowiązywać ostrzeżenia z komunikatu."
+      },
+      "peak": {
+        "title": "35–39°: najczęstszy zakres wypadków",
+        "body": "Większość wypadków lawinowych zdarza się na stokach o nachyleniu około 35–40°."
+      },
+      "steep": {
+        "title": "40–45°: stromy teren lawinowy",
+        "body": "To wciąż teren lawinowy. Zsuwy mogą być szybkie, a upadki groźne."
+      },
+      "verysteep": {
+        "title": "Powyżej 45°: bardzo stromo",
+        "body": "Śnieg częściej spływa małymi zsuwami, więc grube deski zdarzają się rzadziej. Ale zsuwy, upadki i urwiska są poważnym zagrożeniem. To teren dla ekspertów."
+      }
+    },
+    "whyTitle": "Dlaczego 30–45°?",
+    "whyBody": [
+      "Poniżej około 30° stok zwykle nie jest wystarczająco stromy, aby deska śnieżna się zsunęła, nawet gdy jest warstwa osłabiona.",
+      "Między około 30° a 45° śnieg może tworzyć spójną deskę na warstwie osłabionej, a stok jest dość stromy, by deska się zsunęła. Tu zdarza się większość wypadków z lawinami deskowymi.",
+      "Powyżej 45° śnieg ma tendencję do spływania małymi zsuwami już podczas opadów, więc grube deski tworzą się rzadziej. To nie znaczy, że jest bezpiecznie: upadki i zsuwy są groźne same w sobie."
+    ],
+    "whyNote": "To reguły kciuka, a nie przełącznik bezpieczny/niebezpieczny. Lawiny mogą się zaczynać poza tym zakresem, a lawina ze stromego stoku może wybiec na łagodny teren poniżej.",
+    "measureTitle": "Jak mierzyć stromość",
+    "measureBody": "Użyj karty nachylenia, inklinometru lub aplikacji w telefonie i mierz najstromszą część stoku. Mapy nachylenia oraz wystawy i wysokości z komunikatu pomagają zaplanować wyjście.",
+    "bulletinTitle": "Używaj tego razem z komunikatem",
+    "bulletinBody": "Komunikat mówi, które wystawy i wysokości są dziś najbardziej niebezpieczne. Połącz to ze stromością stoków na swojej trasie i wybierz teren dopasowany do warunków.",
+    "bulletinLink": "Otwórz mapę lawinową"
+  },
+  "Quiz": {
+    "title": "Quiz o bezpieczeństwie lawinowym",
+    "intro": "13 pytań. Wybierz po jednej odpowiedzi, a potem sprawdź wyniki. To sposób na naukę, a nie szkolenie: zrób kurs lawinowy i ćwicz ratownictwo ze swoją grupą.",
+    "questionLabel": "Pytanie {n} z {total}",
+    "check": "Sprawdź odpowiedzi",
+    "retry": "Spróbuj ponownie",
+    "scoreLine": "Twój wynik: {correct} z {total} ({percent}%).",
+    "unanswered": "{count, plural, one {# pytanie bez odpowiedzi liczy się jako błędne.} few {# pytania bez odpowiedzi liczą się jako błędne.} many {# pytań bez odpowiedzi liczy się jako błędne.} other {# pytania bez odpowiedzi liczy się jako błędne.}}",
+    "correct": "Dobrze",
+    "incorrect": "Źle",
+    "skipped": "Bez odpowiedzi",
+    "correctAnswer": "Poprawna odpowiedź: {answer}",
+    "verdict": {
+      "high": "Świetny wynik. Odświeżaj wiedzę i ćwicz dalej ratownictwo.",
+      "mid": "Dobry początek. Przeczytaj wyjaśnienia i wróć do tematów, które poszły gorzej.",
+      "low": "Jest sporo do nauczenia się. Przeczytaj wyjaśnienia i rozważ kurs lawinowy przed jazdą poza trasami."
+    },
+    "questions": {
+      "q1": {
+        "question": "Jakie trzy elementy tworzą podstawowy zestaw ratunkowy, który powinna nosić każda osoba jadąca poza trasami i umieć go używać?",
+        "options": [
+          "Detektor, sonda i łopata",
+          "Plecak z poduszką, kask i telefon",
+          "Mapa, kompas i czołówka",
+          "Apteczka, lina i gwizdek"
+        ],
+        "explanation": "Detektor znajduje zasypanego, sonda dokładnie go lokalizuje, a łopata pozwala go wydobyć. Każdy w grupie potrzebuje wszystkich trzech i musi ćwiczyć ich użycie."
+      },
+      "q2": {
+        "question": "Co oznacza trzeci stopień zagrożenia lawinowego, „znaczne”?",
+        "options": [
+          "Lawiny są bardzo mało prawdopodobne",
+          "Uruchomienie jest możliwe nawet przez jednego narciarza, zwłaszcza na stromych stokach wskazanych w komunikacie",
+          "Mogą schodzić tylko lawiny samoistne",
+          "Spodziewanych jest wiele dużych lawin nawet na łagodnym terenie"
+        ],
+        "explanation": "Przy stopniu 3 pokrywa śnieżna na wielu stromych stokach jest tylko średnio lub słabo związana, więc małe dodatkowe obciążenie może wystarczyć. Wiele wypadków zdarza się przy stopniu 2 i 3."
+      },
+      "q3": {
+        "question": "Przy jakich nachyleniach stoku zdarza się większość wypadków z lawinami deskowymi?",
+        "options": [
+          "Poniżej 20°",
+          "Powyżej 60°",
+          "Przy wszystkich nachyleniach równie często",
+          "Około 30–45°"
+        ],
+        "explanation": "Deski śnieżne schodzą głównie na stokach stromszych niż około 30°, a wypadki są najczęstsze przy około 35–40°. Powyżej około 45° śnieg częściej spływa małymi zsuwami."
+      },
+      "q4": {
+        "question": "Silny wiatr wieje z zachodu. Które stoki najprawdopodobniej zostaną obciążone świeżymi płytami wietrznymi?",
+        "options": [
+          "Stoki o wystawie zachodniej",
+          "Tylko stoki o wystawie południowej",
+          "Stoki o wystawie wschodniej, po stronie osłoniętej",
+          "Wszystkie stoki jednakowo"
+        ],
+        "explanation": "Wiatr przenosi śnieg przez grzbiet i zrzuca go po stronie osłoniętej (zawietrznej). Stoki położone w poprzek wiatru też mogą być obciążane bocznie."
+      },
+      "q5": {
+        "question": "Czym jest pułapka terenowa?",
+        "options": [
+          "Kolejka do wyciągu",
+          "Szeroki, łagodny stok",
+          "Przygotowana trasa zjazdowa",
+          "Żleb, koryto potoku lub zagłębienie, gdzie nawet mała lawina może głęboko zasypać"
+        ],
+        "explanation": "W żlebie lub zagłębieniu śnieg gromadzi się głęboko, więc nawet mała lawina może mieć poważne skutki. Pułapkami mogą być też drzewa, skały i brzegi jezior."
+      },
+      "q6": {
+        "question": "Lawina zasypała twojego kolegę. Jaka jest najlepsza pierwsza reakcja?",
+        "options": [
+          "Zjechać po pomoc i opuścić miejsce zdarzenia",
+          "Czekać na przybycie ratowników",
+          "Przełączyć detektor na szukanie i od razu zacząć poszukiwania, podczas gdy ktoś inny wzywa służby ratunkowe",
+          "Zacząć kopać na środku lawiniska"
+        ],
+        "explanation": "Szanse przeżycia szybko maleją z czasem, a koledzy to jedyna pomoc, która dotrze dostatecznie szybko. Szukaj od razu; jeśli ktoś inny może jednocześnie zadzwonić pod 112, niech to zrobi."
+      },
+      "q7": {
+        "question": "Po jakim mniej więcej czasie szanse przeżycia całkowicie zasypanej osoby zaczynają gwałtownie spadać?",
+        "options": [
+          "Po około godzinie",
+          "Po około 3 godzinach",
+          "Po około 15 minutach",
+          "Nie zmieniają się z czasem"
+        ],
+        "explanation": "Szanse są największe w pierwszych minutach i szybko spadają po około 15 minutach. Dlatego tak ważna jest szybka akcja ratunkowa kolegów."
+      },
+      "q8": {
+        "question": "Na tej stronie region pokazuje „Brak aktualnych danych”. Co robisz?",
+        "options": [
+          "Zakładam, że zagrożenie jest małe",
+          "Używam stopnia z zeszłego tygodnia",
+          "Czytam oficjalny komunikat lokalnej służby przed wyjściem i nie idę bez tej informacji",
+          "Pytam o zdanie w mediach społecznościowych"
+        ],
+        "explanation": "„Brak aktualnych danych” oznacza, że nie mamy aktualnego komunikatu do pokazania, a nie że zagrożenie jest małe. Tylko aktualny oficjalny komunikat powie ci, jakie jest zagrożenie."
+      },
+      "q9": {
+        "question": "Które z poniższych to wyraźny sygnał ostrzegawczy o niestabilnym śniegu?",
+        "options": [
+          "Bezchmurne niebo",
+          "Zapach świeżego śniegu",
+          "Odgłosy zapadania się śniegu lub pęknięcia rozchodzące się spod nart",
+          "Wielu innych ludzi na stoku"
+        ],
+        "explanation": "Odgłos „wumf” oznacza zawalenie się warstwy osłabionej, a rozbiegające się pęknięcia pokazują, że deska jest połączona na dużym obszarze. Oba sygnały to mocny powód, by opuścić stok."
+      },
+      "q10": {
+        "question": "Jak najlepiej przejść grupą przez stromy stok?",
+        "options": [
+          "Wszyscy razem, żeby było szybciej",
+          "Skupieni w grupie, żeby nikt się nie zgubił",
+          "Najbardziej doświadczona osoba na końcu, poza zasięgiem wzroku",
+          "Pojedynczo, a pozostali obserwują z bezpiecznego miejsca"
+        ],
+        "explanation": "Jedna osoba na raz ogranicza liczbę osób, które mogą zostać porwane, a pozostali mogą z bezpiecznego miejsca obserwować i rozpocząć akcję ratunkową. Zachowujcie odstępy i spotykajcie się w bezpiecznych miejscach."
+      },
+      "q11": {
+        "question": "Które stwierdzenie o plecakach z poduszką lawinową jest prawdziwe?",
+        "options": [
+          "Gwarantują przeżycie",
+          "Mogą zmniejszyć ryzyko zasypania, ale nie zastępują detektora, sondy i łopaty ani szkolenia",
+          "Zastępują łopatę",
+          "Działają tylko na drogach pokrytych śniegiem"
+        ],
+        "explanation": "Poduszka może zmniejszyć szansę zasypania, ale nie zawsze działa i nie chroni przed urazami. Zawsze noś też pełny zestaw ratunkowy."
+      },
+      "q12": {
+        "question": "Komunikat wymienia problem „trwałe warstwy osłabione”. Co to oznacza dla twoich planów?",
+        "options": [
+          "Lawiny schodzą tylko podczas opadów",
+          "Zagrożenie jest mniejsze niż zwykle",
+          "Liczy się tylko wierzchnia warstwa",
+          "Lawiny mogą schodzić dni po opadach i trudno je przewidzieć, więc wybieraj teren bardzo ostrożnie"
+        ],
+        "explanation": "Trwała warstwa osłabiona może zalegać w pokrywie śnieżnej tygodniami. Deski mogą się uwolnić później, z odległości albo na stoku, który wcześniej bezpiecznie zjechano, więc trzymaj się łagodnego terenu."
+      },
+      "q13": {
+        "question": "Komunikat mówi: „znaczne powyżej 2200 m, wystawy od północnej do wschodniej”. Co to oznacza?",
+        "options": [
+          "Cały region ma stopień 3",
+          "Zagrożenie jest największe na stokach o wystawie od północnej do wschodniej powyżej 2200 m, więc unikaj ich lub bądź wyjątkowo ostrożny",
+          "Zagrożenie dotyczy tylko terenu poniżej 2200 m",
+          "Zagrożenie dotyczy tylko nocy"
+        ],
+        "explanation": "Komunikaty wskazują wystawy i wysokości, które są najbardziej niebezpieczne. Czytaj je uważnie i łącz ze stromością stoków na swojej trasie."
+      }
+    }
   }
 }

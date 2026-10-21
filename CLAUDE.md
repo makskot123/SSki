@@ -31,6 +31,8 @@ npm run data:regions # rebuild simplified EAWS GeoJSON (added in M6)
 
 - TypeScript strict. No `any`; parse unknown data with Zod and infer types from schemas (`lib/schemas`).
 - Never export constants/functions from a `"use client"` file for server code to use: a server component receives a client reference, not the value (this silently broke `MAX_COMPARE`). Put shared values in a plain module under `lib/`.
+- next-intl: `t.raw()` only accepts leaf keys. To read a nested message object (checklist items, quiz questions) in a client component use `useMessages()`, which is typed from `messages/en.json`.
+- Safety content (`/safety`, quiz, checklist, danger levels) is education: keep claims conservative and widely accepted (EAWS danger scale, 30-45 degree range as a rule of thumb, ~15 minute survival window), always state it is no substitute for a course or the official bulletin, and never link a source URL that was not checked.
 - Server Components by default; `"use client"` only for interactive parts (map, sliders, checklist, quiz).
 - Business logic (scoring, CAAML parsing, freshness, thresholds) lives in pure functions in `lib/` with unit tests.
 - All user-facing strings go through next-intl (`messages/en.json`, `messages/pl.json`). Never hard-code UI text.

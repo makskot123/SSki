@@ -5,7 +5,7 @@ import { ThemeToggle } from "./theme-toggle";
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-border bg-bg">
+    <header className="border-b border-border bg-bg print:hidden">
       <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-3">
         <Link href="/" className="text-lg font-bold tracking-tight">
           FreerideAtlas

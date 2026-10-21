@@ -46,6 +46,7 @@ $env:SWC_NATIVE_BINDING_CACHE = "$PWD\.swc-cache"
 
 Current: weather attribution in the footer only. Sources are added as milestones land; the full verified table is in [PLAN.md §5](PLAN.md).
 
+- Safety education content: EAWS danger scale wording (paraphrased), general avalanche-safety guidance; sources linked on /safety (SLF, ICAR).
 - Weather: [Open-Meteo.com](https://open-meteo.com/), CC BY 4.0 (free tier is non-commercial only).
 - Avalanche bulletins (shown on /avalanche): Euregio avalanche.report (CC BY 4.0), SLF Switzerland (CC BY 4.0, "WSL Institute for Snow and Avalanche Research SLF"), region polygons from EAWS (CC0).
 

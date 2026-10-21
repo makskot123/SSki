@@ -4,13 +4,13 @@ import type { Aspect } from "@/lib/schemas/resort";
 const ORDER: Aspect[] = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
 const CENTER = 50;
 
-const point = (radius: number, deg: number) => {
+export const point = (radius: number, deg: number) => {
   const rad = ((deg - 90) * Math.PI) / 180;
   return `${(CENTER + radius * Math.cos(rad)).toFixed(2)} ${(CENTER + radius * Math.sin(rad)).toFixed(2)}`;
 };
 
 /** One 45-degree wedge, centred on the compass direction, between an inner and outer radius. */
-function wedge(index: number, inner = 12, outer = 36): string {
+export function wedge(index: number, inner = 12, outer = 36): string {
   const start = index * 45 - 22.5;
   const end = start + 45;
   return [

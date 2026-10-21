@@ -17,10 +17,6 @@
     "subtitle": "Freeride resort ranking, avalanche danger and snow forecast for Europe.",
     "comingSoon": "Under construction. Features arrive milestone by milestone."
   },
-  "Placeholder": {
-    "title": "Coming soon",
-    "body": "This section is not built yet."
-  },
   "NotFound": {
     "title": "Page not found",
     "back": "Back to home"
@@ -316,5 +312,367 @@
     "alarm": "Powder alarm",
     "windWarning": "Strong wind forecast",
     "backToRanking": "Back to the ranking"
+  },
+  "Safety": {
+    "title": "Safety",
+    "intro": "Free tools to prepare for off-piste skiing. They support, but never replace, an avalanche course with a qualified instructor, the official bulletin and your own judgement on the day.",
+    "notSubstitute": "For education only. This is not a substitute for an avalanche course, a qualified guide, the official avalanche bulletin or your own judgement on the day.",
+    "open": "Open",
+    "tools": {
+      "checklist": {
+        "title": "Gear and trip checklist",
+        "body": "Everything to pack, plan and check. Saved on your device and printable."
+      },
+      "aspects": {
+        "title": "Aspect and steepness explained",
+        "body": "An interactive compass and slope guide: why aspect, wind and the 30–45° range matter."
+      },
+      "quiz": {
+        "title": "Avalanche safety quiz",
+        "body": "13 questions on danger levels, terrain, warning signs and rescue, with explanations."
+      }
+    },
+    "dangerTitle": "The five danger levels",
+    "dangerIntro": "The European avalanche danger scale (EAWS) used by the official bulletins. Most avalanche accidents happen at levels 2 (Moderate) and 3 (Considerable). Always read the full bulletin for your region.",
+    "dangerMeaning": {
+      "1": "Generally favourable. Triggering is possible only from a high additional load, on a few very steep slopes.",
+      "2": "The snowpack is weak on some steep slopes and stable elsewhere. Triggering is possible mainly from a high additional load, on the slopes named in the bulletin.",
+      "3": "Dangerous conditions. Triggering is possible even from a low additional load, such as a single skier, especially on the steep slopes named in the bulletin.",
+      "4": "Dangerous conditions. Triggering is likely even from a low additional load on many steep slopes. Natural avalanches are likely.",
+      "5": "Very dangerous conditions. Many large natural avalanches are expected, even on moderately steep terrain."
+    },
+    "learnTitle": "Learn from the professionals",
+    "learnBody": "Take an avalanche course with a qualified instructor and practise rescue with your group every season. Good starting points:",
+    "learnSlf": "SLF (WSL Institute for Snow and Avalanche Research): avalanche information",
+    "learnIcar": "ICAR, the International Commission for Alpine Rescue",
+    "opensInNewTab": "(opens in a new tab)"
+  },
+  "Checklist": {
+    "title": "Gear and trip checklist",
+    "intro": "Tick things off as you go. Your list is saved on this device only, and you can print it.",
+    "progress": "{done} of {total} done",
+    "reset": "Clear all ticks",
+    "print": "Print this list",
+    "storageNote": "Your ticks are stored in this browser. If storage is blocked, the list still works but is not remembered.",
+    "essentialTag": "Essential",
+    "groups": {
+      "gear": "Gear (every person)",
+      "planning": "Planning (before you leave)",
+      "trailhead": "At the trailhead"
+    },
+    "items": {
+      "transceiver": {
+        "label": "Avalanche transceiver (beacon)",
+        "hint": "Fresh batteries, worn under your outer layer, switched on and in send mode."
+      },
+      "probe": {
+        "label": "Avalanche probe",
+        "hint": "At least 240 cm long. Assemble it and test it before you go."
+      },
+      "shovel": {
+        "label": "Avalanche shovel",
+        "hint": "A metal blade. Plastic blades can break in hard snow."
+      },
+      "airbag": {
+        "label": "Avalanche airbag pack (recommended)",
+        "hint": "Check the cartridge or canister, the handle and the pack before every trip."
+      },
+      "helmet": {
+        "label": "Helmet",
+        "hint": "For falls and for trees and rocks."
+      },
+      "firstaid": {
+        "label": "First-aid kit and emergency blanket",
+        "hint": "Know how to use what is in it."
+      },
+      "phone": {
+        "label": "Charged phone with the emergency number saved",
+        "hint": "112 works across Europe. Also save the local mountain rescue number."
+      },
+      "headlamp": {
+        "label": "Headlamp and spare batteries",
+        "hint": "Days are short and trips take longer than planned."
+      },
+      "navigation": {
+        "label": "Map, compass or offline navigation",
+        "hint": "Do not rely on a single phone in the cold."
+      },
+      "clothing": {
+        "label": "Spare warm layer, gloves, goggles and sun protection",
+        "hint": ""
+      },
+      "food": {
+        "label": "Food and water",
+        "hint": ""
+      },
+      "bulletin": {
+        "label": "Read the official avalanche bulletin for your region",
+        "hint": "Check the danger level, the aspects and elevations, and the avalanche problems."
+      },
+      "weather": {
+        "label": "Check the weather and wind forecast",
+        "hint": "Fresh snow and strong wind change the avalanche danger quickly."
+      },
+      "route": {
+        "label": "Plan a route that fits the conditions and your group",
+        "hint": "When the danger is high, choose gentler terrain with no steep slopes above you."
+      },
+      "inform": {
+        "label": "Tell someone your route and when you will be back",
+        "hint": ""
+      },
+      "skills": {
+        "label": "Make sure everyone can use their rescue gear",
+        "hint": "Practise searching with your transceiver regularly, not only once."
+      },
+      "daylight": {
+        "label": "Plan for daylight and set a turn-around time",
+        "hint": ""
+      },
+      "groupcheck": {
+        "label": "Do a transceiver check with the whole group",
+        "hint": "Everyone in send mode, one person in search mode checks every device, then everyone switches back to send."
+      },
+      "airbagcheck": {
+        "label": "Check that airbag packs are armed",
+        "hint": ""
+      },
+      "agree": {
+        "label": "Agree on the plan, the rules and who does what",
+        "hint": "Spacing, one at a time on steep slopes, where to regroup, and who leads the rescue."
+      },
+      "signs": {
+        "label": "Watch for warning signs along the way",
+        "hint": "Recent avalanches, whumpfing sounds, cracks shooting out from your skis, fresh wind-blown snow."
+      }
+    }
+  },
+  "Aspects": {
+    "title": "Slope aspect and steepness",
+    "intro": "Two things decide where avalanches can happen: which way a slope faces (its aspect) and how steep it is. Try the tools below.",
+    "aspectTitle": "Aspect: which way does a slope face?",
+    "aspectHelp": "Aspect is the compass direction a slope faces, the direction you look when you face downhill. Choose a direction on the compass to see what it means.",
+    "modeLabel": "What do you want to explore?",
+    "modeAspect": "Sun and snow on each aspect",
+    "modeWind": "Where does wind load the snow?",
+    "roseLabel": "Compass rose. Choose a direction.",
+    "directions": {
+      "N": "North",
+      "NE": "North-east",
+      "E": "East",
+      "SE": "South-east",
+      "S": "South",
+      "SW": "South-west",
+      "W": "West",
+      "NW": "North-west"
+    },
+    "aspectInfo": {
+      "N": "North-facing slopes get the least sun in winter. Snow stays cold and powdery longer, and weak layers can survive longer in the snowpack.",
+      "NE": "North-east-facing slopes get little sun, mostly in the morning. Like north, they keep cold snow, and weak layers can persist.",
+      "E": "East-facing slopes get the morning sun. Snow warms up earlier in the day, especially in spring.",
+      "SE": "South-east-facing slopes get strong morning sun. Snow warms early, and wet-snow avalanches become more likely on sunny spring days.",
+      "S": "South-facing slopes get the most sun. Snow warms quickly, and wet-snow and gliding-snow avalanches are more likely in sunny weather.",
+      "SW": "South-west-facing slopes get strong afternoon sun. The warmest time is later in the day, when wet-snow avalanches become more likely in spring.",
+      "W": "West-facing slopes get the afternoon sun. Whether wind loads them depends on the wind direction on the day.",
+      "NW": "North-west-facing slopes get little sun, mostly late in the day. Like north, they keep cold snow, and weak layers can persist."
+    },
+    "windFrom": "Wind blowing from {dir}",
+    "windResult": "Wind from {from}: snow is blown over the ridge and mostly deposited on the sheltered (lee) side, on slopes facing {lee}. Slopes facing across the wind can be loaded too. Wind slabs can form within hours and often look smooth and pillow-like.",
+    "leeLegend": "Highlighted: most likely to be loaded",
+    "selectedLegend": "Selected direction",
+    "steepnessTitle": "Steepness: why 30–45° matters",
+    "steepnessHelp": "Move the slider to see how steep a slope is and what it means for avalanches.",
+    "sliderLabel": "Slope angle in degrees",
+    "degrees": "{deg}°",
+    "grade": "{deg}° is about a {percent}% grade.",
+    "diagramLabel": "A slope rising at {deg} degrees",
+    "bands": {
+      "flat": {
+        "title": "Under 25°: gentle",
+        "body": "Slab avalanches rarely release here. But check the terrain above you: avalanches from steeper slopes can run out onto gentle ground."
+      },
+      "borderline": {
+        "title": "25–29°: borderline",
+        "body": "Avalanches are uncommon but possible, for example when the danger is high or the snow is wet or gliding."
+      },
+      "terrain": {
+        "title": "30–34°: avalanche terrain",
+        "body": "Dry slab avalanches can release. This is where the warnings in the bulletin start to apply."
+      },
+      "peak": {
+        "title": "35–39°: the most common accident range",
+        "body": "Most avalanche accidents happen on slopes of about 35–40°."
+      },
+      "steep": {
+        "title": "40–45°: steep avalanche terrain",
+        "body": "Still avalanche terrain. Slides can be fast and falls serious."
+      },
+      "verysteep": {
+        "title": "Over 45°: very steep",
+        "body": "Snow sheds in small slides more often, so deep slabs are less common. But sluffs, falls and cliffs are serious hazards. This is expert terrain."
+      }
+    },
+    "whyTitle": "Why 30–45°?",
+    "whyBody": [
+      "Below about 30° a slope is usually not steep enough for a slab to slide, even when a weak layer is present.",
+      "Between about 30° and 45° snow can build a cohesive slab on a weak layer, and the slope is steep enough for the slab to slide. This is where most slab avalanche accidents happen.",
+      "Above 45° snow tends to shed in small slides as it falls, so thick slabs build up less often. That does not make it safe: falls and sluffs are serious in their own right."
+    ],
+    "whyNote": "These are rules of thumb, not a safe/unsafe switch. Avalanches can start outside this range, and an avalanche from a steep slope can run out onto gentle ground below.",
+    "measureTitle": "How to measure steepness",
+    "measureBody": "Use a slope-angle card, an inclinometer or a phone app, and measure the steepest part of the slope. Slope maps and the aspects and elevations in the bulletin help you plan before you go.",
+    "bulletinTitle": "Use it with the bulletin",
+    "bulletinBody": "The bulletin tells you which aspects and elevations are most dangerous today. Combine that with the steepness of the slopes on your route and choose terrain that fits the conditions.",
+    "bulletinLink": "Open the avalanche map"
+  },
+  "Quiz": {
+    "title": "Avalanche safety quiz",
+    "intro": "13 questions. Choose one answer for each, then check your answers. It is a way to learn, not training: take an avalanche course and practise rescue with your group.",
+    "questionLabel": "Question {n} of {total}",
+    "check": "Check answers",
+    "retry": "Try again",
+    "scoreLine": "You scored {correct} of {total} ({percent}%).",
+    "unanswered": "{count, plural, one {# question was not answered and counts as wrong.} other {# questions were not answered and count as wrong.}}",
+    "correct": "Correct",
+    "incorrect": "Incorrect",
+    "skipped": "Not answered",
+    "correctAnswer": "Correct answer: {answer}",
+    "verdict": {
+      "high": "Great result. Keep your knowledge fresh and keep practising rescue.",
+      "mid": "A good start. Read the explanations and revisit the topics you missed.",
+      "low": "There is plenty to learn. Read the explanations, and consider an avalanche course before going off-piste."
+    },
+    "questions": {
+      "q1": {
+        "question": "Which three items make up the essential avalanche rescue kit that everyone off-piste should carry and know how to use?",
+        "options": [
+          "Transceiver, probe and shovel",
+          "Airbag pack, helmet and phone",
+          "Map, compass and headlamp",
+          "First-aid kit, rope and whistle"
+        ],
+        "explanation": "A transceiver finds a buried person, a probe pinpoints them and a shovel gets them out. Everyone in the group needs all three and must practise using them."
+      },
+      "q2": {
+        "question": "What does danger level 3, \"Considerable\", mean?",
+        "options": [
+          "Avalanches are very unlikely",
+          "Triggering is possible even from a single skier, especially on the steep slopes named in the bulletin",
+          "Only natural avalanches can happen",
+          "Many large avalanches are expected even on gentle terrain"
+        ],
+        "explanation": "At level 3 the snowpack is only moderately to weakly bonded on many steep slopes, so a low additional load can be enough. Many accidents happen at levels 2 and 3."
+      },
+      "q3": {
+        "question": "On which slope angles do most slab avalanche accidents happen?",
+        "options": [
+          "Under 20°",
+          "Over 60°",
+          "On all angles equally",
+          "About 30–45°"
+        ],
+        "explanation": "Slabs mostly release on slopes steeper than about 30°, and accidents peak around 35–40°. Above about 45° snow sheds more often in small slides."
+      },
+      "q4": {
+        "question": "A strong wind blows from the west. Which slopes are most likely to be loaded with fresh wind slabs?",
+        "options": [
+          "West-facing slopes",
+          "Only south-facing slopes",
+          "East-facing slopes, on the sheltered side",
+          "All slopes equally"
+        ],
+        "explanation": "Wind carries snow over the ridge and drops it on the sheltered (lee) side. Slopes across the wind can be cross-loaded as well."
+      },
+      "q5": {
+        "question": "What is a terrain trap?",
+        "options": [
+          "A ski lift queue",
+          "A wide, gentle slope",
+          "A groomed piste",
+          "A gully, creek bed or depression where even a small avalanche can bury someone deeply"
+        ],
+        "explanation": "In a gully or hollow, snow piles up deeply, so even a small avalanche can have serious consequences. Trees, cliffs and lake edges can be traps too."
+      },
+      "q6": {
+        "question": "A friend has been buried by an avalanche. What is the best first action?",
+        "options": [
+          "Ski down to get help and leave the scene",
+          "Wait for the rescue team to arrive",
+          "Switch your transceiver to search and start the search straight away, while someone else calls the emergency services",
+          "Start digging in the middle of the avalanche"
+        ],
+        "explanation": "Survival chances fall quickly with time, and companions are the only help that arrives fast enough. Search immediately; if someone else can call 112 at the same time, do that."
+      },
+      "q7": {
+        "question": "After roughly how long do the survival chances of a completely buried person start to fall sharply?",
+        "options": [
+          "About 1 hour",
+          "About 3 hours",
+          "About 15 minutes",
+          "They do not change with time"
+        ],
+        "explanation": "Chances are best in the first minutes and fall quickly after about 15 minutes. This is why a fast companion rescue matters so much."
+      },
+      "q8": {
+        "question": "On this site a region shows \"No current data\". What should you do?",
+        "options": [
+          "Assume the danger is low",
+          "Use the level from last week",
+          "Read the official bulletin of the local warning service before you go, and do not go without that information",
+          "Ask for opinions on social media"
+        ],
+        "explanation": "\"No current data\" means we have no up-to-date bulletin to show you, not that the danger is low. Only the current official bulletin can tell you the danger."
+      },
+      "q9": {
+        "question": "Which of these is a clear warning sign of unstable snow?",
+        "options": [
+          "A clear blue sky",
+          "Fresh snow smell",
+          "Whumpfing sounds or cracks that shoot out from your skis",
+          "Many other people on the slope"
+        ],
+        "explanation": "A whumpf means a weak layer has collapsed, and shooting cracks show that a slab is connected over a wide area. Both are strong signs to leave the slope."
+      },
+      "q10": {
+        "question": "What is the best way for a group to cross a steep slope?",
+        "options": [
+          "Everyone together, for speed",
+          "Bunched up so nobody gets lost",
+          "The most experienced person last, out of sight",
+          "One at a time, with the others watching from a safe spot"
+        ],
+        "explanation": "One at a time limits how many people can be caught, and the others can watch, and start a rescue, from safety. Keep spacing and regroup at safe places."
+      },
+      "q11": {
+        "question": "Which statement about airbag packs is true?",
+        "options": [
+          "They guarantee survival",
+          "They can reduce the risk of burial but do not replace the transceiver, probe and shovel, or training",
+          "They replace the shovel",
+          "They only work on snow-covered roads"
+        ],
+        "explanation": "An airbag can lower the chance of being buried, but it does not always work and does not protect against trauma. Always carry the full rescue kit as well."
+      },
+      "q12": {
+        "question": "A bulletin lists the problem \"persistent weak layers\". What does it mean for your plans?",
+        "options": [
+          "Avalanches only happen during snowfall",
+          "The danger is lower than usual",
+          "Only the top layer matters",
+          "Avalanches can release days after snowfall and be hard to predict, so you should choose terrain very conservatively"
+        ],
+        "explanation": "A persistent weak layer can stay in the snowpack for weeks. Slabs may release later, from a distance or on a slope that was skied safely before, so keep to gentle terrain."
+      },
+      "q13": {
+        "question": "A bulletin says \"Considerable above 2,200 m, aspects north to east\". What does this mean?",
+        "options": [
+          "The whole region is at level 3",
+          "The danger is highest on slopes facing north to east above 2,200 m, so avoid them or be extremely conservative",
+          "The danger applies only below 2,200 m",
+          "The danger applies only at night"
+        ],
+        "explanation": "Bulletins name the aspects and elevations that are most dangerous. Read them carefully and combine them with the steepness of the slopes on your route."
+      }
+    }
   }
 }

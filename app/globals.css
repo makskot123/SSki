@@ -44,3 +44,21 @@ body {
   outline: 3px solid var(--accent);
   outline-offset: 2px;
 }
+
+/* Printouts (e.g. the checklist) are always dark text on white, whatever theme is active. */
+@media print {
+  :root,
+  :root[data-theme="dark"] {
+    --bg: #ffffff;
+    --surface: #ffffff;
+    --fg: #000000;
+    --muted: #333333;
+    --border: #999999;
+    --accent: #000000;
+    --accent-fg: #ffffff;
+  }
+  body {
+    background: #ffffff;
+    color: #000000;
+  }
+}

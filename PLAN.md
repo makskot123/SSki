@@ -32,6 +32,7 @@ Date: 2026-10-21
 - `@types/node` is 24 (Vitest 5 requires ≥ 22).
 - M6: MapLibre's worker cannot be bundled by Next/Turbopack, so it is copied to `public/maplibre/` on dev/build. The map starts on first user interaction (or a button) to keep `/avalanche` at Lighthouse >= 90; the region list and panel work without it. Avalanche feed URLs can be overridden by env so e2e tests can serve recorded real bulletins from a local stub.
 - M7: resort pages show each resort's avalanche state (current / stale / feed has no bulletin / not covered -> link-out / no service) with a deferred region map; `/compare?r=a,b,c` compares up to 3 resorts; ranking cards have a Compare checkbox. Resort pages revalidate every 15 min (the shorter of the forecast and bulletin caches). Coverage by our feeds: 13 of 30 resorts (Tyrol 7, Switzerland 6); 15 link out; Bansko and Gudauri have no EAWS service.
+- M8: `/safety` index (five danger levels, verified SLF and ICAR links), checklist (21 items in 3 groups, saved in localStorage, printable, works in memory if storage is blocked), aspect and steepness explainer (interactive compass in aspect and wind modes, 0-60 degree slider with bands and percent grade), 13-question EN/PL quiz. Pure logic in `lib/safety/*`. `avalanches.org` could not be reached from the build machine, so it is not linked. The M8b gear guide will link from the checklist items.
 - Windows: `@swc/core` (via next-intl) may need `SWC_NATIVE_BINDING_CACHE`, see README.
 
 ---
