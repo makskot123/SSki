@@ -208,6 +208,29 @@ interface Review {                    // also used for community condition repor
   text: string;
   createdAt: ISODateTime;
 }
+
+// ---------- Gear guide (M8b) ----------
+type GearCategory = 'transceiver' | 'probe' | 'shovel' | 'airbag' | 'helmet';
+
+interface GearProduct {
+  id: string;                         // 'ortovox-diract-voice'
+  category: GearCategory;
+  brand: string;
+  model: string;
+  priceEUR: number;                   // manufacturer RRP, not a shop price
+  priceCheckedAt: ISODate;            // shown in the UI; old prices are flagged
+  specs: Record<string, number | string | boolean>;   // category-specific, validated per category
+  meetsMinimums: boolean;             // derived from specs + category gates (see §4 gear scoring)
+  failedMinimums?: string[];          // why not, if it does not
+  sourceUrl: string;                  // manufacturer spec page (link out, no copied text/images)
+  notes?: LocalizedText;              // short factual notes only
+}
+
+interface GearKit {                   // a recommendation, computed, not stored
+  id: 'essential' | 'recommended' | 'lightweight';
+  items: { category: GearCategory; productId: string }[];
+  totalPriceEUR: number;
+}
 ```
 
 ---
@@ -226,6 +249,8 @@ interface Review {                    // also used for community condition repor
 | `/powder` | Resorts sorted by forecast snowfall Fri–Sun, powder alarm badges, wind warnings |
 | `/planner` | Dates + region → shortlist with forecast + avalanche level, printable checklist |
 | `/safety/checklist`, `/safety/aspects`, `/safety/quiz` | Gear checklist (localStorage), aspect/steepness explainer, quiz |
+| `/gear` | Gear guide: overview per category with best performance / best value / budget pick, recommended kits, general advice |
+| `/gear/[category]` | Full value ranking for one category, performance-vs-price slider, minimum-standard filter, spec table, sources |
 | `/how-we-rank` | Scoring formula, weights, data sources, limitations |
 
 **Key components:** `MapView`, `AvalancheLayer`, `ResortMarkers`, `DangerBadge`, `AspectRose` (SVG, interactive), `ProblemIcon`, `BulletinPanel`, `Disclaimer`, `ResortCard`, `ScoreBreakdown`, `WeightSliders`, `FilterBar`, `ForecastTable`, `PowderAlarmBadge`, `WindWarning`, `DataStatusTag` ("live" / "sample data"), `LocaleSwitcher`, `ThemeToggle`.
@@ -248,6 +273,27 @@ Each factor is normalised to 0–1 across the resort set (min–max; price and "
 
 Presets: *Powder hunter*, *Budget*, *Steep & deep*, *Safety first*. The "Safety" slider is not a ranking of safe resorts. It boosts guide availability and beginner-friendly zones, and **penalises a current avalanche level ≥ 4**. The UI states that a ranking never makes terrain safe.
 
+### Gear value ranking (M8b, documented on the gear pages)
+Same transparent approach as the resort ranking, reusing the scoring module.
+
+1. **Minimum standards first (hard gates).** A product that misses a minimum is never ranked or recommended, however cheap. It is listed separately with the reason. The minimums, each with its source cited on the page:
+   | Category | Minimum to be ranked |
+   |---|---|
+   | Transceiver | digital, 3 antennas, 457 kHz, EN 300718 conformity, multiple-burial marking |
+   | Probe | ≥ 240 cm, quick-locking assembly |
+   | Shovel | metal blade, extendable shaft |
+   | Airbag | EN 16716 certified |
+   | Helmet | EN 1077 certified |
+2. **Performance score 0–100** per category from published specs only (e.g. transceiver: range, search strip width, weight, battery life; probe: length, weight, material; shovel: blade volume, weight, shaft length, hoe mode; airbag: system type and re-deployability, weight, pack volume; helmet: weight, dual EN 1077 + EN 12492, rotational protection). Each criterion is min–max normalised within its category, as for resorts. Missing specs are skipped, not counted as zero.
+3. **Value** = performance per euro, combined with performance through a *Performance ↔ Price* slider (default 50/50) and presets: *Best value*, *Best performance*, *Lightest* (ski touring), *Budget*.
+4. **Three picks per category**:
+   - *Best performance*: the highest performance score.
+   - *Best value*: the best value among products with performance ≥ 60.
+   - *Budget pick*: the cheapest product that meets the minimums.
+5. **Recommended kits**: *Essential* (transceiver + probe + shovel, the best-value combination and its total price), *Recommended* (Essential + helmet + airbag), and *Lightweight* (the touring preset). The always-shown rule: no kit replaces training, and the essential trio is useless unless everyone in the group carries and can use it.
+
+Plain-language recommendations shown with the ranking, each with a cited source (ICAR, national avalanche services, manufacturers): take an avalanche course, practise transceiver searches regularly, check batteries and do a group check before every outing, keep phones and other electronics away from the transceiver, replace damaged probes and shovels, and check airbag cartridge rules before flying. Never shown as our own testing: we rank published specs and RRP, we do not test gear.
+
 ---
 
 ## 5. Data sources (verified 2026-10-21)
@@ -269,6 +315,8 @@ Presets: *Powder hunter*, *Budget*, *Steep & deep*, *Safety first*. The "Safety"
 | `tile.openstreetmap.org` | Raster tiles | ❌ for production app | The OSMF tile usage policy forbids heavy or app use. Use OpenFreeMap / OpenTopoMap (fair use, attribution). Verify in M6. |
 | Resort stats, lift prices, season dates, freeride zones, routes | Official resort sites | ⚠️ manual curation, link out | No APIs. Curated by hand into seed JSON with `lastVerified`. Facts only, no copied text. |
 | Webcams | Resort / third-party sites | ⚠️ link out only | No embedding or hotlinking. |
+| Gear specs and RRP (M8b) | Manufacturer product pages | ⚠️ manual curation, link out | No public APIs; shop prices are not scraped. Each product stores its source URL and `priceCheckedAt`; prices older than 12 months are flagged in the UI. Facts only: no copied descriptions or product photos. |
+| Gear minimum standards | EN 300718, EN 16716, EN 1077, EN 12492; ICAR / national avalanche service guidance | ⚠️ cited, link out | Used for the hard gates and the advice texts. Each gate shows its source. |
 
 **Coverage reality:** without the aggregate, live avalanche data covers **Switzerland + Euregio + France (with key)**. That is ≈ 12 of the ~30 seed resorts. The rest show the official link. With aggregate permission, almost all resorts get live data except Gudauri and Bansko.
 
@@ -313,6 +361,10 @@ Map with resort + region outline, current avalanche level, forecast, wind → wi
 Gear checklist (localStorage, printable), aspect & steepness explainer (interactive rose + 30–45° explanation), quiz (10–15 questions, EN/PL).
 *AC:* checklist survives reload. Quiz scoring has unit tests. axe reports no violations.
 
+**M8b — Gear guide: value ranking and recommendations**
+`data/gear.json` with ~6–8 products per category (5 categories, ~35 products), validated by Zod with a spec schema per category. Minimum-standard gates, performance score, value score and presets reuse the scoring module. Pages `/gear` (three picks per category, recommended kits with total price, advice) and `/gear/[category]` (full ranking, performance↔price slider, "show products below minimum standards" toggle with reasons, spec table, source links). The M8 gear checklist links each item to its category. EN/PL.
+*AC:* the seed validates and every product has a source URL and a check date. A product that fails a minimum is never ranked or picked (unit test with a deliberately non-compliant fixture). Unit tests cover the value score, the presets, the three picks and the kit totals. Prices older than 12 months show a warning. Pages state that we rank published specs and do not test gear, and that nothing is sponsored. axe reports no violations; Lighthouse ≥ 90 on `/gear`.
+
 **M9 — Trip planner**
 Dates + country/region → shortlist ranked by forecast + current score + avalanche level. Printable view (print CSS) with checklist.
 *AC:* a planner for dates beyond the forecast horizon clearly says "forecast not yet available".
@@ -321,7 +373,7 @@ Dates + country/region → shortlist ranked by forecast + current score + avalan
 `routes.json` (famous descents, guide flags), reviews and condition reports from mock JSON (form validates with Zod, writes to localStorage in v1 — no server writes), webcam link-outs, README complete, Lighthouse/a11y pass, Vercel deploy.
 *AC:* Lighthouse ≥ 90 (perf/a11y/best practices/SEO) on `/`, `/resorts`, `/avalanche`. README lists all sources and attributions.
 
-**Backlog:** Supabase-backed condition reports + moderation, EAWS aggregate (after permission), more languages (DE/FR/IT), PWA/offline, push powder alerts, AINEVA/TOPR direct feeds if they appear, route GPX (licensing!), historical danger-level stats per resort.
+**Backlog:** Supabase-backed condition reports + moderation, EAWS aggregate (after permission), more languages (DE/FR/IT), PWA/offline, push powder alerts, AINEVA/TOPR direct feeds if they appear, route GPX (licensing!), historical danger-level stats per resort, gear guide for skis/boots/bindings (needs a fair, non-subjective scoring first), user gear reviews.
 
 ---
 
@@ -335,6 +387,7 @@ Dates + country/region → shortlist ranked by forecast + current score + avalan
 5. **Seed data accuracy**: prices and terrain stats change yearly. Each resort has a `lastVerified` field, and the UI shows "approx." values.
 6. **GeoJSON size and map performance** on mobile. Mitigated by build-time simplification, lazy loading and a list fallback.
 7. **Vercel Hobby plan** is non-commercial too (same issue as 1).
+8. **Gear guide (M8b)**: prices and models change every season, so data goes stale. Mitigated by `priceCheckedAt`, a 12-month warning and RRP only. A ranking can read as an endorsement: we state clearly that it is spec-based, not tested by us and not sponsored. Value must never outrank safety: the minimum-standard gates come before any scoring.
 
 **Open questions (please answer with your approval)**
 1. **Commercial or not?** Will the site ever have ads, affiliates or paid features? This decides Open-Meteo/Vercel plans. *Default assumption: non-commercial hobby project.*
@@ -342,3 +395,5 @@ Dates + country/region → shortlist ranked by forecast + current score + avalan
 3. **Météo-France key:** are you OK creating a free Météo-France API portal account (needed for M5b)? *Default: M5b optional, French resorts link out until then.*
 4. **Seed list:** keep the resorts from the prompt and fill to ~30 with my picks (e.g. Zermatt, Disentis, Monterosa/Gressoney, Courmayeur, Les Arcs, Serre Chevalier, Obergurgl, Ischgl, Bad Gastein, Kühtai)? *Default: yes.*
 5. **Hosting / domain:** Vercel default subdomain for now? *Default: yes, no custom domain.*
+6. **Gear guide scope:** avalanche safety gear + helmets only, with skis/boots in the backlog? *Default: yes.*
+7. **Gear links:** plain links to manufacturer pages, no affiliate links? Affiliate links would make the site commercial (see question 1). *Default: no affiliate links.*
