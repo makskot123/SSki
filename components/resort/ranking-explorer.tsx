@@ -3,7 +3,9 @@
 import { useFormatter, useLocale, useTranslations } from "next-intl";
 import { useEffect, useMemo, useState } from "react";
 import { ResortCard } from "@/components/resort/resort-card";
+import { Link } from "@/i18n/navigation";
 import { applyFilters, type Filters } from "@/lib/filters";
+import { MAX_COMPARE } from "@/lib/compare";
 import { countryName } from "@/lib/format";
 import {
   DEFAULT_STATE,
@@ -50,6 +52,7 @@ export function RankingExplorer({
   const format = useFormatter();
   const [state, setState] = useState<RankingState>(initial);
   const [panelOpen, setPanelOpen] = useState(false);
+  const [compare, setCompare] = useState<string[]>([]);
   const { weights, filters } = state;
 
   // Keep the URL shareable without triggering a navigation or server re-render.
@@ -292,6 +295,31 @@ export function RankingExplorer({
             {t("allZero")}
           </p>
         )}
+        {compare.length > 0 && (
+          <div
+            role="status"
+            className="mb-3 flex flex-wrap items-center gap-x-4 gap-y-2 rounded-lg border border-accent bg-surface p-3 text-sm"
+          >
+            <span>{t("compareSelected", { count: compare.length })}</span>
+            {compare.length >= 2 ? (
+              <Link
+                href={`/compare?r=${compare.join(",")}`}
+                className="rounded-md bg-accent px-3 py-1.5 font-medium text-accent-fg"
+              >
+                {t("compareGo")}
+              </Link>
+            ) : (
+              <span className="text-muted">{t("compareNeedTwo")}</span>
+            )}
+            <button
+              type="button"
+              onClick={() => setCompare([])}
+              className="text-accent underline"
+            >
+              {t("compareClear")}
+            </button>
+          </div>
+        )}
         {visible.length === 0 ? (
           <p className="rounded-lg border border-border bg-surface p-4">
             {t("noResults")}
@@ -306,6 +334,18 @@ export function RankingExplorer({
                   score={Math.round(s.score)}
                   freshSnowCm={conditions?.[s.resort.slug]}
                   powderAlarm={alarmSlugs.includes(s.resort.slug)}
+                  compare={{
+                    checked: compare.includes(s.resort.slug),
+                    disabled:
+                      !compare.includes(s.resort.slug) &&
+                      compare.length >= MAX_COMPARE,
+                    onChange: (checked) =>
+                      setCompare((c) =>
+                        checked
+                          ? [...c, s.resort.slug]
+                          : c.filter((slug) => slug !== s.resort.slug),
+                      ),
+                  }}
                 />
               </li>
             ))}

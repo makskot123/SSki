@@ -4,7 +4,7 @@ import type {
   ElevationBand,
   ElevationBound,
 } from "@/lib/schemas/avalanche";
-import type { RegionStatus } from "./freshness";
+import { isCurrent, type RegionStatus } from "./freshness";
 
 export interface RegionEntry {
   state: "current" | "stale";
@@ -56,6 +56,30 @@ export function currentLevels(
     if (level) levels[regionId] = level;
   }
   return levels;
+}
+
+/**
+ * Re-checks freshness against `now` (the browser clock) because pages are cached for minutes.
+ * It can only DOWNGRADE current -> stale, never the other way round, so a wrong device clock
+ * can hide a level but can never invent one. Returns the same object if nothing changed.
+ */
+export function downgradeExpired(
+  view: AvalancheView,
+  now: Date,
+): AvalancheView {
+  const byId = new Map(view.bulletins.map((b) => [b.bulletinId, b]));
+  let changed = false;
+  const regions: Record<string, RegionEntry> = {};
+  for (const [regionId, entry] of Object.entries(view.regions)) {
+    const bulletin = byId.get(entry.bulletinId);
+    if (entry.state === "current" && bulletin && !isCurrent(bulletin, now)) {
+      regions[regionId] = { ...entry, state: "stale" };
+      changed = true;
+    } else {
+      regions[regionId] = entry;
+    }
+  }
+  return changed ? { bulletins: view.bulletins, regions } : view;
 }
 
 export type ElevationDescription =

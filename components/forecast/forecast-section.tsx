@@ -9,9 +9,12 @@ import type { SnowForecast } from "@/lib/weather/types";
 export function ForecastSection({
   forecast,
   resortName,
+  avalancheAnchor,
 }: {
   forecast: SnowForecast;
   resortName: string;
+  /** Id of the avalanche section on the same page; the wind warning links to it. */
+  avalancheAnchor?: string;
 }) {
   const t = useTranslations("Forecast");
   const format = useFormatter();
@@ -64,7 +67,9 @@ export function ForecastSection({
           />
         </div>
       )}
-      {live && forecast.windWarning && <WindWarning maxWindKmh={maxWind} />}
+      {live && forecast.windWarning && (
+        <WindWarning maxWindKmh={maxWind} anchor={avalancheAnchor} />
+      )}
 
       <ForecastTable forecast={forecast} resortName={resortName} />
       <p className="text-xs text-muted">{t("windNote")}</p>

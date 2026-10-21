@@ -1,7 +1,11 @@
 "use client";
 
 import "maplibre-gl/dist/maplibre-gl.css";
-import type { Map as MapLibreMap, StyleSpecification } from "maplibre-gl";
+import type {
+  FilterSpecification,
+  Map as MapLibreMap,
+  StyleSpecification,
+} from "maplibre-gl";
 import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 import {
@@ -38,24 +42,49 @@ async function loadStyle(): Promise<StyleSpecification | string> {
 
 type Status = "loading" | "ready" | "error";
 
+export interface AvalancheMapProps {
+  levels: Record<string, DangerLevel>;
+  selectedId: string | null;
+  onSelect: (id: string) => void;
+  /** Regions to outline (e.g. a resort's own regions). Without it, the selected region is outlined. */
+  focusIds?: string[];
+  /** Initial camera; defaults to the Alps and surroundings. */
+  initialView?: { center: [number, number]; zoom: number };
+  /** A labelled point, e.g. the resort. */
+  marker?: { lon: number; lat: number; label: string };
+  /** Accessible name; defaults to the Lawinomierz map label. */
+  label?: string;
+  heightClass?: string;
+}
+
+function outlineFilter(
+  focusIds: string[] | undefined,
+  selectedId: string | null,
+): FilterSpecification {
+  return focusIds
+    ? ["in", ["get", "id"], ["literal", focusIds]]
+    : ["==", ["get", "id"], selectedId ?? ""];
+}
+
 export default function AvalancheMap({
   levels,
   selectedId,
   onSelect,
-}: {
-  levels: Record<string, DangerLevel>;
-  selectedId: string | null;
-  onSelect: (id: string) => void;
-}) {
+  focusIds,
+  initialView = { center: [10.5, 47], zoom: 4.6 },
+  marker,
+  label,
+  heightClass = "h-[26rem] lg:h-[34rem]",
+}: AvalancheMapProps) {
   const t = useTranslations("Avalanche");
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const [status, setStatus] = useState<Status>("loading");
 
   // Latest values for callbacks created once inside the map setup.
-  const latest = useRef({ levels, selectedId, onSelect });
+  const latest = useRef({ levels, selectedId, onSelect, focusIds });
   useEffect(() => {
-    latest.current = { levels, selectedId, onSelect };
+    latest.current = { levels, selectedId, onSelect, focusIds };
   });
 
   useEffect(() => {
@@ -75,8 +104,8 @@ export default function AvalancheMap({
         map = new maplibre.Map({
           container: container.current,
           style,
-          center: [10.5, 47],
-          zoom: 4.6,
+          center: initialView.center,
+          zoom: initialView.zoom,
           minZoom: 3,
           maxZoom: 11,
           cooperativeGestures: true, // never trap page scrolling on touch devices
@@ -88,9 +117,20 @@ export default function AvalancheMap({
           "top-right",
         );
 
+        if (marker) {
+          const el = document.createElement("div");
+          el.setAttribute("role", "img");
+          el.setAttribute("aria-label", marker.label);
+          el.style.cssText =
+            "width:18px;height:18px;border-radius:50%;background:#0b5cad;border:3px solid #fff;box-shadow:0 0 0 1.5px #000";
+          new maplibre.Marker({ element: el })
+            .setLngLat([marker.lon, marker.lat])
+            .addTo(map);
+        }
+
         map.on("load", () => {
           if (!map) return;
-          const { levels: l, selectedId: s } = latest.current;
+          const { levels: l, selectedId: s, focusIds: f } = latest.current;
           // Put our polygons under the basemap's labels when it has any.
           const firstLabel = map
             .getStyle()
@@ -126,7 +166,7 @@ export default function AvalancheMap({
             id: "regions-selected",
             type: "line",
             source: "regions",
-            filter: ["==", ["get", "id"], s ?? ""],
+            filter: outlineFilter(f, s),
             paint: { "line-color": "#000000", "line-width": 3 },
           });
 
@@ -147,7 +187,7 @@ export default function AvalancheMap({
           setStatus("ready");
         });
       } catch (err) {
-        // e.g. WebGL unavailable. The region list below is the complete fallback.
+        // e.g. WebGL unavailable. The page content outside the map is the complete fallback.
         console.warn("[avalanche map] could not start:", err);
         if (!cancelled) setStatus("error");
       }
@@ -158,6 +198,8 @@ export default function AvalancheMap({
       mapRef.current = null;
       map?.remove();
     };
+    // The camera and marker are fixed for the lifetime of a map instance.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -178,21 +220,21 @@ export default function AvalancheMap({
   useEffect(() => {
     const map = mapRef.current;
     if (status !== "ready" || !map) return;
-    map.setFilter("regions-selected", ["==", ["get", "id"], selectedId ?? ""]);
-  }, [selectedId, status]);
+    map.setFilter("regions-selected", outlineFilter(focusIds, selectedId));
+  }, [selectedId, focusIds, status]);
 
   return (
     <div className="relative">
       <div
         ref={container}
         role="region"
-        aria-label={t("mapLabel")}
+        aria-label={label ?? t("mapLabel")}
         data-testid="avalanche-map"
         data-map-status={status}
         data-coloured={
           status === "ready" ? Object.keys(levels).length : undefined
         }
-        className="h-[26rem] w-full overflow-hidden rounded-lg border border-border bg-surface lg:h-[34rem]"
+        className={`${heightClass} w-full overflow-hidden rounded-lg border border-border bg-surface`}
       />
       {status === "loading" && (
         <p className="pointer-events-none absolute inset-0 flex items-center justify-center text-sm text-muted">

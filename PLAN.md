@@ -31,6 +31,7 @@ Date: 2026-10-21
 - Next 16 calls middleware `proxy.ts`; next-intl's locale middleware lives there.
 - `@types/node` is 24 (Vitest 5 requires ≥ 22).
 - M6: MapLibre's worker cannot be bundled by Next/Turbopack, so it is copied to `public/maplibre/` on dev/build. The map starts on first user interaction (or a button) to keep `/avalanche` at Lighthouse >= 90; the region list and panel work without it. Avalanche feed URLs can be overridden by env so e2e tests can serve recorded real bulletins from a local stub.
+- M7: resort pages show each resort's avalanche state (current / stale / feed has no bulletin / not covered -> link-out / no service) with a deferred region map; `/compare?r=a,b,c` compares up to 3 resorts; ranking cards have a Compare checkbox. Resort pages revalidate every 15 min (the shorter of the forecast and bulletin caches). Coverage by our feeds: 13 of 30 resorts (Tyrol 7, Switzerland 6); 15 link out; Bansko and Gudauri have no EAWS service.
 - Windows: `@swc/core` (via next-intl) may need `SWC_NATIVE_BINDING_CACHE`, see README.
 
 ---

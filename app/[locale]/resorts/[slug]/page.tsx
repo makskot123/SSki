@@ -2,16 +2,26 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { ForecastSection } from "@/components/forecast/forecast-section";
+import { ResortAvalancheMap } from "@/components/resort/resort-avalanche-map";
+import {
+  ResortAvalancheSection,
+  type OfficialLink,
+} from "@/components/resort/resort-avalanche-section";
 import { ResortFacts } from "@/components/resort/resort-facts";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/locale-param";
 import { routing } from "@/i18n/routing";
 import { countryName } from "@/lib/format";
 import { getResortBySlug, getResorts } from "@/lib/resorts";
+import { getAvalancheData } from "@/lib/avalanche";
+import { regionLabel, regionMeta, servicesFor } from "@/lib/avalanche/meta";
+import { PROVIDERS } from "@/lib/avalanche/providers";
+import { resortAvalanche } from "@/lib/avalanche/resort-status";
 import { getForecasts } from "@/lib/weather";
 
 export const dynamicParams = false;
-export const revalidate = 3600;
+// Forecasts are cached for an hour, bulletins for 15 minutes; the page follows the shorter one.
+export const revalidate = 900;
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -42,6 +52,29 @@ export default async function ResortPage({
   const { bySlug } = await getForecasts();
   const forecast = bySlug[resort.slug];
 
+  const now = new Date();
+  const { index, feeds } = await getAvalancheData(now);
+  const avalanche = resortAvalanche(resort, index, feeds, (id) =>
+    regionLabel(
+      regionMeta,
+      id,
+      locale,
+      index.get(id)?.bulletin.regionNames[id],
+    ),
+  );
+
+  // Official sources for the resort's regions (EAWS metadata) plus the resort's own bulletin link.
+  const links: OfficialLink[] = [];
+  const addLink = (name: string, url: string) => {
+    if (!links.some((l) => l.url === url)) links.push({ name, url });
+  };
+  for (const id of resort.avalancheRegionIds) {
+    for (const s of servicesFor(regionMeta, id)) addLink(s.name, s.url);
+  }
+  if (resort.links.avalancheBulletin) {
+    addLink(t("avalancheBulletin"), resort.links.avalancheBulletin);
+  }
+
   return (
     <article className="space-y-8">
       <div className="space-y-3">
@@ -53,6 +86,14 @@ export default async function ResortPage({
           {resort.region}, {countryName(resort.country, locale)}
         </p>
         <p className="max-w-3xl text-lg">{resort.description[locale]}</p>
+        <p>
+          <Link
+            href={`/compare?r=${resort.slug}`}
+            className="text-sm font-medium text-accent underline"
+          >
+            {t("compareWith")}
+          </Link>
+        </p>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-2">
@@ -122,7 +163,43 @@ export default async function ResortPage({
         </div>
       </div>
 
-      <ForecastSection forecast={forecast} resortName={resort.name} />
+      <ForecastSection
+        forecast={forecast}
+        resortName={resort.name}
+        avalancheAnchor="avalanche"
+      />
+
+      {avalanche.kind === "no_service" ? (
+        <ResortAvalancheSection kind="no_service" />
+      ) : avalanche.kind === "not_covered" ? (
+        <>
+          <ResortAvalancheSection kind="not_covered" links={links} />
+          <ResortAvalancheMap
+            resortName={resort.name}
+            position={resort.coordinates}
+            regionIds={resort.avalancheRegionIds}
+            regions={[]}
+            renderedAt={now.toISOString()}
+          />
+        </>
+      ) : (
+        <>
+          <ResortAvalancheSection
+            kind="covered"
+            regions={avalanche.regions}
+            feedsDown={avalanche.feedsDown.map((id) => PROVIDERS[id].name)}
+            links={links}
+            renderedAt={now.toISOString()}
+          />
+          <ResortAvalancheMap
+            resortName={resort.name}
+            position={resort.coordinates}
+            regionIds={resort.avalancheRegionIds}
+            regions={avalanche.regions}
+            renderedAt={now.toISOString()}
+          />
+        </>
+      )}
     </article>
   );
 }

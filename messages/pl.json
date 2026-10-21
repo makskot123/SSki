@@ -86,7 +86,13 @@
     "conditionsUnavailable": "Bieżące dane o śniegu są teraz niedostępne, więc „Świeży śnieg teraz” jest pomijany.",
     "freshSnow": "Ostatnie 72 h",
     "freshSnowValue": "{cm} cm",
-    "alarmBadge": "Alarm puchu"
+    "alarmBadge": "Alarm puchu",
+    "compare": "Porównaj",
+    "compareLabel": "Porównaj: {name}",
+    "compareSelected": "{count, plural, one {Wybrano # ośrodek} few {Wybrano # ośrodki} many {Wybrano # ośrodków} other {Wybrano # ośrodka}} (maks. 3)",
+    "compareGo": "Porównaj obok siebie",
+    "compareNeedTwo": "Wybierz jeszcze co najmniej jeden.",
+    "compareClear": "Wyczyść wybór"
   },
   "HowWeRank": {
     "title": "Jak tworzymy ranking",
@@ -148,7 +154,8 @@
     "avalancheBulletin": "Oficjalny komunikat lawinowy",
     "noBulletin": "Brak znanego oficjalnego źródła komunikatów lawinowych dla tego rejonu. Zapytaj lokalnych przewodników lub służby ratownictwa górskiego.",
     "opensInNewTab": "(otwiera się w nowej karcie)",
-    "approxNote": "Wysokości, ceny i oceny terenu są przybliżonymi szacunkami, jeszcze niesprawdzonymi z oficjalnymi źródłami. Aktualne dane zawsze sprawdzaj na stronie ośrodka."
+    "approxNote": "Wysokości, ceny i oceny terenu są przybliżonymi szacunkami, jeszcze niesprawdzonymi z oficjalnymi źródłami. Aktualne dane zawsze sprawdzaj na stronie ośrodka.",
+    "compareWith": "Porównaj z innymi ośrodkami"
   },
   "Footer": {
     "disclaimer": "To nie zastępuje oficjalnego komunikatu lawinowego. Zawsze czytaj pełny komunikat i sprawdzaj warunki na miejscu.",
@@ -176,7 +183,8 @@
     "statusLive": "Prognoza na żywo: Open-Meteo.com",
     "statusMock": "Dane przykładowe: prognoza na żywo jest teraz niedostępna. Nie używaj jej do planowania.",
     "updated": "Zaktualizowano {time}",
-    "noDays": "Brak dni prognozy."
+    "noDays": "Brak dni prognozy.",
+    "windLinkHere": "Zobacz sytuację lawinową dla tego ośrodka poniżej"
   },
   "Powder": {
     "title": "Gdzie jest puch w ten weekend?",
@@ -268,5 +276,45 @@
     "attribution": "Komunikaty: {providers}. Kontury regionów: regiony EAWS (CC0). Mapa podkładowa: OpenFreeMap, dane © współtwórcy OpenStreetMap.",
     "loadMap": "Pokaż interaktywną mapę",
     "mapDeferred": "Mapa ładuje się, gdy tylko wejdziesz w interakcję ze stroną, aby strona działała szybko. Lista regionów poniżej zawiera te same informacje."
+  },
+  "ResortAvalanche": {
+    "title": "Sytuacja lawinowa",
+    "highest": "Najwyższy stopień zagrożenia w regionie(ach) ośrodka",
+    "noRating": "Brak oceny zagrożenia",
+    "validUntil": "Ważny do {time}",
+    "noCurrent": "Brak aktualnych danych",
+    "openMap": "Szczegóły na mapie lawinowej",
+    "source": "Źródło: {provider}, {license}",
+    "officialLinks": "Oficjalne źródła",
+    "opensInNewTab": "(otwiera się w nowej karcie)",
+    "staleTitle": "Brak aktualnych danych",
+    "staleBody": "Najnowszy komunikat dla regionu tego ośrodka został opublikowany {time}. Jest nieaktualny, więc nie pokazujemy stopnia zagrożenia. Przeczytaj oficjalny komunikat.",
+    "staleBodyShort": "Komunikat dla regionu tego ośrodka jest nieaktualny, więc nie pokazujemy stopnia zagrożenia. Przeczytaj oficjalny komunikat.",
+    "missingBody": "Nasze źródło danych nie ma teraz komunikatu dla regionu tego ośrodka. Przeczytaj oficjalny komunikat.",
+    "feedDown": "Źródło danych ({feeds}) jest teraz niedostępne.",
+    "notCovered": "Nie wyświetlamy komunikatów dla tego regionu. Przeczytaj oficjalny komunikat lokalnej służby ostrzegawczej.",
+    "noService": "Nie jest znana żadna oficjalna służba lawinowa dla tego rejonu. Przed jazdą poza trasami zapytaj lokalnych przewodników lub służby ratownictwa górskiego.",
+    "mapTitle": "Mapa regionu lawinowego",
+    "mapLabel": "Mapa pokazująca {name} i jego region lawinowy",
+    "markerLabel": "{name}",
+    "mapNote": "Czarny kontur to region lawinowy tego ośrodka. Kolor pojawia się tylko tam, gdzie jest aktualny komunikat. Wybierz region, aby otworzyć go na mapie lawinowej.",
+    "cellNoService": "Brak znanej oficjalnej służby",
+    "cellNotCovered": "Nie pokazujemy tu: zobacz oficjalny komunikat",
+    "cellDetails": "Szczegóły"
+  },
+  "Compare": {
+    "title": "Porównaj ośrodki",
+    "subtitle": "Wybierz dwa lub trzy ośrodki, aby zobaczyć je obok siebie.",
+    "pick": "Ośrodek {n}",
+    "none": "Brak",
+    "needTwo": "Wybierz co najmniej dwa ośrodki do porównania.",
+    "caption": "Porównanie wybranych ośrodków obok siebie",
+    "rowLocation": "Lokalizacja",
+    "rowSnowfall": "Średnie opady śniegu (list.–kw.)",
+    "rowWind": "Wiatr (maks., 3 dni)",
+    "rowAvalanche": "Sytuacja lawinowa",
+    "alarm": "Alarm puchu",
+    "windWarning": "Prognozowany silny wiatr",
+    "backToRanking": "Wróć do rankingu"
   }
 }

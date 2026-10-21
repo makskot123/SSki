@@ -30,6 +30,7 @@ npm run data:regions # rebuild simplified EAWS GeoJSON (added in M6)
 ## Code style
 
 - TypeScript strict. No `any`; parse unknown data with Zod and infer types from schemas (`lib/schemas`).
+- Never export constants/functions from a `"use client"` file for server code to use: a server component receives a client reference, not the value (this silently broke `MAX_COMPARE`). Put shared values in a plain module under `lib/`.
 - Server Components by default; `"use client"` only for interactive parts (map, sliders, checklist, quiz).
 - Business logic (scoring, CAAML parsing, freshness, thresholds) lives in pure functions in `lib/` with unit tests.
 - All user-facing strings go through next-intl (`messages/en.json`, `messages/pl.json`). Never hard-code UI text.
@@ -42,6 +43,7 @@ npm run data:regions # rebuild simplified EAWS GeoJSON (added in M6)
 - **Never scrape sites that forbid it.** Use only official APIs/feeds listed as ✅ in PLAN.md §5; everything else is a link-out. No hotlinking images or webcams.
 - **Exception to the mock rule: avalanche data has no sample-data fallback.** If a feed is down or invalid, its regions show "No current data" (see `lib/avalanche/index.ts`). Never invent, interpolate or recycle danger levels, not even in tests/e2e of the running app. A bulletin that fails validation is dropped, never partially shown.
 - The map is a progressive enhancement: the region list/panel must always work without it, MapLibre loads only after user interaction, and its worker is copied to `public/maplibre/` by `scripts/copy-maplibre-worker.mjs` (runs on dev/build). Do not let Prettier/ESLint touch `public/data` or `public/maplibre`.
+- Pages are cached for minutes, so every place that shows an avalanche level re-checks freshness with the visitor's clock (`useNow` + `downgradeExpired` / `summariseResort`). This can only downgrade current -> stale, never the reverse.
 - Avalanche data older than 24 h, or outside its valid window, shows **"No current data"**, never a stale level.
 - Never compute, interpolate or forecast avalanche danger ourselves. Display the official values only.
 - Always show the disclaimer near avalanche data: "Not a substitute for the official bulletin. Always read the full bulletin and check conditions on site."

@@ -195,7 +195,9 @@ test("the map loads and colours exactly the regions with a current bulletin", as
   page,
 }) => {
   await page.goto("/en/avalanche");
-  await page.getByRole("button", { name: "Show interactive map" }).click();
+  // Wait for hydration, then move the mouse: that is itself the first interaction that starts the map.
+  await page.waitForLoadState("networkidle");
+  await page.mouse.move(150, 250);
   const map = page.getByTestId("avalanche-map");
   await expect(map).toHaveAttribute("data-map-status", /ready|error/, {
     timeout: 30_000,

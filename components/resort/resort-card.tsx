@@ -10,6 +10,7 @@ export function ResortCard({
   score,
   freshSnowCm,
   powderAlarm,
+  compare,
 }: {
   resort: Resort;
   rank?: number;
@@ -19,6 +20,12 @@ export function ResortCard({
   freshSnowCm?: number;
   /** Live Powder Alarm only; never set from sample data. */
   powderAlarm?: boolean;
+  /** Adds a "Compare" checkbox (limited to a few resorts by the parent). */
+  compare?: {
+    checked: boolean;
+    disabled: boolean;
+    onChange: (checked: boolean) => void;
+  };
 }) {
   const t = useTranslations("Resorts");
   const tr = useTranslations("Ranking");
@@ -87,6 +94,20 @@ export function ResortCard({
           {eur(resort.liftPass.dayPriceEUR.max)}
         </dd>
       </dl>
+      {compare && (
+        // Above the card's stretched link so it stays clickable.
+        <label className="relative z-10 flex w-fit items-center gap-2 text-sm">
+          <input
+            type="checkbox"
+            checked={compare.checked}
+            disabled={compare.disabled}
+            onChange={(e) => compare.onChange(e.target.checked)}
+            aria-label={tr("compareLabel", { name: resort.name })}
+            className="accent-accent"
+          />
+          {tr("compare")}
+        </label>
+      )}
     </article>
   );
 }

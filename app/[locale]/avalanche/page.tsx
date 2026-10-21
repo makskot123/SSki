@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { getFormatter, getTranslations } from "next-intl/server";
+import { getTranslations } from "next-intl/server";
 import { AvalancheExplorer } from "@/components/avalanche/avalanche-explorer";
 import { Disclaimer } from "@/components/ui/disclaimer";
 import { getAvalancheData } from "@/lib/avalanche";
 import { PROVIDER_IDS, PROVIDERS } from "@/lib/avalanche/providers";
-import { currentLevels, toView } from "@/lib/avalanche/view";
+import { toView } from "@/lib/avalanche/view";
 import { resolveLocale } from "@/i18n/locale-param";
 
 // Bulletins change a few times a day; the feeds themselves are cached for 15 minutes.
@@ -23,25 +23,13 @@ export default async function AvalanchePage({
 }: PageProps<"/[locale]/avalanche">) {
   await resolveLocale(params);
   const t = await getTranslations("Avalanche");
-  const format = await getFormatter();
 
   const { index, feeds } = await getAvalancheData();
   const view = toView(index);
-  const currentCount = Object.keys(currentLevels(view)).length;
   const latest = view.bulletins
     .map((b) => b.publicationTime)
     .sort()
     .at(-1);
-  const when = (iso: string) =>
-    format.dateTime(new Date(iso), {
-      day: "numeric",
-      month: "short",
-      year: "numeric",
-      hour: "2-digit",
-      minute: "2-digit",
-      timeZone: "Europe/Vienna",
-      timeZoneName: "short",
-    });
 
   return (
     <div className="space-y-6">
@@ -51,21 +39,9 @@ export default async function AvalanchePage({
         <div className="max-w-3xl rounded-lg border-2 border-fg bg-surface p-3 font-medium">
           <Disclaimer className="text-fg!" />
         </div>
-        <div className="space-y-1 text-sm" aria-live="polite">
-          <p className="font-semibold">
-            {currentCount > 0
-              ? t("summaryCurrent", { count: currentCount })
-              : t("summaryNone")}
-          </p>
-          {latest && (
-            <p className="text-muted">
-              {t("lastPublished", { time: when(latest) })}
-            </p>
-          )}
-        </div>
       </header>
 
-      <AvalancheExplorer view={view} />
+      <AvalancheExplorer view={view} latestPublished={latest} />
 
       <section
         aria-labelledby="feeds-title"

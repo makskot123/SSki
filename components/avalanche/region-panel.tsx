@@ -15,10 +15,8 @@ import type {
   ElevationBound,
 } from "@/lib/schemas/avalanche";
 
-export interface RegionMeta {
-  regions: Record<string, { n: [string, string]; o: string | null }>;
-  services: Record<string, { name: string; url: string }[]>;
-}
+export type { RegionMeta } from "@/lib/avalanche/meta";
+import type { RegionMeta } from "@/lib/avalanche/meta";
 
 const DISPLAY_ZONE = "Europe/Vienna"; // fixed so server and browser render the same text
 

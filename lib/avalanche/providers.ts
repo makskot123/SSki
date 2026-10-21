@@ -34,6 +34,17 @@ export const PROVIDERS = {
 export type ProviderId = keyof typeof PROVIDERS;
 export const PROVIDER_IDS = Object.keys(PROVIDERS) as ProviderId[];
 
+/** Which EAWS region ids each feed publishes bulletins for. */
+const COVERAGE: Record<ProviderId, RegExp> = {
+  euregio: /^(AT-07|IT-32-BZ|IT-32-TN)(-|$)/,
+  slf: /^CH(-|$)/,
+};
+
+/** The feed that covers this region, or null when we only link out to the official service. */
+export function providerFor(regionId: string): ProviderId | null {
+  return PROVIDER_IDS.find((id) => COVERAGE[id].test(regionId)) ?? null;
+}
+
 const FEED_URL_ENV: Record<ProviderId, string> = {
   euregio: "AVALANCHE_EUREGIO_FEED_URL",
   slf: "AVALANCHE_SLF_FEED_URL",

@@ -86,7 +86,13 @@
     "conditionsUnavailable": "Live snow data is unavailable right now, so “Fresh snow now” is skipped.",
     "freshSnow": "Last 72 h",
     "freshSnowValue": "{cm} cm",
-    "alarmBadge": "Powder alarm"
+    "alarmBadge": "Powder alarm",
+    "compare": "Compare",
+    "compareLabel": "Compare {name}",
+    "compareSelected": "{count, plural, one {# resort selected} other {# resorts selected}} (up to 3)",
+    "compareGo": "Compare side by side",
+    "compareNeedTwo": "Select at least one more.",
+    "compareClear": "Clear selection"
   },
   "HowWeRank": {
     "title": "How we rank",
@@ -148,7 +154,8 @@
     "avalancheBulletin": "Official avalanche bulletin",
     "noBulletin": "No official avalanche bulletin feed is known for this area. Ask local guides or the mountain rescue service.",
     "opensInNewTab": "(opens in a new tab)",
-    "approxNote": "Elevations, prices and terrain ratings are approximate estimates, not yet checked against official sources. Always check the resort's website for current numbers."
+    "approxNote": "Elevations, prices and terrain ratings are approximate estimates, not yet checked against official sources. Always check the resort's website for current numbers.",
+    "compareWith": "Compare with other resorts"
   },
   "Footer": {
     "disclaimer": "Not a substitute for the official bulletin. Always read the full bulletin and check conditions on site.",
@@ -176,7 +183,8 @@
     "statusLive": "Live forecast by Open-Meteo.com",
     "statusMock": "Sample data: the live forecast is unavailable right now. Do not use it for planning.",
     "updated": "Updated {time}",
-    "noDays": "No forecast days available."
+    "noDays": "No forecast days available.",
+    "windLinkHere": "See the avalanche situation for this resort below"
   },
   "Powder": {
     "title": "Where is the powder this weekend?",
@@ -268,5 +276,45 @@
     "attribution": "Bulletins: {providers}. Region outlines: EAWS regions (CC0). Basemap: OpenFreeMap, data © OpenStreetMap contributors.",
     "loadMap": "Show interactive map",
     "mapDeferred": "The map loads as soon as you interact with the page, to keep it fast. The region list below has the same information."
+  },
+  "ResortAvalanche": {
+    "title": "Avalanche situation",
+    "highest": "Highest danger level in this resort's region(s)",
+    "noRating": "No danger rating given",
+    "validUntil": "Valid until {time}",
+    "noCurrent": "No current data",
+    "openMap": "Details on the avalanche map",
+    "source": "Source: {provider}, {license}",
+    "officialLinks": "Official sources",
+    "opensInNewTab": "(opens in a new tab)",
+    "staleTitle": "No current data",
+    "staleBody": "The latest bulletin for this resort's region was published {time}. It is out of date, so no danger level is shown. Please read the official bulletin.",
+    "staleBodyShort": "The bulletin for this resort's region is out of date, so no danger level is shown. Please read the official bulletin.",
+    "missingBody": "Our data source has no bulletin for this resort's region right now. Please read the official bulletin.",
+    "feedDown": "The data source ({feeds}) cannot be reached right now.",
+    "notCovered": "We do not display bulletins for this region. Please read the official bulletin of the local warning service.",
+    "noService": "No official avalanche service is known for this area. Ask local guides or the mountain rescue service before going off-piste.",
+    "mapTitle": "Avalanche region map",
+    "mapLabel": "Map showing {name} and its avalanche region",
+    "markerLabel": "{name}",
+    "mapNote": "The black outline is this resort's avalanche region. A colour appears only where a current bulletin exists. Select a region to open it on the avalanche map.",
+    "cellNoService": "No official service known",
+    "cellNotCovered": "Not shown here: see the official bulletin",
+    "cellDetails": "Details"
+  },
+  "Compare": {
+    "title": "Compare resorts",
+    "subtitle": "Choose two or three resorts to see them side by side.",
+    "pick": "Resort {n}",
+    "none": "None",
+    "needTwo": "Choose at least two resorts to compare.",
+    "caption": "Side-by-side comparison of the selected resorts",
+    "rowLocation": "Location",
+    "rowSnowfall": "Average Nov–Apr snowfall",
+    "rowWind": "Wind (max, next 3 days)",
+    "rowAvalanche": "Avalanche situation",
+    "alarm": "Powder alarm",
+    "windWarning": "Strong wind forecast",
+    "backToRanking": "Back to the ranking"
   }
 }

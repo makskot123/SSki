@@ -6,3 +6,9 @@ export function countryName(code: string, locale: string): string {
     return code;
   }
 }
+
+/** "MM-DD" (as used for season dates) as a UTC date in a fixed non-leap year, for locale formatting. */
+export function monthDayDate(value: string): Date {
+  const [month, day] = value.split("-").map(Number);
+  return new Date(Date.UTC(2001, month - 1, day));
+}
