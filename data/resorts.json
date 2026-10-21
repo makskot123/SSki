@@ -1,0 +1,2047 @@
+[
+  {
+    "slug": "chamonix",
+    "name": "Chamonix",
+    "country": "FR",
+    "region": "Haute-Savoie",
+    "coordinates": {
+      "lat": 45.9237,
+      "lon": 6.8694
+    },
+    "summitPoint": {
+      "lat": 45.8789,
+      "lon": 6.8872,
+      "elevation": 3842
+    },
+    "elevation": {
+      "top": 3842,
+      "bottom": 1035
+    },
+    "verticalDrop": 2807,
+    "offPiste": {
+      "terrainVariety": 5,
+      "typicalSteepnessDeg": {
+        "min": 30,
+        "max": 55
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Vallée Blanche"
+        },
+        {
+          "name": "Grands Montets"
+        },
+        {
+          "name": "Brévent-Flégère"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 60,
+        "max": 90
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-01",
+      "closes": "04-30"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.chamonix.com/",
+      "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
+    },
+    "description": {
+      "en": "Home of the Vallée Blanche and steep high-alpine descents under Mont Blanc. Serious terrain: guide, glacier and avalanche skills expected.",
+      "pl": "Dom Vallée Blanche i stromych, wysokogórskich zjazdów pod Mont Blanc. Poważny teren: wymagany przewodnik oraz umiejętności lodowcowe i lawinowe."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "verbier",
+    "name": "Verbier",
+    "country": "CH",
+    "region": "Valais",
+    "coordinates": {
+      "lat": 46.0963,
+      "lon": 7.2286
+    },
+    "summitPoint": {
+      "lat": 46.0983,
+      "lon": 7.2833,
+      "elevation": 3330
+    },
+    "elevation": {
+      "top": 3330,
+      "bottom": 1500
+    },
+    "verticalDrop": 1830,
+    "offPiste": {
+      "terrainVariety": 5,
+      "typicalSteepnessDeg": {
+        "min": 30,
+        "max": 50
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Mont Fort"
+        },
+        {
+          "name": "Vallon d'Arbi"
+        },
+        {
+          "name": "Tortin"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 75,
+        "max": 100
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-01",
+      "closes": "04-20"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.verbier.ch/",
+      "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
+    },
+    "description": {
+      "en": "Large 4 Vallées lift system with famous off-piste from Mont Fort and Tortin; a Freeride World Tour finals venue.",
+      "pl": "Rozległy system wyciągów 4 Vallées ze słynnym off-piste spod Mont Fort i Tortin; miejsce finałów Freeride World Tour."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "la-grave",
+    "name": "La Grave",
+    "country": "FR",
+    "region": "Hautes-Alpes",
+    "coordinates": {
+      "lat": 45.0453,
+      "lon": 6.305
+    },
+    "summitPoint": {
+      "lat": 45.029,
+      "lon": 6.327,
+      "elevation": 3550
+    },
+    "elevation": {
+      "top": 3550,
+      "bottom": 1450
+    },
+    "verticalDrop": 2100,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 35,
+        "max": 55
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Vallons de la Meije"
+        },
+        {
+          "name": "Dôme de la Lauze"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 40,
+        "max": 55
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-15",
+      "closes": "05-01"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.la-grave.com/",
+      "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
+    },
+    "description": {
+      "en": "Ungroomed, unpatrolled mountain above the village, served by a single cable car. Raw, expert-only terrain with glaciers and big exposure.",
+      "pl": "Niewyratrakowana, nieratrowana góra nad wioską z jedną kolejką. Surowy teren tylko dla ekspertów, z lodowcami i dużą ekspozycją."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "engelberg",
+    "name": "Engelberg",
+    "country": "CH",
+    "region": "Obwalden",
+    "coordinates": {
+      "lat": 46.8212,
+      "lon": 8.4076
+    },
+    "summitPoint": {
+      "lat": 46.7727,
+      "lon": 8.4376,
+      "elevation": 3020
+    },
+    "elevation": {
+      "top": 3020,
+      "bottom": 1000
+    },
+    "verticalDrop": 2020,
+    "offPiste": {
+      "terrainVariety": 5,
+      "typicalSteepnessDeg": {
+        "min": 30,
+        "max": 50
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Laub"
+        },
+        {
+          "name": "Galtiberg"
+        },
+        {
+          "name": "Steinberg"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 65,
+        "max": 85
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "11-15",
+      "closes": "05-01"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.engelberg.ch/",
+      "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
+    },
+    "description": {
+      "en": "Titlis offers some of Switzerland's best lift-accessed off-piste, including Laub and Galtiberg, with a big vertical drop.",
+      "pl": "Titlis oferuje jedne z najlepszych w Szwajcarii tras off-piste dostępnych z wyciągów, w tym Laub i Galtiberg, z dużym przewyższeniem."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "st-anton",
+    "name": "St. Anton am Arlberg",
+    "country": "AT",
+    "region": "Tyrol",
+    "coordinates": {
+      "lat": 47.1296,
+      "lon": 10.2685
+    },
+    "summitPoint": {
+      "lat": 47.1356,
+      "lon": 10.2111,
+      "elevation": 2811
+    },
+    "elevation": {
+      "top": 2811,
+      "bottom": 1304
+    },
+    "verticalDrop": 1507,
+    "offPiste": {
+      "terrainVariety": 5,
+      "typicalSteepnessDeg": {
+        "min": 30,
+        "max": 50
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Valluga"
+        },
+        {
+          "name": "Rendl"
+        },
+        {
+          "name": "Kapall"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 70,
+        "max": 90
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-01",
+      "closes": "04-25"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.stantonamarlberg.com/",
+      "avalancheBulletin": "https://avalanche.report/"
+    },
+    "description": {
+      "en": "Arlberg's steep, wind-affected bowls around Valluga and Rendl; a classic freeride destination. The upper Valluga cable car is guide-only.",
+      "pl": "Strome, wietrzne kotły Arlbergu wokół Valluga i Rendl; klasyczny cel freeride'owy. Najwyższy odcinek kolejki na Valluga tylko z przewodnikiem."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "lech-zuers",
+    "name": "Lech Zürs",
+    "country": "AT",
+    "region": "Vorarlberg",
+    "coordinates": {
+      "lat": 47.2078,
+      "lon": 10.1427
+    },
+    "summitPoint": {
+      "lat": 47.22,
+      "lon": 10.15,
+      "elevation": 2450
+    },
+    "elevation": {
+      "top": 2450,
+      "bottom": 1450
+    },
+    "verticalDrop": 1000,
+    "offPiste": {
+      "terrainVariety": 5,
+      "typicalSteepnessDeg": {
+        "min": 28,
+        "max": 45
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Rüfikopf"
+        },
+        {
+          "name": "Zürs"
+        },
+        {
+          "name": "Madloch"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 75,
+        "max": 90
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "11-28",
+      "closes": "04-20"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.lechzuers.com/",
+      "avalancheBulletin": "https://www.vorarlberg.at/lawine"
+    },
+    "description": {
+      "en": "Famously snow-sure Arlberg resort with extensive off-piste from Rüfikopf and Zürs; mostly open terrain with real avalanche exposure.",
+      "pl": "Znany z pewnego śniegu ośrodek Arlbergu z rozległym off-piste spod Rüfikopf i Zürs; teren głównie otwarty, z realnym zagrożeniem lawinowym."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "andermatt",
+    "name": "Andermatt",
+    "country": "CH",
+    "region": "Uri",
+    "coordinates": {
+      "lat": 46.634,
+      "lon": 8.594
+    },
+    "summitPoint": {
+      "lat": 46.607,
+      "lon": 8.61,
+      "elevation": 2961
+    },
+    "elevation": {
+      "top": 2961,
+      "bottom": 1444
+    },
+    "verticalDrop": 1517,
+    "offPiste": {
+      "terrainVariety": 5,
+      "typicalSteepnessDeg": {
+        "min": 30,
+        "max": 50
+      },
+      "mainAspects": [
+        "NW",
+        "N",
+        "NE",
+        "E"
+      ],
+      "freerideZones": [
+        {
+          "name": "Gemsstock"
+        },
+        {
+          "name": "Gurschen"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 60,
+        "max": 80
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "11-25",
+      "closes": "05-01"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.andermatt.ch/",
+      "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
+    },
+    "description": {
+      "en": "Gemsstock is a steep, north-facing off-piste mountain reached by cable car, with couloirs and open faces.",
+      "pl": "Gemsstock to stroma, północna góra off-piste dostępna kolejką linową, z żlebami i otwartymi stokami."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "alagna",
+    "name": "Alagna Valsesia (Monterosa)",
+    "country": "IT",
+    "region": "Piedmont",
+    "coordinates": {
+      "lat": 45.853,
+      "lon": 7.938
+    },
+    "summitPoint": {
+      "lat": 45.871,
+      "lon": 7.864,
+      "elevation": 3275
+    },
+    "elevation": {
+      "top": 3275,
+      "bottom": 1200
+    },
+    "verticalDrop": 2075,
+    "offPiste": {
+      "terrainVariety": 5,
+      "typicalSteepnessDeg": {
+        "min": 30,
+        "max": 50
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Punta Indren"
+        },
+        {
+          "name": "Olen"
+        },
+        {
+          "name": "Valle d'Otro"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 40,
+        "max": 55
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-01",
+      "closes": "04-25"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.alagnavalsesia.com/",
+      "avalancheBulletin": "https://www.aineva.it/"
+    },
+    "description": {
+      "en": "The Italian side of Monte Rosa: long descents from Punta Indren and Olen, famed for deep snow. A guide is strongly advised.",
+      "pl": "Włoska strona Monte Rosa: długie zjazdy spod Punta Indren i Olen, słynne z głębokiego śniegu. Zdecydowanie zalecany przewodnik."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "val-disere-tignes",
+    "name": "Val d'Isère / Tignes",
+    "country": "FR",
+    "region": "Savoie",
+    "coordinates": {
+      "lat": 45.4486,
+      "lon": 6.9803
+    },
+    "summitPoint": {
+      "lat": 45.429,
+      "lon": 6.902,
+      "elevation": 3456
+    },
+    "elevation": {
+      "top": 3456,
+      "bottom": 1550
+    },
+    "verticalDrop": 1906,
+    "offPiste": {
+      "terrainVariety": 5,
+      "typicalSteepnessDeg": {
+        "min": 30,
+        "max": 50
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Pays Désert"
+        },
+        {
+          "name": "Face de Bellevarde"
+        },
+        {
+          "name": "Grande Motte"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 70,
+        "max": 85
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "11-22",
+      "closes": "05-04"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.valdisere.com/",
+      "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
+    },
+    "description": {
+      "en": "Espace Killy: glacier skiing from Grande Motte and large off-piste areas such as Pays Désert; a long season.",
+      "pl": "Espace Killy: narciarstwo lodowcowe z Grande Motte i rozległe tereny off-piste, jak Pays Désert; długi sezon."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "fieberbrunn",
+    "name": "Fieberbrunn",
+    "country": "AT",
+    "region": "Tyrol",
+    "coordinates": {
+      "lat": 47.475,
+      "lon": 12.542
+    },
+    "summitPoint": {
+      "lat": 47.46,
+      "lon": 12.53,
+      "elevation": 2020
+    },
+    "elevation": {
+      "top": 2020,
+      "bottom": 800
+    },
+    "verticalDrop": 1220,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 30,
+        "max": 50
+      },
+      "mainAspects": [
+        "NW",
+        "N",
+        "NE",
+        "E"
+      ],
+      "freerideZones": [
+        {
+          "name": "Wildseeloder"
+        },
+        {
+          "name": "Lärchfilzkogel"
+        }
+      ],
+      "beginnerFriendly": true
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 55,
+        "max": 65
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-01",
+      "closes": "04-15"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.fieberbrunn.com/",
+      "avalancheBulletin": "https://avalanche.report/"
+    },
+    "description": {
+      "en": "Tyrolean resort around the Wildseeloder, a Freeride World Tour stop, with off-piste routes and safety training offers.",
+      "pl": "Tyrolski ośrodek wokół Wildseeloder, przystanku Freeride World Tour, z trasami off-piste i szkoleniami z bezpieczeństwa."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "hintertux",
+    "name": "Hintertux Glacier",
+    "country": "AT",
+    "region": "Tyrol",
+    "coordinates": {
+      "lat": 47.068,
+      "lon": 11.672
+    },
+    "summitPoint": {
+      "lat": 47.06,
+      "lon": 11.67,
+      "elevation": 3250
+    },
+    "elevation": {
+      "top": 3250,
+      "bottom": 1500
+    },
+    "verticalDrop": 1750,
+    "offPiste": {
+      "terrainVariety": 3,
+      "typicalSteepnessDeg": {
+        "min": 25,
+        "max": 40
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Gefrorene Wand"
+        },
+        {
+          "name": "Sommerbergalm"
+        }
+      ],
+      "beginnerFriendly": true
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 60,
+        "max": 70
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "01-01",
+      "closes": "12-31"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.hintertuxergletscher.at/",
+      "avalancheBulletin": "https://avalanche.report/"
+    },
+    "description": {
+      "en": "Austria's only year-round glacier ski area, with moderate open terrain and lift-served off-piste on and around the glacier.",
+      "pl": "Jedyny w Austrii całoroczny ośrodek lodowcowy, z umiarkowanym, otwartym terenem i off-piste dostępnym z wyciągów na lodowcu i wokół niego."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "kasprowy-wierch",
+    "name": "Kasprowy Wierch (Zakopane)",
+    "country": "PL",
+    "region": "Lesser Poland",
+    "coordinates": {
+      "lat": 49.2705,
+      "lon": 19.9802
+    },
+    "summitPoint": {
+      "lat": 49.2318,
+      "lon": 19.9818,
+      "elevation": 1987
+    },
+    "elevation": {
+      "top": 1987,
+      "bottom": 1000
+    },
+    "verticalDrop": 987,
+    "offPiste": {
+      "terrainVariety": 2,
+      "typicalSteepnessDeg": {
+        "min": 25,
+        "max": 40
+      },
+      "mainAspects": [
+        "NW",
+        "N",
+        "NE",
+        "E"
+      ],
+      "freerideZones": [],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": false,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 25,
+        "max": 35
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-01",
+      "closes": "04-30"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.pkl.pl/",
+      "avalancheBulletin": "https://lawiny.topr.pl/"
+    },
+    "description": {
+      "en": "Iconic Tatra peak with a cable car from Kuźnice. Off-piste rules in the Tatra National Park are strict, so check the regulations and the TOPR bulletin first.",
+      "pl": "Kultowy tatrzański szczyt z kolejką z Kuźnic. Zasady jazdy poza trasami w Tatrzańskim Parku Narodowym są restrykcyjne, więc najpierw sprawdź przepisy i komunikat TOPR."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "jasna",
+    "name": "Jasná Nízke Tatry",
+    "country": "SK",
+    "region": "Žilina",
+    "coordinates": {
+      "lat": 48.95,
+      "lon": 19.593
+    },
+    "summitPoint": {
+      "lat": 48.9433,
+      "lon": 19.591,
+      "elevation": 2024
+    },
+    "elevation": {
+      "top": 2024,
+      "bottom": 950
+    },
+    "verticalDrop": 1074,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 30,
+        "max": 45
+      },
+      "mainAspects": [
+        "NW",
+        "N",
+        "NE",
+        "E"
+      ],
+      "freerideZones": [
+        {
+          "name": "Chopok North"
+        },
+        {
+          "name": "Luková"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 40,
+        "max": 55
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-05",
+      "closes": "04-10"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.jasna.sk/",
+      "avalancheBulletin": "https://www.laviny.sk/"
+    },
+    "description": {
+      "en": "Low Tatras resort whose Chopok north side offers lift-accessed freeride terrain; a popular choice in Central Europe.",
+      "pl": "Ośrodek w Niżnych Tatrach, którego północna strona Chopoka oferuje tereny freeride dostępne z wyciągów; popularny cel w Europie Środkowej."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "bansko",
+    "name": "Bansko",
+    "country": "BG",
+    "region": "Blagoevgrad",
+    "coordinates": {
+      "lat": 41.8383,
+      "lon": 23.488
+    },
+    "summitPoint": {
+      "lat": 41.776,
+      "lon": 23.438,
+      "elevation": 2560
+    },
+    "elevation": {
+      "top": 2560,
+      "bottom": 936
+    },
+    "verticalDrop": 1624,
+    "offPiste": {
+      "terrainVariety": 3,
+      "typicalSteepnessDeg": {
+        "min": 25,
+        "max": 40
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Todorka"
+        },
+        {
+          "name": "Shiligarnika"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 40,
+        "max": 55
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-05",
+      "closes": "04-20"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.banskoski.com/"
+    },
+    "description": {
+      "en": "Pirin Mountains ski area with a gondola from town and affordable guided off-piste; official avalanche bulletin coverage is limited.",
+      "pl": "Ośrodek w górach Pirin z gondolą z miasta i niedrogim off-piste z przewodnikiem; oficjalne komunikaty lawinowe są ograniczone."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "gudauri",
+    "name": "Gudauri",
+    "country": "GE",
+    "region": "Mtskheta-Mtianeti",
+    "coordinates": {
+      "lat": 42.4784,
+      "lon": 44.481
+    },
+    "summitPoint": {
+      "lat": 42.485,
+      "lon": 44.5,
+      "elevation": 3279
+    },
+    "elevation": {
+      "top": 3279,
+      "bottom": 1990
+    },
+    "verticalDrop": 1289,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 25,
+        "max": 45
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Kudebi"
+        },
+        {
+          "name": "Sno valley"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 25,
+        "max": 40
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-15",
+      "closes": "04-15"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.gudauri.travel/"
+    },
+    "description": {
+      "en": "Greater Caucasus resort with lift- and heli-accessed off-piste and a high base; avalanche information is limited, so go with local guides.",
+      "pl": "Ośrodek w Wielkim Kaukazie z off-piste dostępnym z wyciągów i helikopterem oraz wysoką bazą; informacje lawinowe są ograniczone, więc jedź z lokalnymi przewodnikami."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "riksgransen",
+    "name": "Riksgränsen",
+    "country": "SE",
+    "region": "Norrbotten",
+    "coordinates": {
+      "lat": 68.429,
+      "lon": 18.127
+    },
+    "summitPoint": {
+      "lat": 68.435,
+      "lon": 18.15,
+      "elevation": 1050
+    },
+    "elevation": {
+      "top": 1050,
+      "bottom": 500
+    },
+    "verticalDrop": 550,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 30,
+        "max": 50
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Nordalpin"
+        },
+        {
+          "name": "Riksgränsen backcountry"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 55,
+        "max": 65
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "02-15",
+      "closes": "06-15"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.riksgransen.nu/",
+      "avalancheBulletin": "https://www.lavinprognoser.se/"
+    },
+    "description": {
+      "en": "Arctic Sweden: the season runs into June under the midnight sun, with steep terrain at the lift and serious backcountry beyond.",
+      "pl": "Arktyczna Szwecja: sezon trwa do czerwca w świetle nocy polarnej, ze stromym terenem przy wyciągu i poważnym backcountry dalej."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "st-moritz",
+    "name": "St. Moritz Engadin",
+    "country": "CH",
+    "region": "Graubünden",
+    "coordinates": {
+      "lat": 46.4908,
+      "lon": 9.8355
+    },
+    "summitPoint": {
+      "lat": 46.418,
+      "lon": 9.821,
+      "elevation": 3303
+    },
+    "elevation": {
+      "top": 3303,
+      "bottom": 1720
+    },
+    "verticalDrop": 1583,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 28,
+        "max": 45
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Corvatsch"
+        },
+        {
+          "name": "Piz Nair"
+        },
+        {
+          "name": "Diavolezza"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 70,
+        "max": 90
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "11-20",
+      "closes": "05-01"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.stmoritz.com/",
+      "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
+    },
+    "description": {
+      "en": "Engadin: Corvatsch, Piz Nair and Diavolezza offer high-altitude off-piste and glacier skiing with reliable snow.",
+      "pl": "Engadyna: Corvatsch, Piz Nair i Diavolezza oferują wysokogórskie off-piste i narciarstwo lodowcowe z pewnym śniegiem."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "soelden",
+    "name": "Sölden",
+    "country": "AT",
+    "region": "Tyrol",
+    "coordinates": {
+      "lat": 46.966,
+      "lon": 11.007
+    },
+    "summitPoint": {
+      "lat": 46.923,
+      "lon": 10.996,
+      "elevation": 3340
+    },
+    "elevation": {
+      "top": 3340,
+      "bottom": 1350
+    },
+    "verticalDrop": 1990,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 28,
+        "max": 45
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Gaislachkogl"
+        },
+        {
+          "name": "Schwarze Schneid"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 70,
+        "max": 85
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "09-20",
+      "closes": "05-01"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.soelden.com/",
+      "avalancheBulletin": "https://avalanche.report/"
+    },
+    "description": {
+      "en": "Two 3,000 m peaks and glacier access give long lift-served off-piste lines from Gaislachkogl and Schwarze Schneid.",
+      "pl": "Dwa trzytysięczniki i dostęp do lodowca dają długie linie off-piste z wyciągów spod Gaislachkogl i Schwarze Schneid."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "kaprun",
+    "name": "Kaprun (Kitzsteinhorn)",
+    "country": "AT",
+    "region": "Salzburg",
+    "coordinates": {
+      "lat": 47.27,
+      "lon": 12.761
+    },
+    "summitPoint": {
+      "lat": 47.184,
+      "lon": 12.69,
+      "elevation": 3029
+    },
+    "elevation": {
+      "top": 3029,
+      "bottom": 800
+    },
+    "verticalDrop": 2229,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 28,
+        "max": 45
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Kitzsteinhorn glacier"
+        },
+        {
+          "name": "Maiskogel"
+        }
+      ],
+      "beginnerFriendly": true
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 65,
+        "max": 75
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "01-01",
+      "closes": "12-31"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.kitzsteinhorn.at/",
+      "avalancheBulletin": "https://lawine.salzburg.at/"
+    },
+    "description": {
+      "en": "The Kitzsteinhorn glacier gives early and late-season skiing and high-alpine lift-served off-piste lines.",
+      "pl": "Lodowiec Kitzsteinhorn zapewnia narty na początku i końcu sezonu oraz wysokogórskie linie off-piste dostępne z wyciągów."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "livigno",
+    "name": "Livigno",
+    "country": "IT",
+    "region": "Lombardy",
+    "coordinates": {
+      "lat": 46.537,
+      "lon": 10.135
+    },
+    "summitPoint": {
+      "lat": 46.566,
+      "lon": 10.172,
+      "elevation": 2798
+    },
+    "elevation": {
+      "top": 2798,
+      "bottom": 1816
+    },
+    "verticalDrop": 982,
+    "offPiste": {
+      "terrainVariety": 3,
+      "typicalSteepnessDeg": {
+        "min": 25,
+        "max": 40
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Carosello"
+        },
+        {
+          "name": "Mottolino"
+        }
+      ],
+      "beginnerFriendly": true
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 50,
+        "max": 60
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "11-28",
+      "closes": "05-01"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.livigno.eu/",
+      "avalancheBulletin": "https://www.aineva.it/"
+    },
+    "description": {
+      "en": "Duty-free valley at around 1,800 m with reliable cold snow and open off-piste at Carosello and Mottolino.",
+      "pl": "Bezcłowa dolina na wysokości ok. 1800 m z pewnym, zimnym śniegiem i otwartym off-piste na Carosello i Mottolino."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "zermatt",
+    "name": "Zermatt",
+    "country": "CH",
+    "region": "Valais",
+    "coordinates": {
+      "lat": 46.0207,
+      "lon": 7.7491
+    },
+    "summitPoint": {
+      "lat": 45.9366,
+      "lon": 7.7133,
+      "elevation": 3883
+    },
+    "elevation": {
+      "top": 3883,
+      "bottom": 1620
+    },
+    "verticalDrop": 2263,
+    "offPiste": {
+      "terrainVariety": 5,
+      "typicalSteepnessDeg": {
+        "min": 28,
+        "max": 50
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Stockhorn"
+        },
+        {
+          "name": "Triftji"
+        },
+        {
+          "name": "Klein Matterhorn"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 85,
+        "max": 100
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "11-15",
+      "closes": "05-01"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.zermatt.ch/",
+      "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
+    },
+    "description": {
+      "en": "Matterhorn views, Klein Matterhorn at 3,883 m and long off-piste runs such as Stockhorn–Triftji; high, snow-sure and serious.",
+      "pl": "Widoki na Matterhorn, Klein Matterhorn na 3883 m i długie zjazdy off-piste, jak Stockhorn–Triftji; wysoko, pewny śnieg i poważny teren."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "courmayeur",
+    "name": "Courmayeur",
+    "country": "IT",
+    "region": "Aosta Valley",
+    "coordinates": {
+      "lat": 45.797,
+      "lon": 6.969
+    },
+    "summitPoint": {
+      "lat": 45.8586,
+      "lon": 6.9388,
+      "elevation": 3466
+    },
+    "elevation": {
+      "top": 3466,
+      "bottom": 1224
+    },
+    "verticalDrop": 2242,
+    "offPiste": {
+      "terrainVariety": 5,
+      "typicalSteepnessDeg": {
+        "min": 30,
+        "max": 50
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Vallée Blanche (Italian side)"
+        },
+        {
+          "name": "Pointe Helbronner"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 50,
+        "max": 60
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-01",
+      "closes": "04-25"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.courmayeur-montblanc.com/",
+      "avalancheBulletin": "https://www.aineva.it/"
+    },
+    "description": {
+      "en": "The Italian side of Mont Blanc: the Skyway to Pointe Helbronner gives access to the Vallée Blanche and high off-piste.",
+      "pl": "Włoska strona Mont Blanc: kolejka Skyway do Pointe Helbronner daje dostęp do Vallée Blanche i wysokiego off-piste."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "serre-chevalier",
+    "name": "Serre Chevalier",
+    "country": "FR",
+    "region": "Hautes-Alpes",
+    "coordinates": {
+      "lat": 44.9456,
+      "lon": 6.5539
+    },
+    "summitPoint": {
+      "lat": 44.974,
+      "lon": 6.523,
+      "elevation": 2830
+    },
+    "elevation": {
+      "top": 2830,
+      "bottom": 1200
+    },
+    "verticalDrop": 1630,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 28,
+        "max": 45
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Chantemerle"
+        },
+        {
+          "name": "Villeneuve"
+        },
+        {
+          "name": "Monêtier"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 45,
+        "max": 55
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-10",
+      "closes": "04-20"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.serrechevalier.com/",
+      "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
+    },
+    "description": {
+      "en": "Large southern Alps area with good tree skiing in storms and off-piste above Chantemerle and Villeneuve.",
+      "pl": "Duży ośrodek w południowych Alpach z dobrą jazdą w lesie podczas opadów i off-piste nad Chantemerle i Villeneuve."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "obergurgl",
+    "name": "Obergurgl-Hochgurgl",
+    "country": "AT",
+    "region": "Tyrol",
+    "coordinates": {
+      "lat": 46.868,
+      "lon": 11.027
+    },
+    "summitPoint": {
+      "lat": 46.842,
+      "lon": 11.023,
+      "elevation": 3080
+    },
+    "elevation": {
+      "top": 3080,
+      "bottom": 1800
+    },
+    "verticalDrop": 1280,
+    "offPiste": {
+      "terrainVariety": 3,
+      "typicalSteepnessDeg": {
+        "min": 25,
+        "max": 40
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Hohe Mut"
+        },
+        {
+          "name": "Hochgurgl"
+        }
+      ],
+      "beginnerFriendly": true
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 65,
+        "max": 75
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "11-20",
+      "closes": "05-01"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.obergurgl.com/",
+      "avalancheBulletin": "https://avalanche.report/"
+    },
+    "description": {
+      "en": "Ötztal resort above 1,800 m with a long season and open, lift-served off-piste at Hohe Mut and Hochgurgl.",
+      "pl": "Ośrodek w Ötztal powyżej 1800 m z długim sezonem i otwartym off-piste dostępnym z wyciągów na Hohe Mut i Hochgurgl."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "ischgl",
+    "name": "Ischgl",
+    "country": "AT",
+    "region": "Tyrol",
+    "coordinates": {
+      "lat": 47.013,
+      "lon": 10.289
+    },
+    "summitPoint": {
+      "lat": 46.99,
+      "lon": 10.29,
+      "elevation": 2872
+    },
+    "elevation": {
+      "top": 2872,
+      "bottom": 1377
+    },
+    "verticalDrop": 1495,
+    "offPiste": {
+      "terrainVariety": 3,
+      "typicalSteepnessDeg": {
+        "min": 25,
+        "max": 40
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Palinkopf"
+        },
+        {
+          "name": "Greitspitz"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 75,
+        "max": 90
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "11-25",
+      "closes": "05-01"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.ischgl.com/",
+      "avalancheBulletin": "https://avalanche.report/"
+    },
+    "description": {
+      "en": "Silvretta Arena with high, snow-reliable terrain and off-piste around Palinkopf, linked to Samnaun in Switzerland.",
+      "pl": "Silvretta Arena z wysokim, pewnym śnieżnie terenem i off-piste wokół Palinkopf, połączona ze szwajcarskim Samnaun."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "bad-gastein",
+    "name": "Bad Gastein",
+    "country": "AT",
+    "region": "Salzburg",
+    "coordinates": {
+      "lat": 47.113,
+      "lon": 13.136
+    },
+    "summitPoint": {
+      "lat": 47.07,
+      "lon": 13.035,
+      "elevation": 2686
+    },
+    "elevation": {
+      "top": 2686,
+      "bottom": 1000
+    },
+    "verticalDrop": 1686,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 25,
+        "max": 45
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Sportgastein"
+        },
+        {
+          "name": "Graukogel"
+        }
+      ],
+      "beginnerFriendly": true
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 60,
+        "max": 70
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-01",
+      "closes": "04-20"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.gastein.com/",
+      "avalancheBulletin": "https://lawine.salzburg.at/"
+    },
+    "description": {
+      "en": "Gastein valley with Sportgastein and Graukogel: high-alpine off-piste and quieter slopes, from moderate to steep terrain.",
+      "pl": "Dolina Gastein ze Sportgastein i Graukogel: wysokogórskie off-piste i spokojniejsze stoki, od umiarkowanego do stromego terenu."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "kuehtai",
+    "name": "Kühtai",
+    "country": "AT",
+    "region": "Tyrol",
+    "coordinates": {
+      "lat": 47.214,
+      "lon": 11.022
+    },
+    "summitPoint": {
+      "lat": 47.215,
+      "lon": 11.015,
+      "elevation": 2520
+    },
+    "elevation": {
+      "top": 2520,
+      "bottom": 2020
+    },
+    "verticalDrop": 500,
+    "offPiste": {
+      "terrainVariety": 3,
+      "typicalSteepnessDeg": {
+        "min": 25,
+        "max": 40
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Dreiseenbahn"
+        },
+        {
+          "name": "Hochalter"
+        }
+      ],
+      "beginnerFriendly": true
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 55,
+        "max": 65
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "11-20",
+      "closes": "05-01"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.kuehtai.info/",
+      "avalancheBulletin": "https://avalanche.report/"
+    },
+    "description": {
+      "en": "High-altitude Tyrolean resort near Innsbruck with a 2,020 m base: very snow-sure, with open terrain and quick access.",
+      "pl": "Wysokogórski tyrolski ośrodek niedaleko Innsbrucka z bazą na 2020 m: bardzo pewny śnieg, otwarty teren i szybki dojazd."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "disentis",
+    "name": "Disentis 3000",
+    "country": "CH",
+    "region": "Graubünden",
+    "coordinates": {
+      "lat": 46.703,
+      "lon": 8.853
+    },
+    "summitPoint": {
+      "lat": 46.69,
+      "lon": 8.83,
+      "elevation": 2830
+    },
+    "elevation": {
+      "top": 2830,
+      "bottom": 1130
+    },
+    "verticalDrop": 1700,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 28,
+        "max": 45
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Caischavedra"
+        },
+        {
+          "name": "Piz Ault"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 45,
+        "max": 60
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-01",
+      "closes": "04-20"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.disentis.ch/",
+      "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
+    },
+    "description": {
+      "en": "Surselva resort with a big vertical drop, relatively quiet slopes and a long off-piste tradition.",
+      "pl": "Ośrodek w Surselva z dużym przewyższeniem, stosunkowo spokojnymi stokami i długą tradycją off-piste."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "les-deux-alpes",
+    "name": "Les Deux Alpes",
+    "country": "FR",
+    "region": "Isère",
+    "coordinates": {
+      "lat": 45.0123,
+      "lon": 6.1235
+    },
+    "summitPoint": {
+      "lat": 45.03,
+      "lon": 6.13,
+      "elevation": 3568
+    },
+    "elevation": {
+      "top": 3568,
+      "bottom": 1300
+    },
+    "verticalDrop": 2268,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 28,
+        "max": 45
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Dôme de la Lauze"
+        },
+        {
+          "name": "Glacier"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 55,
+        "max": 65
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "12-06",
+      "closes": "04-25"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.les2alpes.com/",
+      "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
+    },
+    "description": {
+      "en": "Glacier resort topping out near 3,570 m with open lift-served off-piste and a long season.",
+      "pl": "Ośrodek lodowcowy sięgający ok. 3570 m z otwartym off-piste dostępnym z wyciągów i długim sezonem."
+    },
+    "lastVerified": null
+  },
+  {
+    "slug": "cervinia",
+    "name": "Breuil-Cervinia",
+    "country": "IT",
+    "region": "Aosta Valley",
+    "coordinates": {
+      "lat": 45.934,
+      "lon": 7.631
+    },
+    "summitPoint": {
+      "lat": 45.933,
+      "lon": 7.708,
+      "elevation": 3480
+    },
+    "elevation": {
+      "top": 3480,
+      "bottom": 1525
+    },
+    "verticalDrop": 1955,
+    "offPiste": {
+      "terrainVariety": 4,
+      "typicalSteepnessDeg": {
+        "min": 28,
+        "max": 45
+      },
+      "mainAspects": [
+        "N",
+        "NE",
+        "E",
+        "SE",
+        "S",
+        "SW",
+        "W",
+        "NW"
+      ],
+      "freerideZones": [
+        {
+          "name": "Plateau Rosa"
+        },
+        {
+          "name": "Ventina"
+        }
+      ],
+      "beginnerFriendly": false
+    },
+    "guidesAvailable": true,
+    "liftPass": {
+      "dayPriceEUR": {
+        "min": 55,
+        "max": 70
+      },
+      "season": "2025/26"
+    },
+    "season": {
+      "opens": "09-25",
+      "closes": "05-01"
+    },
+    "avalancheRegionIds": [],
+    "links": {
+      "official": "https://www.cervinia.it/",
+      "avalancheBulletin": "https://www.aineva.it/"
+    },
+    "description": {
+      "en": "High resort under the Matterhorn with a snow-reliable season and off-piste from Plateau Rosa, linked to Zermatt.",
+      "pl": "Wysoko położony ośrodek pod Matterhornem z pewnym sezonem śnieżnym i off-piste z Plateau Rosa, połączony z Zermatt."
+    },
+    "lastVerified": null
+  }
+]
