@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 (3D avalanche map + app) is a DRAFT awaiting approval**, see [§8](#8-phase-2--3d-avalanche-map-and-app-draft). No Phase 2 code yet.
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). No Phase 2 code yet.
 Date: 2026-10-21
 
 ---
@@ -374,7 +374,7 @@ Dates + country/region → shortlist ranked by forecast + current score + avalan
 `routes.json` (famous descents, guide flags), reviews and condition reports from mock JSON (form validates with Zod, writes to localStorage in v1 — no server writes), webcam link-outs, README complete, Lighthouse/a11y pass, Vercel deploy.
 *AC:* Lighthouse ≥ 90 (perf/a11y/best practices/SEO) on `/`, `/resorts`, `/avalanche`. README lists all sources and attributions.
 
-**Backlog:** Supabase-backed condition reports + moderation, EAWS aggregate (after permission), more languages (DE/FR/IT), PWA/offline, push powder alerts, AINEVA/TOPR direct feeds if they appear, route GPX (licensing!), historical danger-level stats per resort, gear guide for skis/boots/bindings (needs a fair, non-subjective scoring first), user gear reviews.
+**Backlog:** Supabase-backed condition reports + moderation, EAWS aggregate (after permission), more languages (DE/FR/IT), AINEVA/TOPR direct feeds if they appear, route GPX (licensing!), historical danger-level stats per resort, gear guide for skis/boots/bindings (needs a fair, non-subjective scoring first), user gear reviews.
 
 ---
 
@@ -401,11 +401,17 @@ Dates + country/region → shortlist ranked by forecast + current score + avalan
 
 ---
 
-## 8. Phase 2 — 3D avalanche map and app (DRAFT)
+## 8. Phase 2 — 3D avalanche map and free web app
 
-Direction change (2026-10-21): the avalanche map becomes **3D**, and FreerideAtlas becomes an **app** on phones. Everything built in Phase 1 (data layers, scoring, safety rules, tests) is kept. The non-negotiable data rules still apply: official bulletins only, no level without a current bulletin, sample data never raises alerts.
+Direction change (2026-10-21): the avalanche map becomes **3D**, and FreerideAtlas becomes an **installable web app** on phones. Everything built in Phase 1 (data layers, scoring, safety rules, tests) is kept. The non-negotiable data rules still apply: official bulletins only, no level without a current bulletin, sample data never raises alerts.
 
-### 8.1 What "app" can mean: options and recommendation
+**Decisions (2026-10-21):**
+- **Nothing paid.** No App Store or Google Play apps (no store fees), so route A only: an installable web app (PWA). It is free to build and install.
+- **The 3D map stays** (A1, A2), on free map and elevation data.
+- **No push notifications.** No backend or database to pay for or maintain; A7 is removed.
+- **The website stays** and is the same codebase as the installable app.
+
+### 8.1 What "app" can mean (for the record; route A chosen)
 
 | | A. Installable web app (PWA) | B. Store app with Capacitor 8 | C. Native app with Expo 58 (React Native) |
 |---|---|---|---|
@@ -417,7 +423,7 @@ Direction change (2026-10-21): the avalanche map becomes **3D**, and FreerideAtl
 | Cost | Free | Google Play $25 once, Apple $99/year | Same as B |
 | Main risk | Not in the stores | Apple may reject a "repackaged website" (guideline 4.2); native features reduce the risk | Largest effort; two UIs to maintain |
 
-**Recommendation:** do **A first** (one milestone gets the app onto phones, with offline mode, install and later push), then **B for the stores**, Android first because it builds on Windows. Choose C only if a fully native feel matters more than reuse. The milestones below assume A then B; C would replace A8 with a separate rewrite plan.
+**Chosen: A only.** B and C need paid store accounts and were dropped. A works on Android (install from Chrome) and iOS (Add to Home Screen) at no cost.
 
 ### 8.2 3D avalanche map
 
@@ -446,8 +452,8 @@ Direction change (2026-10-21): the avalanche map becomes **3D**, and FreerideAtl
   - **Network first, with time shown:** forecasts and bulletins. Offline bulletin data still passes the 24-hour rule, so an old cached bulletin shows "No current data", never a level.
   - **Capped tile cache:** map and elevation tiles.
 - **Mobile app shell:** in installed / small-screen mode, a bottom tab bar (Resorts, Avalanche, Powder, Safety, More), a full-screen map screen, safe-area insets and larger touch targets. Desktop keeps the current website layout.
-- **Notifications (later milestone):** a powder alarm for favourite resorts, and "new bulletin published" for a favourite region. To avoid stale numbers on the lock screen, a bulletin notification only says a new bulletin exists, never the level. This needs a scheduler and a store of subscriptions. Vercel Hobby cron limits must be checked; GitHub Actions schedules or Supabase are the fallbacks.
-- **Privacy:** location is used on the device only ("near me", "my region") and never sent or stored. Store apps need a privacy policy and data-safety forms.
+- **No notifications** (decided): no server, scheduler or subscription database. The powder alarm and avalanche status are shown when the app is opened.
+- **Privacy:** location is used on the device only ("near me", "my region") and never sent or stored. Nothing personal is stored on a server.
 
 ### 8.5 Phase 2 milestones
 
@@ -481,13 +487,7 @@ Bottom tab navigation in installed or small-screen mode, a full-screen map scree
 Favourite resorts (on the device), a "Near me" list from the device location with permission, and a "My region" bulletin card.
 *AC:* works without location permission. The location is never sent to the server (tested by checking the network log), and it is translated (EN/PL).
 
-**A7 — Notifications** *(needs the open question 5 decision)*
-Web Push (VAPID) for the PWA, a scheduler, subscription storage, a powder alarm for favourites and "new bulletin" notices without levels. Opt-in only, with easy unsubscribe.
-*AC:* end-to-end test with a mocked push service. No notification is ever sent from sample data.
-
-**A8 — Store apps** *(route per open question 1)*
-Capacitor 8: Android first, iOS through a cloud macOS build. Native push and geolocation plugins, a bundled offline shell, icons, splash screens, store listings, a privacy policy and data-safety forms.
-*AC:* a signed Android build installs on a device and passes the same e2e smoke on the WebView. iOS builds in CI. Store submission checklists are complete.
+*A7 (notifications) and A8 (store apps) were removed: they needed a paid backend or store accounts.*
 
 **Remaining Phase 1 milestones, re-ordered to fit the app:** M8b gear guide after A5 (as a tab under Safety), M9 trip planner after A6 (uses favourites and location), M10 polish last.
 
@@ -495,19 +495,15 @@ Capacitor 8: Android first, iOS through a cloud macOS build. Native push and geo
 
 1. **Device performance and battery:** 3D terrain is heavy on older phones. Mitigated by deferred loading, a 2D default on phones if chosen, tile limits and the list fallback.
 2. **Elevation data resolution:** 30 m data must never be presented as slope-accurate. 3D is for orientation, and any slope or critical-terrain shading waits for spike A0b.
-3. **App Store review (route B):** risk of rejection as a "repackaged website". Mitigated by native push, location and offline mode, and Android first.
-4. **iOS builds from Windows:** route B needs a Mac or cloud macOS CI; route C uses EAS cloud builds.
-5. **Push notifications need a backend:** scheduler limits on free plans and subscription storage. It is also personal data, so it needs privacy work.
-6. **Stale data offline:** handled by the existing freshness rule, re-checked with the device clock (downgrade only).
-7. **Commercial-use limits still apply** (Open-Meteo, Vercel Hobby) if the app is ever monetised.
-8. **Third-party tile hosts** (OpenFreeMap, elevation tiles) can change terms or availability. Mitigated by the plain-background fallback and keeping 2D usable.
+3. **Installable web apps on iOS are more limited** than on Android: install is manual ("Add to Home Screen") and storage can be cleared by the system after long non-use. The checklist and favourites live on the device, so the app says so.
+4. **Stale data offline:** handled by the existing freshness rule, re-checked with the device clock (downgrade only).
+5. **Commercial-use limits still apply** (Open-Meteo, Vercel Hobby) if the app is ever monetised.
+6. **Third-party tile hosts** (OpenFreeMap, elevation tiles) can change terms or availability. Mitigated by the plain-background fallback and keeping 2D usable.
 
-### 8.7 Open questions for Phase 2 (please answer with your approval)
+### 8.7 Questions for Phase 2
 
-1. **What should "app" mean?** (a) installable from the browser (PWA), (b) in Google Play / App Store, or (c) both. *Default: (c) — PWA first (A4), then store apps (A8).*
-2. **Store route and platforms:** Capacitor (reuse the web UI) or Expo (native rewrite)? Android, iOS or both? Do you have a Mac, or are cloud builds fine, and are you OK with the store fees ($25 Google once, $99/year Apple)? *Default: Capacitor, Android first, iOS later via cloud build.*
-3. **Keep the website?** *Default: yes, the same codebase serves the web and the app.*
-4. **3D on phones:** on by default, or 2D by default with a 3D button (saves battery and data)? *Default: 2D on phones, 3D on desktop.*
-5. **Push notifications:** wanted (powder alarm, new bulletin)? It needs a small backend and stored subscriptions. *Default: yes, as a later milestone (A7), opt-in only.*
+Answered on 2026-10-21: installable web app only, no store apps, no notifications, keep the website, keep the 3D map. Phase 2 is A0–A6 and costs nothing.
 
-The earlier gear-guide questions (6, 7 in §7) are still open and only matter when M8b starts.
+Still open, with the default used unless you say otherwise:
+- **3D on phones:** on by default, or 2D by default with a 3D button (saves battery and data)? *Default: 2D on phones, 3D on desktop.*
+- The gear-guide questions (6, 7 in §7) only matter when M8b starts.
