@@ -9,7 +9,10 @@ import {
   type ResortAvalanche,
 } from "@/lib/avalanche/resort-status";
 
-/** Compact avalanche status for the compare table. Same rule as the resort page: no level unless current now. */
+/**
+ * Compact avalanche status (compare table, home page cards). Same rule as the resort page: no level unless
+ * current now, re-checked with the visitor's clock.
+ */
 export function AvalancheCell({
   avalanche,
   slug,
@@ -61,6 +64,14 @@ export function AvalancheCell({
                 timeZone: "Europe/Vienna",
                 timeZoneName: "short",
               }),
+            })}
+          </p>
+        )}
+        {summary.current[0]?.bulletin && (
+          <p className="text-xs text-muted">
+            {t("source", {
+              provider: summary.current[0].bulletin.provider.name,
+              license: summary.current[0].bulletin.provider.license,
             })}
           </p>
         )}

@@ -19,10 +19,25 @@
     "powder": "Puch",
     "safety": "Bezpiecznie"
   },
+  "Favourites": {
+    "toggle": "Zapisz {name} w ulubionych",
+    "save": "Zapisz w ulubionych",
+    "saved": "Zapisano w ulubionych"
+  },
   "Home": {
     "title": "Znajdź swój następny dzień z puchem",
     "subtitle": "Ranking ośrodków freeride, zagrożenie lawinowe i prognoza śniegu dla Europy.",
-    "comingSoon": "W budowie. Funkcje pojawiają się etap po etapie."
+    "myTitle": "Twoje ośrodki",
+    "myIntro": "Sytuacja lawinowa w rejonach ośrodków zapisanych gwiazdką. Zapisane tylko na tym urządzeniu.",
+    "myEmpty": "Nie masz jeszcze zapisanych ośrodków. Dotknij gwiazdki przy ośrodku, aby widzieć tutaj sytuację lawinową w jego rejonie.",
+    "browseResorts": "Zobacz wszystkie ośrodki",
+    "nearTitle": "Ośrodki w pobliżu",
+    "nearIntro": "Jednorazowo używa lokalizacji urządzenia. Nie jest nigdzie wysyłana ani zapisywana: odległości są liczone na Twoim urządzeniu.",
+    "nearButton": "Znajdź ośrodki w pobliżu",
+    "nearLocating": "Ustalanie lokalizacji…",
+    "nearDenied": "Nie zezwolono na dostęp do lokalizacji. Nadal możesz przeglądać wszystkie ośrodki.",
+    "nearUnavailable": "Nie udało się ustalić lokalizacji. Nadal możesz przeglądać wszystkie ośrodki.",
+    "distance": "{km} km stąd (w linii prostej)"
   },
   "NotFound": {
     "title": "Nie znaleziono strony",

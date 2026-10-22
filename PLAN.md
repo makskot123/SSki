@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **A0–A5 done** (see §8.8); next is A6.
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8); next is M8b (gear guide).
 Date: 2026-10-21
 
 ---
@@ -563,3 +563,10 @@ Findings:
 - The full-screen map enlarges the same map instance in place (no reload of tiles). Everything behind it is made `inert`, Escape closes it, and focus returns to the button (Safari does not focus buttons on tap, so the hook falls back to it). Opening it starts the map directly.
 - The theme toggle's accessible name now starts with its visible word ("Dark mode"), as WCAG 2.5.3 asks. The theme follows the system setting live until the visitor picks one.
 - Lighthouse (mobile) after A5: performance 95–96, accessibility, best practices and SEO 100.
+
+**A6 findings (2026-10-22):**
+- Favourites are a list of resort slugs in localStorage (`freeride-atlas:favourites:v1`), shared live by every star button and the home page; unknown slugs are dropped. Nothing is stored on the server.
+- The "My region" card is the home page's "Your resorts": for each saved resort, the current level of its avalanche region(s) with the source, validity time and the disclaimer, re-checked with the device clock like everywhere else. A resort outside our feeds shows the usual link-out text.
+- "Near me" asks for the location only when the button is pressed, uses it once to sort resorts by straight-line distance in the browser, and keeps it neither in storage nor in any request (e2e checks every request and localStorage for the coordinates). Without permission the page says so and links to the full list.
+- `AvalancheCell` now shows the source attribution whenever it shows a level (this also fixes the compare table, which lacked it).
+- The home page fetches the bulletins (revalidated every 15 min): 21 KB gzipped HTML, Lighthouse performance 98.

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { FavouriteButton } from "@/components/favourites/favourite-button";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { ForecastSection } from "@/components/forecast/forecast-section";
@@ -81,7 +82,14 @@ export default async function ResortPage({
         <Link href="/resorts" className="text-sm text-accent underline">
           ← {t("back")}
         </Link>
-        <h1 className="text-4xl font-bold tracking-tight">{resort.name}</h1>
+        <div className="flex items-start justify-between gap-3">
+          <h1 className="text-4xl font-bold tracking-tight">{resort.name}</h1>
+          <FavouriteButton
+            slug={resort.slug}
+            name={resort.name}
+            className="mt-1 shrink-0"
+          />
+        </div>
         <p className="text-muted">
           {resort.region}, {countryName(resort.country, locale)}
         </p>

@@ -1,4 +1,5 @@
 import { useFormatter, useLocale, useTranslations } from "next-intl";
+import { FavouriteButton } from "@/components/favourites/favourite-button";
 import { PowderAlarmBadge } from "@/components/forecast/powder-alarm-badge";
 import { Link } from "@/i18n/navigation";
 import { countryName } from "@/lib/format";
@@ -94,20 +95,25 @@ export function ResortCard({
           {eur(resort.liftPass.dayPriceEUR.max)}
         </dd>
       </dl>
-      {compare && (
-        // Above the card's stretched link so it stays clickable.
-        <label className="relative z-10 flex w-fit items-center gap-2 text-sm">
-          <input
-            type="checkbox"
-            checked={compare.checked}
-            disabled={compare.disabled}
-            onChange={(e) => compare.onChange(e.target.checked)}
-            aria-label={tr("compareLabel", { name: resort.name })}
-            className="accent-accent"
-          />
-          {tr("compare")}
-        </label>
-      )}
+      {/* Above the card's stretched link so these stay clickable. */}
+      <div className="relative z-10 flex items-center justify-between gap-2">
+        {compare ? (
+          <label className="flex w-fit items-center gap-2 text-sm">
+            <input
+              type="checkbox"
+              checked={compare.checked}
+              disabled={compare.disabled}
+              onChange={(e) => compare.onChange(e.target.checked)}
+              aria-label={tr("compareLabel", { name: resort.name })}
+              className="accent-accent"
+            />
+            {tr("compare")}
+          </label>
+        ) : (
+          <span />
+        )}
+        <FavouriteButton slug={resort.slug} name={resort.name} />
+      </div>
     </article>
   );
 }

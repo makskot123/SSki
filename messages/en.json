@@ -19,10 +19,25 @@
     "powder": "Powder",
     "safety": "Safety"
   },
+  "Favourites": {
+    "toggle": "Save {name} as a favourite",
+    "save": "Save as favourite",
+    "saved": "Saved as favourite"
+  },
   "Home": {
     "title": "Find your next powder day",
     "subtitle": "Freeride resort ranking, avalanche danger and snow forecast for Europe.",
-    "comingSoon": "Under construction. Features arrive milestone by milestone."
+    "myTitle": "Your resorts",
+    "myIntro": "The avalanche situation in the regions of the resorts you saved with the star. Saved on this device only.",
+    "myEmpty": "No saved resorts yet. Tap the star on a resort to see the avalanche situation in its region here.",
+    "browseResorts": "Browse all resorts",
+    "nearTitle": "Resorts near me",
+    "nearIntro": "Uses your device's location once. It is not sent anywhere and not saved: the distances are worked out on your device.",
+    "nearButton": "Find resorts near me",
+    "nearLocating": "Finding your location…",
+    "nearDenied": "Location access was not allowed. You can still browse all resorts.",
+    "nearUnavailable": "Your location could not be found. You can still browse all resorts.",
+    "distance": "{km} km away (straight line)"
   },
   "NotFound": {
     "title": "Page not found",
