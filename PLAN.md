@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8). **M8b built without product data** (see M8b notes below); **M9 and M10 done** (M10 with two scope changes, see M10 notes). Nothing is deployed or pushed from here: publishing is the owner's step.
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8). **M8b built without product data** (see M8b notes below); **M9 and M10 done** (M10 with two scope changes, see M10 notes). Nothing is deployed or pushed from here: publishing is the owner's step. **Phase 3 planned** (Google Play app via TWA, on-device tracker, more resorts; no server), see [§9](#9-phase-3--phone-app-google-play-and-on-device-features); B1 in progress.
 Date: 2026-10-21
 
 ---
@@ -582,3 +582,45 @@ Findings:
 - "Near me" asks for the location only when the button is pressed, uses it once to sort resorts by straight-line distance in the browser, and keeps it neither in storage nor in any request (e2e checks every request and localStorage for the coordinates). Without permission the page says so and links to the full list.
 - `AvalancheCell` now shows the source attribution whenever it shows a level (this also fixes the compare table, which lacked it).
 - The home page fetches the bulletins (revalidated every 15 min): 21 KB gzipped HTML, Lighthouse performance 98.
+
+## 9. Phase 3 — Phone app (Google Play) and on-device features
+
+Decided 2026-10-22: the goal is a phone app on Google Play later, possibly earning money. Nothing is paid for now.
+
+### 9.1 Scope
+
+**In:** an on-device ski-day tracker (speed, distance, vertical), more resorts outside the Alps, more information per resort, and preparing the existing web app for Google Play.
+**Out (needs a server, so it costs money or ongoing work):** friends list, friend location, accounts, cloud sync. These need accounts, a database and careful handling of location data under GDPR. Revisit only if a paid or free-tier backend is accepted.
+
+### 9.2 How the app reaches Google Play
+
+The web app is already installable (A4). Google Play accepts a web app packaged as a **Trusted Web Activity (TWA)**: a small Android wrapper, generated with Google's open-source Bubblewrap tool, that opens the site full screen without a browser bar. This keeps one codebase.
+- Cost: the Google Play developer account is a **one-time US$25**, paid only when you decide to publish. Everything up to that point is free.
+- Needed from the site: a valid manifest (done), a service worker (done), HTTPS hosting (Vercel), and `/.well-known/assetlinks.json` with the app's signing-key fingerprint, which only exists after the Android package is generated.
+- Limits of a TWA: same as the web app. GPS tracking works only while the app is open and on screen (no background tracking). Background tracking would need a native Android app (for example Capacitor with a foreground service), which can come later on the same codebase.
+
+### 9.3 Making money: what has to change first
+
+Earning money makes the project **commercial**, which changes some free terms (section 7, question 1):
+- **Open-Meteo:** the free API is non-commercial only. Options: their paid API plan, or self-hosting Open-Meteo (open source). Decide before any income.
+- **Vercel Hobby** is non-commercial; a paid plan or another host is needed once commercial.
+- **SLF and Euregio bulletins (CC BY 4.0), EAWS regions (CC0), OpenStreetMap data (ODbL):** commercial use is allowed with attribution.
+- **OpenFreeMap and AWS Terrain Tiles:** check their terms again before launch.
+- **Google Play rules:** a privacy policy page is required (location use must be declared), plus the content rating questionnaire and the data-safety form. The app collects nothing on a server, which keeps these simple.
+
+### 9.4 Milestones
+
+**B1 — Ski-day tracker (on device)**
+A "Track" screen: start/pause/stop a ski day; live speed, top speed, distance, descent (vertical metres down), moving time. Uses the browser's location only while the screen is on, keeps the screen awake while tracking (Wake Lock, where supported), and stores finished days on the device only. Pure, unit-tested logic in `lib/tracker` filters GPS noise (inaccurate fixes, impossible jumps).
+*AC:* works without a server; no position is ever sent (e2e checks the network); refuses gracefully without permission; unit tests cover the filtering and totals with recorded tracks; clear note that it must not be read while skiing and that top speeds are GPS estimates. EN/PL.
+
+**B2 — Google Play readiness (free part)**
+A privacy policy page (what is stored on the device, that nothing is sent, which third parties are contacted: weather, bulletins, map tiles), `/.well-known/assetlinks.json` served from an environment variable, and a short README guide to generating and publishing the TWA with Bubblewrap.
+*AC:* privacy page in EN/PL linked from the footer; assetlinks route returns valid JSON when configured and 404 otherwise.
+
+**B3 — More resorts, region by region**
+Add resorts outside the Alps in batches (for example North America, Japan, Scandinavia, more of Central Europe), each with facts from official resort sites and its official avalanche service as a link-out. Danger levels on our map stay limited to the feeds we can use.
+*AC:* seed validates; every new resort has an official link and an avalanche-service link (or "no service known"); the map and lists handle resorts with no feed.
+
+**B4 — More information per resort**
+To be defined with the owner (candidates: lift opening dates, snow depth from open data, piste map and lift status as link-outs).
