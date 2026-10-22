@@ -37,7 +37,9 @@
     "nearLocating": "Finding your location…",
     "nearDenied": "Location access was not allowed. You can still browse all resorts.",
     "nearUnavailable": "Your location could not be found. You can still browse all resorts.",
-    "distance": "{km} km away (straight line)"
+    "distance": "{km} km away (straight line)",
+    "planTrip": "Plan a trip",
+    "openAvalanche": "Avalanche map"
   },
   "NotFound": {
     "title": "Page not found",
@@ -883,5 +885,35 @@
       "electric": "Electric (battery or supercapacitor)"
     },
     "back": "Gear guide"
+  },
+  "Planner": {
+    "title": "Trip planner",
+    "intro": "Choose your dates and a country to get a shortlist of resorts, ranked by the resort score and the snow forecast for those days.",
+    "from": "From",
+    "to": "To",
+    "country": "Country",
+    "allCountries": "All countries",
+    "submit": "Show shortlist",
+    "adjusted": "Some of your input was adjusted: trips start today at the earliest and last at most {max} days.",
+    "range": "{from} to {to}",
+    "forecastFull": "The snow forecast covers all your dates and is part of the ranking.",
+    "forecastPartial": "The snow forecast covers only {covered} of your {total} days. Only those days count; check again closer to your trip.",
+    "forecastNone": "Forecast not yet available for these dates. The forecast reaches 7 days ahead, so the shortlist uses the resort ranking only (terrain, long-term snowfall, altitude and more). Check again closer to your trip.",
+    "forecastSample": "The weather service could not be reached, so the forecast shown is sample data and is not used for the ranking.",
+    "onlySaved": "Only my saved resorts",
+    "noSaved": "You have not saved any resorts in this list yet. Tap the star on a resort to save it.",
+    "noResults": "No resorts match this country.",
+    "score": "Planner score {score}/100",
+    "resortScore": "Resort score {score}/100",
+    "tripSnow": "{cm} cm of snow forecast for your dates",
+    "tripSnowPartial": "{cm} cm of snow forecast on the {covered} covered days",
+    "noTripSnow": "No forecast for your dates yet",
+    "avalancheNow": "Avalanche situation now",
+    "avalancheNowNote": "This is today's bulletin, not a forecast for your dates. Read the official bulletin every day of your trip.",
+    "highDanger": "High avalanche danger right now (level 4 or 5): listed last.",
+    "print": "Print plan",
+    "printChecklistTitle": "Trip checklist",
+    "printChecklistNote": "Tick on paper. The full checklist with explanations is in the app under Safety.",
+    "howRanked": "How it is ranked: {snowShare}% forecast snow for your dates, {baseShare}% resort score (default weights). A ranking never makes terrain safe."
   }
 }

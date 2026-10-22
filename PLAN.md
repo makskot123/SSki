@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8). **M8b built without product data** (see M8b notes below); next is M9 (trip planner).
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8). **M8b built without product data** (see M8b notes below); **M9 trip planner done**; next is M10 (polish).
 Date: 2026-10-21
 
 ---
@@ -371,6 +371,8 @@ Gear checklist (localStorage, printable), aspect & steepness explainer (interact
 **M9 — Trip planner**
 Dates + country/region → shortlist ranked by forecast + current score + avalanche level. Printable view (print CSS) with checklist.
 *AC:* a planner for dates beyond the forecast horizon clearly says "forecast not yet available".
+
+*M9 notes (2026-10-22):* `/planner` is a plain GET form (dates, country), so it works without JavaScript and every plan is a shareable link. Score = 60% resort score (default weights, computed over all resorts so a country filter changes nobody's score) + 40% forecast snow on the trip days the forecast covers. Sample data or dates beyond the 7-day horizon leave the resort score alone, and the page says "Forecast not yet available for these dates". The avalanche level is today's bulletin, labelled as such; resorts at level 4-5 now are listed last, and that order is computed in the browser with re-checked freshness. Print view: the shortlist plus a blank checklist. Linked from the home page.
 
 **M10 — Routes, reviews & condition reports, polish**
 `routes.json` (famous descents, guide flags), reviews and condition reports from mock JSON (form validates with Zod, writes to localStorage in v1 — no server writes), webcam link-outs, README complete, Lighthouse/a11y pass, Vercel deploy.

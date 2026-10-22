@@ -37,7 +37,9 @@
     "nearLocating": "Ustalanie lokalizacji…",
     "nearDenied": "Nie zezwolono na dostęp do lokalizacji. Nadal możesz przeglądać wszystkie ośrodki.",
     "nearUnavailable": "Nie udało się ustalić lokalizacji. Nadal możesz przeglądać wszystkie ośrodki.",
-    "distance": "{km} km stąd (w linii prostej)"
+    "distance": "{km} km stąd (w linii prostej)",
+    "planTrip": "Zaplanuj wyjazd",
+    "openAvalanche": "Mapa lawinowa"
   },
   "NotFound": {
     "title": "Nie znaleziono strony",
@@ -883,5 +885,35 @@
       "electric": "Elektryczny (bateria lub superkondensator)"
     },
     "back": "Poradnik sprzętowy"
+  },
+  "Planner": {
+    "title": "Planer wyjazdu",
+    "intro": "Wybierz daty i kraj, aby otrzymać listę ośrodków uszeregowaną według oceny ośrodka i prognozy śniegu na te dni.",
+    "from": "Od",
+    "to": "Do",
+    "country": "Kraj",
+    "allCountries": "Wszystkie kraje",
+    "submit": "Pokaż listę",
+    "adjusted": "Część danych została poprawiona: wyjazd zaczyna się najwcześniej dziś i trwa najwyżej {max} dni.",
+    "range": "{from} – {to}",
+    "forecastFull": "Prognoza śniegu obejmuje wszystkie Twoje dni i jest uwzględniona w rankingu.",
+    "forecastPartial": "Prognoza śniegu obejmuje tylko {covered} z {total} Twoich dni. Liczą się tylko te dni; sprawdź ponownie bliżej wyjazdu.",
+    "forecastNone": "Prognoza dla tych dat nie jest jeszcze dostępna. Prognoza sięga 7 dni naprzód, więc lista opiera się tylko na rankingu ośrodków (teren, wieloletnie opady śniegu, wysokość i inne). Sprawdź ponownie bliżej wyjazdu.",
+    "forecastSample": "Nie udało się połączyć z serwisem pogodowym, więc prognoza to dane przykładowe i nie jest uwzględniana w rankingu.",
+    "onlySaved": "Tylko moje zapisane ośrodki",
+    "noSaved": "Nie masz jeszcze zapisanych ośrodków na tej liście. Dotknij gwiazdki przy ośrodku, aby go zapisać.",
+    "noResults": "Brak ośrodków w tym kraju.",
+    "score": "Ocena planera {score}/100",
+    "resortScore": "Ocena ośrodka {score}/100",
+    "tripSnow": "Prognoza: {cm} cm śniegu w Twoich dniach",
+    "tripSnowPartial": "Prognoza: {cm} cm śniegu w {covered} dniach objętych prognozą",
+    "noTripSnow": "Brak jeszcze prognozy dla Twoich dat",
+    "avalancheNow": "Sytuacja lawinowa teraz",
+    "avalancheNowNote": "To dzisiejszy komunikat, a nie prognoza na Twoje dni. W trakcie wyjazdu czytaj oficjalny komunikat każdego dnia.",
+    "highDanger": "Obecnie duże zagrożenie lawinowe (stopień 4 lub 5): na końcu listy.",
+    "print": "Drukuj plan",
+    "printChecklistTitle": "Lista kontrolna wyjazdu",
+    "printChecklistNote": "Zaznaczaj na papierze. Pełna lista z wyjaśnieniami jest w aplikacji w sekcji Bezpieczeństwo.",
+    "howRanked": "Jak powstaje ranking: {snowShare}% prognoza śniegu na Twoje dni, {baseShare}% ocena ośrodka (domyślne wagi). Ranking nigdy nie czyni terenu bezpiecznym."
   }
 }
