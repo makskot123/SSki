@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>3D map spike</title>
+    <link rel="stylesheet" href="/nm/maplibre-gl/dist/maplibre-gl.css" />
+    <style>
+      html,
+      body,
+      #map {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="module">
+      import * as maplibre from "/nm/maplibre-gl/dist/maplibre-gl.mjs";
+
+      const q = new URLSearchParams(location.search);
+      const mode = q.get("mode") ?? "3d"; // 2d | 3d
+      const dem = q.get("dem") ?? "aws"; // aws | mh
+      const exaggeration = Number(q.get("exag") ?? 1.3);
+      const pitch = Number(q.get("pitch") ?? 60);
+      const demMaxzoom = Number(q.get("demmax") ?? 12); // overzoom beyond this to cap tile count
+      const blank = q.get("basemap") === "none";
+
+      const DEM = {
+        aws: {
+          tiles: [
+            "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png",
+          ],
+          tileSize: 256,
+          encoding: "terrarium",
+        },
+        mh: {
+          tiles: ["https://tiles.mapterhorn.com/{z}/{x}/{y}.webp"],
+          tileSize: 512,
+          encoding: "terrarium",
+        },
+      };
+
+      maplibre.setWorkerUrl("/nm/maplibre-gl/dist/maplibre-gl-worker.mjs");
+
+      const style = blank
+        ? {
+            version: 8,
+            sources: {},
+            layers: [
+              {
+                id: "bg",
+                type: "background",
+                paint: { "background-color": "#dde5ec" },
+              },
+            ],
+          }
+        : await (
+            await fetch("https://tiles.openfreemap.org/styles/positron")
+          ).json();
+
+      const t0 = performance.now();
+      const map = new maplibre.Map({
+        container: "map",
+        style,
+        center: [11.0, 47.05],
+        zoom: 9.2,
+        pitch: mode === "3d" ? pitch : 0,
+        maxPitch: 85,
+        attributionControl: false,
+      });
+      window.map = map;
+
+      const gl =
+        map.painter?.context?.gl ??
+        document.createElement("canvas").getContext("webgl2");
+      const dbg = gl && gl.getExtension("WEBGL_debug_renderer_info");
+      const renderer = dbg
+        ? gl.getParameter(dbg.UNMASKED_RENDERER_WEBGL)
+        : "unknown";
+
+      map.on("load", () => {
+        const firstLabel = map
+          .getStyle()
+          .layers.find((l) => l.type === "symbol")?.id;
+        if (mode === "3d") {
+          map.addSource("dem", {
+            type: "raster-dem",
+            maxzoom: demMaxzoom,
+            ...DEM[dem],
+          });
+          map.addSource("hs", {
+            type: "raster-dem",
+            maxzoom: demMaxzoom,
+            ...DEM[dem],
+          });
+          map.addLayer(
+            {
+              id: "hillshade",
+              type: "hillshade",
+              source: "hs",
+              paint: { "hillshade-exaggeration": 0.4 },
+            },
+            firstLabel,
+          );
+          map.setTerrain({ source: "dem", exaggeration });
+          map.setSky?.({
+            "sky-color": "#bcd6ee",
+            "horizon-color": "#eef3f8",
+            "sky-horizon-blend": 0.5,
+          });
+        }
+        map.addSource("regions", {
+          type: "geojson",
+          data: "/data/avalanche-regions.json",
+        });
+        map.addLayer(
+          {
+            id: "fill",
+            type: "fill",
+            source: "regions",
+            paint: {
+              "fill-color": [
+                "match",
+                ["%", ["length", ["get", "id"]], 5],
+                0,
+                "#ccff66",
+                1,
+                "#ffff00",
+                2,
+                "#ff9900",
+                3,
+                "#ff0000",
+                "#8896a5",
+              ],
+              "fill-opacity": 0.55,
+            },
+          },
+          firstLabel,
+        );
+        map.addLayer(
+          {
+            id: "line",
+            type: "line",
+            source: "regions",
+            paint: { "line-color": "#4b5a69", "line-width": 0.6 },
+          },
+          firstLabel,
+        );
+      });
+
+      function idle() {
+        return new Promise((resolve) => map.once("idle", resolve));
+      }
+
+      /** Rotates the camera for `ms` while counting frames and long tasks. */
+      async function animate(ms) {
+        const longTasks = [];
+        const obs = new PerformanceObserver((list) =>
+          longTasks.push(...list.getEntries().map((e) => e.duration)),
+        );
+        try {
+          obs.observe({ type: "longtask", buffered: false });
+        } catch {}
+        let frames = 0;
+        let worst = 0;
+        let last = performance.now();
+        let running = true;
+        const tick = (now) => {
+          frames++;
+          worst = Math.max(worst, now - last);
+          last = now;
+          if (running) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        const start = performance.now();
+        map.easeTo({
+          bearing: map.getBearing() + 120,
+          zoom: map.getZoom() + 0.6,
+          duration: ms,
+          easing: (t) => t,
+        });
+        await new Promise((r) => setTimeout(r, ms));
+        running = false;
+        obs.disconnect();
+        const elapsed = performance.now() - start;
+        return {
+          fps: +(frames / (elapsed / 1000)).toFixed(1),
+          worstFrameMs: Math.round(worst),
+          longTasks: longTasks.length,
+          longTaskMs: Math.round(longTasks.reduce((a, b) => a + b, 0)),
+        };
+      }
+
+      window.runBench = async () => {
+        await new Promise((r) => (map.loaded() ? r() : map.once("load", r)));
+        await idle();
+        const tIdle = Math.round(performance.now() - t0);
+        const anim = await animate(5000);
+        await idle();
+        const heapMB = performance.memory
+          ? +(performance.memory.usedJSHeapSize / 1048576).toFixed(1)
+          : null;
+        return {
+          mode,
+          dem,
+          exaggeration,
+          pitch: map.getPitch(),
+          demMaxzoom,
+          renderer,
+          tIdle,
+          ...anim,
+          heapMB,
+        };
+      };
+      window.ready = true;
+
+      // ?overlay=1: a button and an on-screen result, for testing by hand on a real phone.
+      if (q.get("overlay") === "1") {
+        const box = document.createElement("div");
+        box.style.cssText =
+          "position:fixed;left:8px;top:8px;right:8px;z-index:9;font:14px system-ui;background:#fff;color:#000;padding:8px;border-radius:6px;box-shadow:0 1px 4px #0005";
+        const button = document.createElement("button");
+        button.textContent =
+          "Run benchmark (" + (mode === "3d" ? "3D " + dem : "2D") + ")";
+        button.style.cssText = "font:inherit;padding:8px 12px";
+        const out = document.createElement("pre");
+        out.style.cssText = "white-space:pre-wrap;margin:6px 0 0";
+        button.onclick = async () => {
+          button.disabled = true;
+          out.textContent = "Running… do not touch the screen for ~10 seconds.";
+          const r = await window.runBench();
+          out.textContent = `fps ${r.fps} · worst frame ${r.worstFrameMs} ms · ready in ${r.tIdle} ms · JS heap ${r.heapMB ?? "n/a"} MB\nGPU: ${r.renderer}`;
+          button.disabled = false;
+        };
+        box.append(button, out);
+        document.body.append(box);
+      }
+    </script>
+  </body>
+</html>

@@ -24,7 +24,8 @@ npm run format       # prettier
 npm run data:regions # simplified EAWS polygons + names/official services for the avalanche map (public/data)
 npm run data:regions-assign # EAWS micro-region ids per resort (point-in-polygon, EAWS CC0 polygons)
 npm run data:snowfall # ERA5 avg snowfall per resort into data/resorts.json (resumable, rate-limited)
-npm run data:regions # rebuild simplified EAWS GeoJSON (added in M6)
+npm run bench:map:serve # dev tool: 3D map benchmark page on :4020 (tools/map-bench)
+npm run bench:map    # dev tool: benchmark matrix; GPU=1 for the real GPU
 ```
 
 ## Code style

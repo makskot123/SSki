@@ -9,3 +9,4 @@ data/resorts.json
 public/data
 public/maplibre
 tests/fixtures
+tools/map-bench/results

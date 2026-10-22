@@ -16,7 +16,9 @@
     "format:check": "prettier --check .",
     "data:snowfall": "node scripts/compute-snow-climatology.ts",
     "data:regions-assign": "node scripts/assign-regions.ts",
-    "data:regions": "node scripts/build-regions.ts"
+    "data:regions": "node scripts/build-regions.ts",
+    "bench:map:serve": "node tools/map-bench/server.mjs",
+    "bench:map": "node tools/map-bench/run.mjs"
   },
   "dependencies": {
     "maplibre-gl": "^6.15.0",

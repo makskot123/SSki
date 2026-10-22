@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). No Phase 2 code yet.
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **A0 done** (measurements and decisions in §8.8); next is A1.
 Date: 2026-10-21
 
 ---
@@ -440,7 +440,7 @@ Direction change (2026-10-21): the avalanche map becomes **3D**, and FreerideAtl
 | Source | What | Status | Notes |
 |---|---|---|---|
 | **AWS Terrain Tiles** (`elevation-tiles-prod`, Terrarium PNG) | Elevation for 3D terrain and hillshade | ✅ tiles answered (z10 Chamonix, 200) | Open data; sources are public domain / CC BY. The required attribution includes Mapzen, "Europe terrain data produced using Copernicus data and information funded by the European Union - EU-DEM layers" and "Austria terrain data © offene Daten Österreichs", among others. Resolution is ~30 m in Europe: good for overview, not for judging slopes. |
-| **Mapterhorn** (`tiles.mapterhorn.com`, Terrarium WebP, 512 px) | Higher-resolution elevation (down to 0.25 m in parts of CH/DE) | ⚠️ tiles answered, terms for the hosted endpoint unclear | Code BSD-3; data from several open sources listed in `attribution.json`. No stated terms or rate limits for public apps. Ask the maintainer or self-host before using. |
+| **Mapterhorn** (`tiles.mapterhorn.com`, Terrarium WebP, 512 px) | Higher-resolution elevation (down to 0.25 m in parts of CH/DE) | ⚠️ tiles answered, terms for the hosted endpoint unclear | Code BSD-3. Its source data is openly licensed for every country we cover (checked in `attribution.json`): CH 0.25 m CC0; AT 1 m CC BY 4.0; FR 0.5 m Licence Ouverte 2.0; IT 1 m CC BY / CC0; PL 1 m open government data; SK 1 m CC BY; SE 1 m CC0; elsewhere (BG, GE) Copernicus GLO-30. CORS enabled, 7-day cache. The README and website state no terms or rate limits for the hosted tiles, so it is not used until the maintainer confirms (A0 decision). |
 | MapLibre demo terrain (`demotiles.maplibre.org`) | Demo elevation | ❌ for production | Demo only. |
 | OpenFreeMap (existing basemap) | Vector basemap in 3D | ✅ already in use | Unchanged. |
 
@@ -505,5 +505,40 @@ Favourite resorts (on the device), a "Near me" list from the device location wit
 Answered on 2026-10-21: installable web app only, no store apps, no notifications, keep the website, keep the 3D map. Phase 2 is A0–A6 and costs nothing.
 
 Still open, with the default used unless you say otherwise:
-- **3D on phones:** on by default, or 2D by default with a 3D button (saves battery and data)? *Default: 2D on phones, 3D on desktop.*
+- **3D on phones:** on by default, or 2D by default with a 3D button (saves battery and data)? *Default: 2D on phones, 3D on desktop. A0 measurements support this (see §8.8).*
 - The gear-guide questions (6, 7 in §7) only matter when M8b starts.
+
+### 8.8 A0 results (measured 2026-10-22)
+
+**Method.** A benchmark page with the real MapLibre 6 build, the real region data and the OpenFreeMap basemap (`tools/map-bench`, raw runs in `tools/map-bench/results/`). The camera starts over the Ötztal/Stubai area (zoom 9.2), waits until the map is idle, then turns 120° and zooms in over 5 seconds while frames and long tasks are counted. Two profiles: *laptop* (1366×768) and *phone* (412×915 at 2.6× pixel density, 4× slower CPU, fast 4G). Two renderers bound the range: this PC's real GPU (RTX 5060 Ti, best case; the GPU is not slowed for the phone profile, so phone results are optimistic) and SwiftShader software rendering (worst case: a device without usable GPU acceleration). **No real phone was measured**; the bench page has an on-screen mode for that (`?overlay=1`, see the tool README).
+
+| Profile / renderer | Config | Ready (idle) | Frame rate while moving | JS heap | Data for the first view |
+|---|---|---|---|---|---|
+| Laptop, real GPU | 2D | 0.9 s | 60 fps | 38 MB | 5.0 MB |
+| Laptop, real GPU | 3D AWS, pitch 60, ×1.3 | 3.5 s | 60 fps | 98 MB | 32.3 MB (DEM 20.0, basemap 9.5) |
+| Laptop, real GPU | 3D AWS, pitch 70, ×1.5 | 3.7 s | 60 fps | 104 MB | 36.0 MB |
+| Laptop, real GPU | 3D Mapterhorn, pitch 60 | 1.5 s | 60 fps | 159 MB | 26.2 MB (DEM 13.9) |
+| Phone, real GPU | 2D | 3.3 s | 60 fps | 26 MB | 4.3 MB |
+| Phone, real GPU | 3D AWS, pitch 60, ×1.3 | 10.2 s | 47 fps (worst frame 50 ms) | 73 MB | 22.4 MB |
+| Phone, real GPU | 3D AWS, pitch 70, ×1.5 | 8.5 s | 45 fps | 65 MB | 22.5 MB |
+| Phone, real GPU | 3D Mapterhorn, pitch 60 | 10.1 s | 54 fps | 93 MB | 20.0 MB |
+| Phone, software GL | 2D | 3.8 s | 9 fps | 36 MB | 4.3 MB |
+| Phone, software GL | 3D AWS, pitch 60 | 15.6 s | **1.8 fps** | 54 MB | 21.5 MB |
+
+Findings:
+1. 3D costs about **6× the data** of 2D for the first view (mostly elevation and the extra basemap tiles that a tilted view shows) and about **3× the time** until the map is ready on a phone.
+2. On a decent GPU 3D is smooth (45–60 fps). Without GPU acceleration it is unusable (under 2 fps), while 2D is slow but usable.
+3. Raising the elevation zoom from 12 to 14 changed nothing at this view distance, and pitch 70 / exaggeration 1.5 costs about 20% more tiles than pitch 60 / 1.3.
+4. Mapterhorn needed fewer, larger tiles (76 vs 155), was ready faster and is much more detailed, at the cost of more memory. It is the best upgrade if its hosting terms allow it.
+
+**Decisions:**
+- **Elevation source: AWS Terrain Tiles** (✅). Attribution shown on the map when 3D is on: "Terrain: Mapzen / AWS Terrain Tiles — EU-DEM (Copernicus, funded by the European Union), Austria DGM (© offene Daten Österreichs), SRTM and GMTED2010 (U.S. Geological Survey)". Mapterhorn stays a candidate: ask the maintainer about public use (you can send that request; the address is on mapterhorn.com).
+- **Phone default: 2D**, with a 3D button. Desktop default 3D. 3D is not offered (only 2D, with a short explanation) when WebGL2 is missing or the GPU is software-only (the renderer string reports SwiftShader, llvmpipe or similar).
+- **Device budget for A1/A2:**
+  - Pitch: default 60°, maximum 70°.
+  - Exaggeration: 1.3.
+  - Elevation source maximum zoom: 12; MapLibre over-zooms beyond that. AWS data is about 25–30 m, so higher zoom adds no detail.
+  - One `raster-dem` source shared by terrain and hillshade, if it renders cleanly. The benchmark used two, which can double requests; A1 measures this.
+  - Elevation tiles load only after the user switches to 3D. First 3D view on a phone: aim for at most 25 MB of new data and ready within 10 s on fast 4G.
+  - Offline tile cache in A4: elevation at most 40 MB, basemap at most 40 MB, least recently used tiles removed first.
+- **A1 must keep:** the deferred map load (no change to first-load Lighthouse), the 2D fallback and the region list.
