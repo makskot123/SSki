@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **A0 done** (measurements and decisions in §8.8); next is A1.
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **A0, A1 done** (see §8.8); next is A2.
 Date: 2026-10-21
 
 ---
@@ -542,3 +542,9 @@ Findings:
   - Elevation tiles load only after the user switches to 3D. First 3D view on a phone: aim for at most 25 MB of new data and ready within 10 s on fast 4G.
   - Offline tile cache in A4: elevation at most 40 MB, basemap at most 40 MB, least recently used tiles removed first.
 - **A1 must keep:** the deferred map load (no change to first-load Lighthouse), the 2D fallback and the region list.
+
+**A1 findings (2026-10-22):**
+- Terrain and hillshade use **separate** elevation sources. Sharing one cut elevation requests from 52 to 16 for the test view, but MapLibre warns about it and the screenshot showed a visibly blurred, blobby relief. The extra ~1.4 MB is within budget.
+- **The GPU is only probed when the map starts** or 3D is requested. Probing on page load created a WebGL context during hydration and pushed Lighthouse blocking time from ~200 to ~750 ms (score 78). With the deferred probe: 93–95. A unit test guards this.
+- The full elevation credit expanded the attribution box over the bottom of the map. The map now shows a short credit with a link (Mapzen / AWS Terrain Tiles, EU-DEM © Copernicus, © offene Daten Österreichs, USGS), and the README holds the full required wording.
+- MapLibre's attribution links were distinguishable by colour only (axe: link-in-text-block); they are now underlined.

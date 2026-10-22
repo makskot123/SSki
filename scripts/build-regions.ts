@@ -24,6 +24,7 @@ import { topology } from "topojson-server";
 import { presimplify, simplify } from "topojson-simplify";
 import { outlineFor } from "../lib/avalanche/outline.ts";
 import { isValidOn, type RegionFeature } from "../lib/geo/assign-regions.ts";
+import { bboxOf, type BBox } from "../lib/geo/bbox.ts";
 
 const BASE = "https://regions.avalanches.org";
 const OUT_DIR = fileURLToPath(new URL("../public/data/", import.meta.url));
@@ -127,11 +128,20 @@ async function main() {
     );
 
   const outlineIds = new Set(outlines.map((o) => o.id));
-  const regions: Record<string, { n: [string, string]; o: string | null }> = {};
+  // Bounding boxes of the simplified shapes, so the map can fly to a region without loading geometry.
+  const boxes = new Map(
+    features.map((f) => [f.properties.id, bboxOf(f.geometry)] as const),
+  );
+  const regions: Record<
+    string,
+    { n: [string, string]; o: string | null; b?: BBox }
+  > = {};
   for (const id of ids) {
+    const b = boxes.get(id);
     regions[id] = {
       n: [namesEn[id] ?? id, namesPl[id] ?? namesEn[id] ?? id],
       o: outlineFor(id, outlineIds),
+      ...(b && { b }),
     };
   }
   const services: Record<string, { name: string; url: string }[]> = {};

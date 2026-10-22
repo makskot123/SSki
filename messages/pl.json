@@ -271,7 +271,10 @@
     "officialService": "Oficjalna służba ostrzegawcza",
     "attribution": "Komunikaty: {providers}. Kontury regionów: regiony EAWS (CC0). Mapa podkładowa: OpenFreeMap, dane © współtwórcy OpenStreetMap.",
     "loadMap": "Pokaż interaktywną mapę",
-    "mapDeferred": "Mapa ładuje się, gdy tylko wejdziesz w interakcję ze stroną, aby strona działała szybko. Lista regionów poniżej zawiera te same informacje."
+    "mapDeferred": "Mapa ładuje się, gdy tylko wejdziesz w interakcję ze stroną, aby strona działała szybko. Lista regionów poniżej zawiera te same informacje.",
+    "view3d": "Widok 3D",
+    "no3d": "Widok 3D nie jest dostępny na tym urządzeniu: wymaga sprzętowej akceleracji grafiki. Płaska mapa pokazuje te same informacje.",
+    "mapHint3d": "Ctrl + przewijanie (lub dwa palce), aby powiększyć. Przeciągnij prawym przyciskiem lub dwoma palcami w górę i w dół, aby pochylić i obrócić. Teren 3D służy tylko do orientacji: nie pokazuje, jak stromy jest naprawdę stok."
   },
   "ResortAvalanche": {
     "title": "Sytuacja lawinowa",

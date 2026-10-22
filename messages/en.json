@@ -271,7 +271,10 @@
     "officialService": "Official warning service",
     "attribution": "Bulletins: {providers}. Region outlines: EAWS regions (CC0). Basemap: OpenFreeMap, data © OpenStreetMap contributors.",
     "loadMap": "Show interactive map",
-    "mapDeferred": "The map loads as soon as you interact with the page, to keep it fast. The region list below has the same information."
+    "mapDeferred": "The map loads as soon as you interact with the page, to keep it fast. The region list below has the same information.",
+    "view3d": "3D view",
+    "no3d": "3D is not available on this device: it needs hardware graphics acceleration. The flat map shows the same information.",
+    "mapHint3d": "Ctrl + scroll (or two fingers) to zoom. Right-drag, or two fingers up and down, to tilt and rotate. 3D terrain is for orientation only: it cannot show how steep a slope really is."
   },
   "ResortAvalanche": {
     "title": "Avalanche situation",

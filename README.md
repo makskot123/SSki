@@ -51,6 +51,7 @@ Current: weather attribution in the footer only. Sources are added as milestones
 - Avalanche bulletins (shown on /avalanche): Euregio avalanche.report (CC BY 4.0), SLF Switzerland (CC BY 4.0, "WSL Institute for Snow and Avalanche Research SLF"), region polygons from EAWS (CC0).
 
 - Region outlines, names and official warning services: [EAWS regions](https://regions.avalanches.org) (CC0).
+- 3D terrain: [AWS Terrain Tiles](https://registry.opendata.aws/terrain-tiles/) (Mapzen/Tilezen). Full credits of its sources, as required: "Europe terrain data produced using Copernicus data and information funded by the European Union - EU-DEM layers"; "Austria terrain data © offene Daten Österreichs – Digitales Geländemodell (DGM) Österreich"; "United States 3DEP (formerly NED) and global GMTED2010 and SRTM terrain data courtesy of the U.S. Geological Survey"; plus the other notices listed in the [Tilezen attribution document](https://github.com/tilezen/joerd/blob/master/docs/attribution.md). The map shows a short form of this credit while 3D is on.
 - Basemap: [OpenFreeMap](https://openfreemap.org), data (c) OpenStreetMap contributors. If it cannot be loaded, the map still works on a plain background.
 
 Sources without a usable open API are linked to, never scraped.

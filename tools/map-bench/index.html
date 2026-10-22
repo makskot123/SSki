@@ -91,16 +91,20 @@
             maxzoom: demMaxzoom,
             ...DEM[dem],
           });
-          map.addSource("hs", {
-            type: "raster-dem",
-            maxzoom: demMaxzoom,
-            ...DEM[dem],
-          });
+          // ?hs=same: hillshade reads the terrain source instead of its own copy (fewer requests?).
+          const shared = q.get("hs") === "same";
+          if (!shared) {
+            map.addSource("hs", {
+              type: "raster-dem",
+              maxzoom: demMaxzoom,
+              ...DEM[dem],
+            });
+          }
           map.addLayer(
             {
               id: "hillshade",
               type: "hillshade",
-              source: "hs",
+              source: shared ? "dem" : "hs",
               paint: { "hillshade-exaggeration": 0.4 },
             },
             firstLabel,

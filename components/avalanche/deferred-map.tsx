@@ -2,8 +2,9 @@
 
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { AvalancheMapProps } from "@/components/avalanche/avalanche-map";
+import { ensureGraphicsProbed } from "@/components/avalanche/use-map-view";
 
 // MapLibre is large: load it only in the browser, and only after the visitor engages.
 const AvalancheMap = dynamic(
@@ -38,13 +39,20 @@ const INTERACTION_EVENTS = [
 export function DeferredAvalancheMap(props: AvalancheMapProps) {
   const t = useTranslations("Avalanche");
   const [requested, setRequested] = useState(false);
+  const placeholder = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const request = () => setRequested(true);
+    const request = () => {
+      // Probe the GPU now, so a device without 3D gets the 2D map from the start.
+      ensureGraphicsProbed();
+      setRequested(true);
+    };
     const options = { once: true, passive: true, capture: true } as const;
     for (const type of INTERACTION_EVENTS) {
       window.addEventListener(type, request, options);
     }
+    // Marks that interaction now starts the map (before hydration it cannot). Used by the e2e tests.
+    placeholder.current?.setAttribute("data-armed", "true");
     return () => {
       for (const type of INTERACTION_EVENTS) {
         window.removeEventListener(type, request, { capture: true });
@@ -56,12 +64,16 @@ export function DeferredAvalancheMap(props: AvalancheMapProps) {
 
   return (
     <div
+      ref={placeholder}
       className={`${boxClass} ${props.heightClass ?? DEFAULT_HEIGHT}`}
       data-testid="avalanche-map-placeholder"
     >
       <button
         type="button"
-        onClick={() => setRequested(true)}
+        onClick={() => {
+          ensureGraphicsProbed();
+          setRequested(true);
+        }}
         className="rounded-md bg-accent px-4 py-2 font-medium text-accent-fg"
       >
         {t("loadMap")}

@@ -12,6 +12,16 @@ import {
   fillColorExpression,
   fillOpacityExpression,
 } from "@/lib/avalanche/map-style";
+import type { BBox } from "@/lib/geo/bbox";
+import {
+  MAX_PITCH,
+  PITCH_3D,
+  TERRAIN_ATTRIBUTION,
+  TERRAIN_EXAGGERATION,
+  TERRAIN_MAX_ZOOM,
+  TERRAIN_TILES,
+} from "@/lib/map/terrain";
+import type { MapView } from "@/lib/map/view-preference";
 import type { DangerLevel } from "@/lib/schemas/avalanche";
 
 const STYLE_URL = "https://tiles.openfreemap.org/styles/positron";
@@ -40,6 +50,57 @@ async function loadStyle(): Promise<StyleSpecification | string> {
   }
 }
 
+const reducedMotion = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+/**
+ * Switches between flat 2D and 3D terrain. Elevation tiles are only requested once 3D is first turned on.
+ * Terrain and hillshade use separate sources: sharing one saves data but blurs the relief (checked in A1).
+ */
+function applyView(map: MapLibreMap, view: MapView, animate: boolean) {
+  const duration = animate && !reducedMotion() ? 900 : 0;
+  if (view === "3d") {
+    const dem = {
+      type: "raster-dem" as const,
+      tiles: TERRAIN_TILES,
+      tileSize: 256,
+      encoding: "terrarium" as const,
+      maxzoom: TERRAIN_MAX_ZOOM,
+    };
+    if (!map.getSource("terrain")) {
+      map.addSource("terrain", { ...dem, attribution: TERRAIN_ATTRIBUTION });
+    }
+    if (!map.getSource("hillshade")) map.addSource("hillshade", dem);
+    if (!map.getLayer("hillshade")) {
+      map.addLayer(
+        {
+          id: "hillshade",
+          type: "hillshade",
+          source: "hillshade",
+          paint: { "hillshade-exaggeration": 0.35 },
+        },
+        "regions-fill",
+      );
+    } else {
+      map.setLayoutProperty("hillshade", "visibility", "visible");
+    }
+    map.setTerrain({ source: "terrain", exaggeration: TERRAIN_EXAGGERATION });
+    map.setSky({
+      "sky-color": "#bcd6ee",
+      "horizon-color": "#eef3f8",
+      "sky-horizon-blend": 0.5,
+    });
+    map.easeTo({ pitch: PITCH_3D, duration });
+  } else {
+    map.setTerrain(null);
+    if (map.getLayer("hillshade")) {
+      map.setLayoutProperty("hillshade", "visibility", "none");
+    }
+    map.easeTo({ pitch: 0, bearing: 0, duration });
+  }
+}
+
 type Status = "loading" | "ready" | "error";
 
 export interface AvalancheMapProps {
@@ -55,6 +116,10 @@ export interface AvalancheMapProps {
   /** Accessible name; defaults to the Lawinomierz map label. */
   label?: string;
   heightClass?: string;
+  /** Flat map or 3D terrain. The caller decides (device capability and the visitor's choice). */
+  view?: MapView;
+  /** When set (or changed), the camera moves to show this region. */
+  focus?: { id: string; bbox: BBox } | null;
 }
 
 function outlineFilter(
@@ -75,16 +140,20 @@ export default function AvalancheMap({
   marker,
   label,
   heightClass = "h-[26rem] lg:h-[34rem]",
+  view = "2d",
+  focus = null,
 }: AvalancheMapProps) {
   const t = useTranslations("Avalanche");
   const container = useRef<HTMLDivElement>(null);
   const mapRef = useRef<MapLibreMap | null>(null);
   const [status, setStatus] = useState<Status>("loading");
+  const [shownView, setShownView] = useState<MapView>("2d");
+  const [focusedId, setFocusedId] = useState<string | null>(null);
 
   // Latest values for callbacks created once inside the map setup.
-  const latest = useRef({ levels, selectedId, onSelect, focusIds });
+  const latest = useRef({ levels, selectedId, onSelect, focusIds, view });
   useEffect(() => {
-    latest.current = { levels, selectedId, onSelect, focusIds };
+    latest.current = { levels, selectedId, onSelect, focusIds, view };
   });
 
   useEffect(() => {
@@ -107,13 +176,17 @@ export default function AvalancheMap({
           center: initialView.center,
           zoom: initialView.zoom,
           minZoom: 3,
-          maxZoom: 11,
+          maxZoom: 13,
+          maxPitch: MAX_PITCH,
           cooperativeGestures: true, // never trap page scrolling on touch devices
           attributionControl: { compact: true },
         });
         mapRef.current = map;
         map.addControl(
-          new maplibre.NavigationControl({ showCompass: false }),
+          new maplibre.NavigationControl({
+            showCompass: true,
+            visualizePitch: true,
+          }),
           "top-right",
         );
 
@@ -223,6 +296,32 @@ export default function AvalancheMap({
     map.setFilter("regions-selected", outlineFilter(focusIds, selectedId));
   }, [selectedId, focusIds, status]);
 
+  // 2D <-> 3D. Animated when the visitor switches; instant when the map first opens.
+  const viewApplied = useRef(false);
+  useEffect(() => {
+    const map = mapRef.current;
+    if (status !== "ready" || !map) return;
+    applyView(map, view, viewApplied.current);
+    viewApplied.current = true;
+    setShownView(view);
+  }, [view, status]);
+
+  // Fly (or jump, with reduced motion) to the focused region.
+  const focusKey = focus ? `${focus.id}:${focus.bbox.join(",")}` : "";
+  useEffect(() => {
+    const map = mapRef.current;
+    if (status !== "ready" || !map || !focus) return;
+    map.fitBounds(focus.bbox, {
+      padding: 48,
+      maxZoom: 10,
+      pitch: latest.current.view === "3d" ? PITCH_3D : 0,
+      duration: reducedMotion() ? 0 : 1200,
+    });
+    setFocusedId(focus.id);
+    // focusKey captures the focus value; the object itself may be recreated on every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [focusKey, status]);
+
   return (
     <div className="relative">
       <div
@@ -231,6 +330,8 @@ export default function AvalancheMap({
         aria-label={label ?? t("mapLabel")}
         data-testid="avalanche-map"
         data-map-status={status}
+        data-view={status === "ready" ? shownView : undefined}
+        data-focused={focusedId ?? undefined}
         data-coloured={
           status === "ready" ? Object.keys(levels).length : undefined
         }

@@ -62,3 +62,11 @@ body {
     color: #000000;
   }
 }
+
+/*
+ * MapLibre's attribution links are told apart by colour only (WCAG 1.4.1); underline them.
+ * Its own stylesheet loads later with `.maplibregl-ctrl-attrib a`, so this selector is more specific.
+ */
+.maplibregl-map .maplibregl-ctrl-attrib a {
+  text-decoration: underline;
+}

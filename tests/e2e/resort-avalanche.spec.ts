@@ -188,7 +188,10 @@ test.describe("resort page: region map", () => {
     expect(assets).toEqual([]);
 
     // Wait for hydration, then move the mouse: that is itself the first interaction that starts the map.
-    await page.waitForLoadState("networkidle");
+    await expect(page.getByTestId("avalanche-map-placeholder")).toHaveAttribute(
+      "data-armed",
+      "true",
+    );
     await page.mouse.move(150, 250);
     const map = page.getByTestId("avalanche-map");
     await expect(map).toHaveAttribute("data-map-status", /ready|error/, {
@@ -207,7 +210,10 @@ test.describe("resort page: region map", () => {
   }) => {
     await page.goto("/en/resorts/kasprowy-wierch");
     // Wait for hydration, then move the mouse: that is itself the first interaction that starts the map.
-    await page.waitForLoadState("networkidle");
+    await expect(page.getByTestId("avalanche-map-placeholder")).toHaveAttribute(
+      "data-armed",
+      "true",
+    );
     await page.mouse.move(150, 250);
     const map = page.getByTestId("avalanche-map");
     await expect(map).toHaveAttribute("data-map-status", /ready|error/, {

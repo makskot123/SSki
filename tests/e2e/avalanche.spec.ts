@@ -196,7 +196,10 @@ test("the map loads and colours exactly the regions with a current bulletin", as
 }) => {
   await page.goto("/en/avalanche");
   // Wait for hydration, then move the mouse: that is itself the first interaction that starts the map.
-  await page.waitForLoadState("networkidle");
+  await expect(page.getByTestId("avalanche-map-placeholder")).toHaveAttribute(
+    "data-armed",
+    "true",
+  );
   await page.mouse.move(150, 250);
   const map = page.getByTestId("avalanche-map");
   await expect(map).toHaveAttribute("data-map-status", /ready|error/, {
