@@ -358,6 +358,10 @@
       "quiz": {
         "title": "Quiz o bezpieczeństwie lawinowym",
         "body": "13 pytań o stopnie zagrożenia, teren, sygnały ostrzegawcze i ratownictwo, z wyjaśnieniami."
+      },
+      "gear": {
+        "title": "Poradnik sprzętowy",
+        "body": "Detektory, sondy, łopaty, plecaki lawinowe i kaski: minimalne wymagania, dane producentów i stosunek jakości do ceny."
       }
     },
     "dangerTitle": "Pięć stopni zagrożenia lawinowego",
@@ -473,7 +477,8 @@
         "label": "Obserwuj sygnały ostrzegawcze po drodze",
         "hint": "Niedawne lawiny, odgłosy zapadania się śniegu, pęknięcia rozchodzące się spod nart, świeży śnieg naniesiony wiatrem."
       }
-    }
+    },
+    "gearLink": "Na co zwrócić uwagę: {category}"
   },
   "Aspects": {
     "title": "Wystawa i stromość stoku",
@@ -716,5 +721,167 @@
     "offlineQuiz": "Quiz o bezpieczeństwie lawinowym",
     "offlineSafety": "Bezpieczeństwo: stopnie zagrożenia, wystawa i stromość",
     "offlineAvalanche": "Stopnie zagrożenia lawinowego wymagają aktualnego komunikatu. Bez połączenia przeczytaj zapisany oficjalny komunikat lub zapytaj na miejscu przed jazdą poza trasami."
+  },
+  "Gear": {
+    "title": "Poradnik sprzętowy",
+    "intro": "Sprzęt lawinowy porównany według opublikowanych danych technicznych i sugerowanej ceny detalicznej, z minimalnymi wymaganiami, które produkt musi spełnić, zanim w ogóle trafi do rankingu.",
+    "honesty": "Porównujemy dane techniczne publikowane przez producentów i ich sugerowane ceny detaliczne. Nie testujemy sprzętu, nic tu nie jest sponsorowane i nie ma linków afiliacyjnych. Ceny się zmieniają: sprawdź datę przy każdej z nich.",
+    "notSubstitute": "Żaden sprzęt nie zastąpi szkolenia. Detektor, sonda i łopata pomagają tylko wtedy, gdy każdy w grupie je ma i ćwiczył ich użycie. Ten poradnik nie zastępuje kursu lawinowego.",
+    "categoriesTitle": "Kategorie",
+    "categories": {
+      "transceiver": {
+        "name": "Detektory lawinowe",
+        "short": "Detektor",
+        "description": "Podczas jazdy nadaje sygnał, a w trybie szukania pozwala odnaleźć zasypanych. Każdy w grupie potrzebuje własnego, włączonego detektora."
+      },
+      "probe": {
+        "name": "Sondy lawinowe",
+        "short": "Sonda",
+        "description": "Po poszukiwaniu detektorem wskazuje dokładne miejsce i głębokość zasypanej osoby, aby kopać we właściwym miejscu."
+      },
+      "shovel": {
+        "name": "Łopaty lawinowe",
+        "short": "Łopata",
+        "description": "Kopanie to najwolniejsza część akcji ratunkowej. Mocne ostrze i długi trzonek pozwalają szybciej przerzucać śnieg."
+      },
+      "airbag": {
+        "name": "Plecaki lawinowe (ABS)",
+        "short": "Plecak lawinowy",
+        "description": "Może pomóc utrzymać się bliżej powierzchni lawiny. Nie zapobiega lawinom i nie chroni przed urazami."
+      },
+      "helmet": {
+        "name": "Kaski",
+        "short": "Kask",
+        "description": "Chroni głowę przy upadkach, uderzeniach o drzewa i skały, także w lawinie."
+      }
+    },
+    "minimumsTitle": "Minimalne wymagania do rankingu",
+    "minimumsNote": "Produkty, które nie spełniają któregokolwiek z nich, nigdy nie trafiają do rankingu ani rekomendacji, nawet jeśli są tanie.",
+    "minimums": {
+      "digital": "Cyfrowy (nie tylko analogowy)",
+      "threeAntennas": "Trzy anteny",
+      "frequency457": "457 kHz, międzynarodowa częstotliwość detektorów",
+      "en300718": "Zgodność z EN 300 718",
+      "marking": "Możliwość oznaczenia odnalezionej osoby przy wielu zasypanych",
+      "probeLength": "Co najmniej 240 cm długości",
+      "quickLock": "Szybki system blokowania",
+      "metalBlade": "Metalowe ostrze",
+      "extendableShaft": "Wysuwany trzonek",
+      "en16716": "Certyfikat EN 16716 (systemy poduszek lawinowych)",
+      "en1077": "Certyfikat EN 1077 (kaski narciarskie)"
+    },
+    "criteriaTitle": "Co uwzględnia ocena parametrów",
+    "criteriaNote": "Każde kryterium jest porównywane w obrębie kategorii (najlepszy = 100, najgorszy = 0) i uśredniane. Parametr, którego producent nie podaje, jest pomijany, a nie liczony jako zero.",
+    "criteria": {
+      "range": "Maksymalny zasięg",
+      "searchStrip": "Szerokość pasa poszukiwań (odstęp między szukającymi)",
+      "weight": "Waga (lżej znaczy lepiej)",
+      "battery": "Czas pracy baterii w trybie nadawania",
+      "length": "Długość",
+      "shaftLength": "Długość z wysuniętym trzonkiem",
+      "hoeMode": "Tryb motyki (ostrze można obrócić, by szybciej odgarniać)",
+      "multipleDeployments": "Kilka wyzwoleń bez uzupełniania",
+      "dualCertified": "Także certyfikat wspinaczkowy (EN 12492)",
+      "rotationalProtection": "Ochrona przed uderzeniami rotacyjnymi"
+    },
+    "picksTitle": "Nasze typy",
+    "picks": {
+      "bestPerformance": "Najlepsze parametry",
+      "bestValue": "Najlepszy stosunek jakości do ceny",
+      "budget": "Wybór budżetowy"
+    },
+    "picksNote": "Typ „najlepszy stosunek jakości do ceny” uwzględnia tylko produkty z oceną parametrów co najmniej 60.",
+    "noProducts": "Nie ma jeszcze produktów na liście. Dodajemy produkt dopiero po sprawdzeniu jego danych na stronie producenta.",
+    "fullRanking": "Pełny ranking i dane: {category}",
+    "kitsTitle": "Polecane zestawy",
+    "kits": {
+      "essential": {
+        "name": "Podstawowy",
+        "description": "Detektor, sonda i łopata: minimum, które każdy nosi poza trasą."
+      },
+      "recommended": {
+        "name": "Polecany",
+        "description": "Zestaw podstawowy oraz kask i plecak lawinowy."
+      },
+      "lightweight": {
+        "name": "Lekki",
+        "description": "Zestaw podstawowy dobrany pod kątem niskiej wagi, na skitury."
+      }
+    },
+    "kitTotal": "Łącznie (cena sugerowana): {price}",
+    "kitUnavailable": "Pojawi się, gdy dla każdego elementu zestawu będzie co najmniej jeden sprawdzony produkt.",
+    "adviceTitle": "Porady",
+    "advice": [
+      "Zrób kurs lawinowy i regularnie go odświeżaj.",
+      "Kilka razy w sezonie ćwicz poszukiwania detektorem z osobami, z którymi jeździsz.",
+      "Przed każdym wyjściem sprawdź baterie i zrób w grupie test detektorów.",
+      "Trzymaj telefon i inną elektronikę z dala od detektora, zgodnie z zaleceniami producenta.",
+      "Wymień wygiętą lub uszkodzoną sondę albo łopatę.",
+      "Przed podróżą sprawdź przepisy linii lotniczej i kraju dotyczące nabojów lub baterii plecaka lawinowego."
+    ],
+    "adviceSources": "Więcej od ekspertów:",
+    "learnSlf": "SLF: lawiny i bezpieczeństwo (szwajcarska służba ostrzegania przed lawinami)",
+    "learnIcar": "ICAR: Międzynarodowa Komisja Ratownictwa Alpejskiego",
+    "opensInNewTab": "(otwiera się w nowej karcie)",
+    "rankingTitle": "Ranking",
+    "presetsLabel": "Ustawienia",
+    "presets": {
+      "bestValue": "Najlepszy stosunek jakości do ceny",
+      "bestPerformance": "Najlepsze parametry",
+      "lightest": "Najlżejsze",
+      "budget": "Budżetowe"
+    },
+    "slider": "Parametry ↔ cena",
+    "sliderValue": "{performance}% parametry, {price}% stosunek jakości do ceny",
+    "showBelow": "Pokaż produkty poniżej minimalnych wymagań",
+    "belowTitle": "Poniżej minimalnych wymagań (poza rankingiem)",
+    "belowReason": "Brakuje: {reasons}",
+    "rank": "Miejsce {rank}",
+    "score": "Wynik {score}/100",
+    "performance": "Parametry {score}/100",
+    "value": "Stosunek jakości do ceny {score}/100",
+    "notScored": "Za mało opublikowanych danych do oceny",
+    "price": "Cena sugerowana {price}",
+    "priceChecked": "cena sprawdzona {date}",
+    "priceStale": "Tę cenę sprawdzono ponad 12 miesięcy temu i może być nieaktualna.",
+    "source": "Dane producenta",
+    "specsTitle": "Opublikowane dane",
+    "yes": "Tak",
+    "no": "Nie",
+    "specs": {
+      "digital": "Cyfrowy",
+      "antennas": "Anteny",
+      "frequencyKHz": "Częstotliwość",
+      "en300718": "EN 300 718",
+      "multipleBurialMarking": "Oznaczanie wielu zasypanych",
+      "rangeM": "Zasięg",
+      "searchStripM": "Pas poszukiwań",
+      "weightG": "Waga",
+      "batterySendHours": "Bateria (nadawanie)",
+      "lengthCm": "Długość",
+      "quickLock": "Szybka blokada",
+      "material": "Materiał",
+      "bladeMaterial": "Ostrze",
+      "extendableShaft": "Wysuwany trzonek",
+      "maxLengthCm": "Maks. długość",
+      "hoeMode": "Tryb motyki",
+      "en16716": "EN 16716",
+      "system": "System",
+      "multipleDeployments": "Kilka wyzwoleń",
+      "volumeL": "Pojemność",
+      "en1077": "EN 1077",
+      "en12492": "EN 12492",
+      "rotationalProtection": "Ochrona rotacyjna"
+    },
+    "specValues": {
+      "aluminium": "Aluminium",
+      "carbon": "Karbon",
+      "steel": "Stal",
+      "metal": "Metal",
+      "plastic": "Tworzywo sztuczne",
+      "cartridge": "Nabój",
+      "electric": "Elektryczny (bateria lub superkondensator)"
+    },
+    "back": "Poradnik sprzętowy"
   }
 }

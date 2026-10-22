@@ -358,6 +358,10 @@
       "quiz": {
         "title": "Avalanche safety quiz",
         "body": "13 questions on danger levels, terrain, warning signs and rescue, with explanations."
+      },
+      "gear": {
+        "title": "Gear guide",
+        "body": "Transceivers, probes, shovels, airbags and helmets: minimum standards, published specs and value for money."
       }
     },
     "dangerTitle": "The five danger levels",
@@ -473,7 +477,8 @@
         "label": "Watch for warning signs along the way",
         "hint": "Recent avalanches, whumpfing sounds, cracks shooting out from your skis, fresh wind-blown snow."
       }
-    }
+    },
+    "gearLink": "What to look for: {category}"
   },
   "Aspects": {
     "title": "Slope aspect and steepness",
@@ -716,5 +721,167 @@
     "offlineQuiz": "Avalanche safety quiz",
     "offlineSafety": "Safety: danger levels, aspect and steepness",
     "offlineAvalanche": "Avalanche levels need a current bulletin. Without a connection, read the official bulletin you saved or ask on site before going off-piste."
+  },
+  "Gear": {
+    "title": "Gear guide",
+    "intro": "Avalanche safety gear compared by published specifications and recommended retail price, with the minimum standards a product must meet before we rank it at all.",
+    "honesty": "We rank manufacturers' published specs and recommended retail prices (RRP). We do not test gear, nothing here is sponsored, and there are no affiliate links. Prices change: check the date next to each one.",
+    "notSubstitute": "No gear replaces training. Transceiver, probe and shovel only help if everyone in the group carries them and has practised using them. This guide is no substitute for an avalanche course.",
+    "categoriesTitle": "Categories",
+    "categories": {
+      "transceiver": {
+        "name": "Avalanche transceivers",
+        "short": "Transceiver",
+        "description": "Sends a signal while you ski and finds buried people in search mode. Everyone in the group needs one, switched on."
+      },
+      "probe": {
+        "name": "Avalanche probes",
+        "short": "Probe",
+        "description": "Pinpoints the buried person and their depth after the transceiver search, so digging starts in the right place."
+      },
+      "shovel": {
+        "name": "Avalanche shovels",
+        "short": "Shovel",
+        "description": "Digging is the slowest part of a rescue. A strong blade and a long shaft move snow faster."
+      },
+      "airbag": {
+        "name": "Avalanche airbags",
+        "short": "Airbag",
+        "description": "Can help keep you nearer the surface if you are caught. It does not prevent avalanches or protect against injuries."
+      },
+      "helmet": {
+        "name": "Helmets",
+        "short": "Helmet",
+        "description": "Protects against head injuries from falls, trees and rocks, including in an avalanche."
+      }
+    },
+    "minimumsTitle": "Minimum standard to be ranked",
+    "minimumsNote": "Products that miss any of these are never ranked or recommended, however cheap.",
+    "minimums": {
+      "digital": "Digital (not analog only)",
+      "threeAntennas": "Three antennas",
+      "frequency457": "457 kHz, the international transceiver frequency",
+      "en300718": "Conforms to EN 300 718",
+      "marking": "Can mark a found person in a multiple burial",
+      "probeLength": "At least 240 cm long",
+      "quickLock": "Quick-locking assembly",
+      "metalBlade": "Metal blade",
+      "extendableShaft": "Extendable shaft",
+      "en16716": "Certified to EN 16716 (avalanche airbag systems)",
+      "en1077": "Certified to EN 1077 (ski helmets)"
+    },
+    "criteriaTitle": "What the performance score looks at",
+    "criteriaNote": "Each criterion is compared within the category (best = 100, worst = 0) and averaged. A spec the manufacturer does not publish is left out, not counted as zero.",
+    "criteria": {
+      "range": "Maximum range",
+      "searchStrip": "Search strip width (how far apart searchers can walk)",
+      "weight": "Weight (lighter is better)",
+      "battery": "Battery life in send mode",
+      "length": "Length",
+      "shaftLength": "Length with the shaft extended",
+      "hoeMode": "Hoe mode (blade can be turned for faster clearing)",
+      "multipleDeployments": "Several deployments without a refill",
+      "dualCertified": "Also certified for mountaineering (EN 12492)",
+      "rotationalProtection": "Rotational impact protection"
+    },
+    "picksTitle": "Our picks",
+    "picks": {
+      "bestPerformance": "Best performance",
+      "bestValue": "Best value",
+      "budget": "Budget pick"
+    },
+    "picksNote": "Best value only considers products with a performance score of at least 60.",
+    "noProducts": "No products are listed yet. We only add a product after checking its specs on the manufacturer's own page.",
+    "fullRanking": "Full ranking and specs: {category}",
+    "kitsTitle": "Recommended kits",
+    "kits": {
+      "essential": {
+        "name": "Essential",
+        "description": "Transceiver, probe and shovel: the minimum every person carries off-piste."
+      },
+      "recommended": {
+        "name": "Recommended",
+        "description": "The essential kit plus a helmet and an avalanche airbag."
+      },
+      "lightweight": {
+        "name": "Lightweight",
+        "description": "The essential kit chosen for low weight, for ski touring."
+      }
+    },
+    "kitTotal": "Total RRP: {price}",
+    "kitUnavailable": "Shown once every item in this kit has at least one checked product.",
+    "adviceTitle": "Advice",
+    "advice": [
+      "Take an avalanche course, and refresh it regularly.",
+      "Practise transceiver searches several times a season, with the people you ski with.",
+      "Before every outing, check batteries and do a group transceiver check.",
+      "Keep phones and other electronics away from your transceiver, as its manufacturer advises.",
+      "Replace a bent or damaged probe or shovel.",
+      "Check airline and country rules for airbag cartridges or batteries before you travel."
+    ],
+    "adviceSources": "More from the experts:",
+    "learnSlf": "SLF: avalanches and safety (Swiss avalanche warning service)",
+    "learnIcar": "ICAR: International Commission for Alpine Rescue",
+    "opensInNewTab": "(opens in a new tab)",
+    "rankingTitle": "Ranking",
+    "presetsLabel": "Presets",
+    "presets": {
+      "bestValue": "Best value",
+      "bestPerformance": "Best performance",
+      "lightest": "Lightest",
+      "budget": "Budget"
+    },
+    "slider": "Performance ↔ price",
+    "sliderValue": "{performance}% performance, {price}% value for money",
+    "showBelow": "Show products below the minimum standard",
+    "belowTitle": "Below the minimum standard (not ranked)",
+    "belowReason": "Misses: {reasons}",
+    "rank": "Rank {rank}",
+    "score": "Score {score}/100",
+    "performance": "Performance {score}/100",
+    "value": "Value {score}/100",
+    "notScored": "Not enough published specs to score",
+    "price": "RRP {price}",
+    "priceChecked": "price checked {date}",
+    "priceStale": "This price was checked more than 12 months ago and may be out of date.",
+    "source": "Manufacturer specs",
+    "specsTitle": "Published specs",
+    "yes": "Yes",
+    "no": "No",
+    "specs": {
+      "digital": "Digital",
+      "antennas": "Antennas",
+      "frequencyKHz": "Frequency",
+      "en300718": "EN 300 718",
+      "multipleBurialMarking": "Multiple-burial marking",
+      "rangeM": "Range",
+      "searchStripM": "Search strip",
+      "weightG": "Weight",
+      "batterySendHours": "Battery (send mode)",
+      "lengthCm": "Length",
+      "quickLock": "Quick lock",
+      "material": "Material",
+      "bladeMaterial": "Blade",
+      "extendableShaft": "Extendable shaft",
+      "maxLengthCm": "Max. length",
+      "hoeMode": "Hoe mode",
+      "en16716": "EN 16716",
+      "system": "System",
+      "multipleDeployments": "Several deployments",
+      "volumeL": "Volume",
+      "en1077": "EN 1077",
+      "en12492": "EN 12492",
+      "rotationalProtection": "Rotational protection"
+    },
+    "specValues": {
+      "aluminium": "Aluminium",
+      "carbon": "Carbon",
+      "steel": "Steel",
+      "metal": "Metal",
+      "plastic": "Plastic",
+      "cartridge": "Cartridge",
+      "electric": "Electric (battery or supercapacitor)"
+    },
+    "back": "Gear guide"
   }
 }

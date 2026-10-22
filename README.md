@@ -18,20 +18,21 @@ npm run dev                  # http://localhost:3000 (redirects to /en)
 
 ## Scripts
 
-| Script                        | What it does                                                                 |
-| ----------------------------- | ---------------------------------------------------------------------------- |
-| `npm run dev`                 | Dev server                                                                   |
-| `npm run build`               | Production build                                                             |
-| `npm run start`               | Serve the production build                                                   |
-| `npm run lint`                | ESLint                                                                       |
-| `npm run typecheck`           | Generates Next route types, then `tsc --noEmit`                              |
-| `npm test`                    | Unit tests (Vitest)                                                          |
-| `npm run test:e2e`            | Playwright smoke + axe accessibility tests (builds and serves app)           |
-| `npm run format`              | Prettier                                                                     |
-| `npm run data:regions`        | Rebuilds the simplified region polygons and metadata in `public/data`        |
-| `npm run data:regions-assign` | Assigns EAWS region ids to every resort in `data/resorts.json`               |
-| `npm run data:snowfall`       | Fills average seasonal snowfall per resort (ERA5, resumable)                 |
-| `npm run icons`               | Renders the app icons (`public/icons`, `app/icon.png`, `app/apple-icon.png`) |
+| Script                        | What it does                                                                        |
+| ----------------------------- | ----------------------------------------------------------------------------------- |
+| `npm run dev`                 | Dev server                                                                          |
+| `npm run build`               | Production build                                                                    |
+| `npm run start`               | Serve the production build                                                          |
+| `npm run lint`                | ESLint                                                                              |
+| `npm run typecheck`           | Generates Next route types, then `tsc --noEmit`                                     |
+| `npm test`                    | Unit tests (Vitest)                                                                 |
+| `npm run test:e2e`            | Playwright smoke + axe accessibility tests (builds and serves app)                  |
+| `npm run format`              | Prettier                                                                            |
+| `npm run data:regions`        | Rebuilds the simplified region polygons and metadata in `public/data`               |
+| `npm run data:regions-assign` | Assigns EAWS region ids to every resort in `data/resorts.json`                      |
+| `npm run data:snowfall`       | Fills average seasonal snowfall per resort (ERA5, resumable)                        |
+| `npm run data:gear-check`     | Checks every gear product's manufacturer link and flags prices older than 12 months |
+| `npm run icons`               | Renders the app icons (`public/icons`, `app/icon.png`, `app/apple-icon.png`)        |
 
 First time running e2e: `npx playwright install chromium webkit` (WebKit runs the iPhone profile in `tests/e2e/mobile.spec.ts`).
 
@@ -51,6 +52,17 @@ FreerideAtlas installs as an app from the browser, free and without an app store
 - **iPhone / iPad:** in Safari, tap Share, then Add to Home Screen.
 
 The service worker (Serwist, `app/sw.ts`, built by `app/serwist/[path]/route.ts`) is only active in production builds (`npm run build && npm run start`). It precaches the safety pages, checklist, quiz and the offline page in both languages, caches other pages as they are visited, and keeps map tiles in capped caches. Offline, avalanche levels are re-checked against the device clock and shown only while the bulletin is valid. A new version waits until the visitor clicks Reload.
+
+## Gear guide data
+
+`/safety/gear` ranks avalanche safety gear (transceivers, probes, shovels, airbags, helmets) from `data/gear.json`. The ranking logic is in `lib/gear` and the schema is in `lib/schemas/gear.ts`. **The product list starts empty on purpose.** Add a product only after reading its specs on the manufacturer's own page:
+
+- `sourceUrl`: the manufacturer's spec page (https). It must not be a shop page, and no text or images are copied from it.
+- `priceEUR`: the manufacturer's recommended retail price, never a discount price. `priceCheckedAt` is the date you checked it.
+- `specs`: published figures only. Leave a field out if the manufacturer does not publish it; it is then skipped in the score.
+- Products below the minimum standards (e.g. a probe under 240 cm) may be listed. They are shown only on request, with the reason, and are never ranked or recommended.
+
+Then run `npm test` (validates the file) and `npm run data:gear-check` (link and price-date check).
 
 ## Data API (v1)
 

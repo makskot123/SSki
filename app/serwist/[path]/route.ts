@@ -24,6 +24,7 @@ const OFFLINE_PAGES = [
   "/safety/checklist",
   "/safety/quiz",
   "/safety/aspects",
+  "/safety/gear",
 ];
 
 export const { dynamic, dynamicParams, revalidate, generateStaticParams, GET } =

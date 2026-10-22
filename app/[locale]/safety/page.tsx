@@ -10,6 +10,7 @@ const TOOLS = [
   { key: "checklist", href: "/safety/checklist" },
   { key: "aspects", href: "/safety/aspects" },
   { key: "quiz", href: "/safety/quiz" },
+  { key: "gear", href: "/safety/gear" },
 ] as const;
 
 const LEVELS: DangerLevel[] = [1, 2, 3, 4, 5];
@@ -38,7 +39,7 @@ export default async function SafetyPage({
         </div>
       </header>
 
-      <ul className="grid gap-4 md:grid-cols-3">
+      <ul className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {TOOLS.map(({ key, href }) => (
           <li key={key}>
             <Link

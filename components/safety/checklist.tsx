@@ -1,6 +1,7 @@
 "use client";
 
 import { useMessages, useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { useMemo, useSyncExternalStore } from "react";
 import {
   CHECKLIST_GROUPS,
@@ -9,6 +10,7 @@ import {
   serialiseChecked,
   toggled,
 } from "@/lib/safety/checklist";
+import type { GearCategory } from "@/lib/schemas/gear";
 
 /*
  * Tiny external store over localStorage. Reading through useSyncExternalStore keeps server and first
@@ -56,8 +58,18 @@ function write(next: Set<string>) {
   listeners.forEach((l) => l());
 }
 
+/** Checklist items that have a gear-guide category (outside the label, so tapping it never ticks the box). */
+const GEAR_LINKS: Partial<Record<string, GearCategory>> = {
+  transceiver: "transceiver",
+  probe: "probe",
+  shovel: "shovel",
+  airbag: "airbag",
+  helmet: "helmet",
+};
+
 export function Checklist() {
   const t = useTranslations("Checklist");
+  const tg = useTranslations("Gear");
   const raw = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   const checked = useMemo(() => parseChecked(raw), [raw]);
 
@@ -126,6 +138,18 @@ export function Checklist() {
                       )}
                     </span>
                   </label>
+                  {GEAR_LINKS[item.id] && (
+                    <Link
+                      href={`/safety/gear/${GEAR_LINKS[item.id]}`}
+                      className="mt-1 inline-block text-sm text-accent underline print:hidden"
+                    >
+                      {t("gearLink", {
+                        category: tg(
+                          `categories.${GEAR_LINKS[item.id]}.name` as "categories.probe.name",
+                        ),
+                      })}
+                    </Link>
+                  )}
                 </li>
               );
             })}

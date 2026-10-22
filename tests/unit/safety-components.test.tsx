@@ -15,6 +15,22 @@ import { QUIZ_QUESTIONS } from "@/lib/safety/quiz";
 import en from "@/messages/en.json";
 import pl from "@/messages/pl.json";
 
+// next-intl's navigation module needs Next's runtime; these tests only need plain links.
+vi.mock("@/i18n/navigation", () => ({
+  Link: ({
+    href,
+    children,
+    ...rest
+  }: {
+    href: string;
+    children: React.ReactNode;
+  }) => (
+    <a href={href} {...rest}>
+      {children}
+    </a>
+  ),
+}));
+
 const TOTAL = ALL_ITEM_IDS.length;
 
 const wrap = (node: React.ReactNode, locale: "en" | "pl" = "en") => (
@@ -43,6 +59,20 @@ const box = (name: string | RegExp) =>
   screen.getByRole("checkbox", { name }) as HTMLInputElement;
 
 describe("Checklist", () => {
+  it("links the five gear items to their gear-guide category, outside the tick box label", async () => {
+    const Checklist = await freshChecklist();
+    render(wrap(<Checklist />));
+    const links = screen.getAllByRole("link", { name: /^What to look for:/ });
+    expect(links.map((a) => a.getAttribute("href"))).toEqual([
+      "/safety/gear/transceiver",
+      "/safety/gear/probe",
+      "/safety/gear/shovel",
+      "/safety/gear/airbag",
+      "/safety/gear/helmet",
+    ]);
+    for (const a of links) expect(a.closest("label")).toBeNull();
+  });
+
   it("starts empty and counts ticks", async () => {
     const Checklist = await freshChecklist();
     render(wrap(<Checklist />));

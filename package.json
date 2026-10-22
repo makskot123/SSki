@@ -19,7 +19,8 @@
     "data:regions": "node scripts/build-regions.ts",
     "bench:map:serve": "node tools/map-bench/server.mjs",
     "bench:map": "node tools/map-bench/run.mjs",
-    "icons": "node scripts/build-icons.mjs"
+    "icons": "node scripts/build-icons.mjs",
+    "data:gear-check": "node scripts/check-gear-links.mjs"
   },
   "dependencies": {
     "@serwist/turbopack": "^9.5.13",

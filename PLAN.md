@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8); next is M8b (gear guide).
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8). **M8b built without product data** (see M8b notes below); next is M9 (trip planner).
 Date: 2026-10-21
 
 ---
@@ -365,6 +365,8 @@ Gear checklist (localStorage, printable), aspect & steepness explainer (interact
 **M8b — Gear guide: value ranking and recommendations**
 `data/gear.json` with ~6–8 products per category (5 categories, ~35 products), validated by Zod with a spec schema per category. Minimum-standard gates, performance score, value score and presets reuse the scoring module. Pages `/gear` (three picks per category, recommended kits with total price, advice) and `/gear/[category]` (full ranking, performance↔price slider, "show products below minimum standards" toggle with reasons, spec table, source links). The M8 gear checklist links each item to its category. EN/PL.
 *AC:* the seed validates and every product has a source URL and a check date. A product that fails a minimum is never ranked or picked (unit test with a deliberately non-compliant fixture). Unit tests cover the value score, the presets, the three picks and the kit totals. Prices older than 12 months show a warning. Pages state that we rank published specs and do not test gear, and that nothing is sponsored. axe reports no violations; Lighthouse ≥ 90 on `/gear`.
+
+*M8b notes (2026-10-22):* the engine, pages (`/safety/gear`, `/safety/gear/[category]`, under Safety as decided), checklist links, unit and e2e tests are done, but `data/gear.json` ships **empty**. Manufacturer pages could not be read reliably from the build machine (script-rendered, region-locked or 404), and retailer listings disagreed on weights and ranges; one current model was under a recall. Publishing unverified specs for avalanche safety gear would break the safety-content rule, so the pages show the minimum standards, criteria, advice and "no products listed yet". Products are added by hand following the README ("Gear guide data"), checked with `npm run data:gear-check`. The ranking UI is tested with fictional fixtures.
 
 **M9 — Trip planner**
 Dates + country/region → shortlist ranked by forecast + current score + avalanche level. Printable view (print CSS) with checklist.

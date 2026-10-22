@@ -14,6 +14,8 @@ const PAGES = [
   "/en/safety/checklist",
   "/en/safety/quiz",
   "/en/safety/aspects",
+  "/en/safety/gear",
+  "/en/safety/gear/transceiver",
   "/en/how-we-rank",
   "/pl",
   "/pl/resorts",
