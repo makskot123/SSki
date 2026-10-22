@@ -42,6 +42,18 @@ First time running e2e: `npx playwright install chromium`.
 $env:SWC_NATIVE_BINDING_CACHE = "$PWD\.swc-cache"
 ```
 
+## Data API (v1)
+
+Read-only JSON used by the installable app and its offline cache. Contracts (Zod) live in `lib/api/contracts.ts`.
+
+| Endpoint                | Content                                                                                                                   | Cached                 |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| `GET /api/v1/resorts`   | All resorts (seed data)                                                                                                   | static, `max-age=3600` |
+| `GET /api/v1/forecasts` | 7-day forecasts for every resort; `status` is `live` or `mock` (sample data, never with alerts)                           | 1 h                    |
+| `GET /api/v1/avalanche` | Per region: `current` (level, `validUntil`, bulletin) or `stale` (no level, only `publishedAt`); feed status; attribution | 15 min                 |
+
+Responses can be minutes old, so clients must re-check `validUntil` and the 24-hour rule against their own clock before showing a level (the response repeats the rule in `freshnessRule`).
+
 ## Data sources and attribution
 
 Current: weather attribution in the footer only. Sources are added as milestones land; the full verified table is in [PLAN.md §5](PLAN.md).

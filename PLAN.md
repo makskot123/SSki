@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **A0–A2 done** (see §8.8); next is A3.
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **A0–A3 done** (see §8.8); next is A4.
 Date: 2026-10-21
 
 ---
