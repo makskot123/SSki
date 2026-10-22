@@ -60,7 +60,7 @@ export function ResortFacts({ resort }: { resort: Resort }) {
   ];
 
   return (
-    <dl className="divide-y divide-border rounded-lg border border-border bg-surface">
+    <dl className="divide-y divide-border card">
       {rows.map(({ label, value }) => (
         <div
           key={label}

@@ -32,7 +32,9 @@ test("resort list links to a resort detail page", async ({ page }) => {
   await page.getByRole("link", { name: "View Chamonix" }).click();
   await expect(page).toHaveURL(/\/en\/resorts\/chamonix$/);
   await expect(page.getByRole("heading", { level: 1 })).toHaveText("Chamonix");
-  await expect(page.getByText("3,842 m", { exact: true })).toBeVisible();
+  await expect(
+    page.getByRole("definition").filter({ hasText: /^3,842 m$/ }),
+  ).toBeVisible();
 });
 
 test("presets and sliders re-sort live without a reload and update the URL", async ({

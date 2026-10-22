@@ -60,7 +60,7 @@ export default async function GearCategoryPage({
       <div className="grid gap-6 md:grid-cols-2">
         <section
           aria-labelledby="minimums-title"
-          className="space-y-2 rounded-lg border border-border bg-surface p-4"
+          className="space-y-2 card p-4"
         >
           <h2 id="minimums-title" className="text-lg font-semibold">
             {t("minimumsTitle")}
@@ -74,7 +74,7 @@ export default async function GearCategoryPage({
         </section>
         <section
           aria-labelledby="criteria-title"
-          className="space-y-2 rounded-lg border border-border bg-surface p-4"
+          className="space-y-2 card p-4"
         >
           <h2 id="criteria-title" className="text-lg font-semibold">
             {t("criteriaTitle")}

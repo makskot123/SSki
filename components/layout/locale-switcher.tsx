@@ -10,7 +10,10 @@ export function LocaleSwitcher() {
   const pathname = usePathname();
 
   return (
-    <ul className="flex gap-1" aria-label={t("label")}>
+    <ul
+      className="flex rounded-full border border-border bg-surface p-0.5"
+      aria-label={t("label")}
+    >
       {routing.locales.map((locale) => (
         <li key={locale}>
           <Link
@@ -19,7 +22,7 @@ export function LocaleSwitcher() {
             hrefLang={locale}
             lang={locale}
             aria-current={locale === current ? "true" : undefined}
-            className="touch-target inline-flex items-center justify-center rounded-md px-2 py-1.5 text-sm uppercase hover:bg-surface aria-[current=true]:bg-accent aria-[current=true]:text-accent-fg"
+            className="touch-target inline-flex h-8 min-w-9 items-center justify-center rounded-full px-2.5 text-xs font-semibold uppercase text-muted hover:text-fg aria-[current=true]:bg-accent aria-[current=true]:text-accent-fg"
           >
             <span aria-hidden="true">{locale}</span>
             <span className="sr-only">{t(locale)}</span>

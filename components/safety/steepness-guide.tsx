@@ -90,7 +90,7 @@ export function SteepnessGuide() {
           height={H}
           role="img"
           aria-label={t("diagramLabel", { deg })}
-          className="max-w-full rounded-lg border border-border bg-surface"
+          className="max-w-full card"
         >
           <polygon
             points={`${X0},${BASE_Y} ${endX},${BASE_Y} ${endX},${endY}`}

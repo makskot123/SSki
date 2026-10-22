@@ -92,7 +92,7 @@ export function ConditionNotes({ slug }: { slug: string }) {
       <form
         onSubmit={onSubmit}
         noValidate
-        className="grid max-w-3xl gap-3 rounded-lg border border-border bg-surface p-4 sm:grid-cols-2"
+        className="grid max-w-3xl gap-3 card p-4 sm:grid-cols-2"
         aria-describedby={error ? ids.error : undefined}
       >
         <div className="space-y-1">
@@ -161,7 +161,7 @@ export function ConditionNotes({ slug }: { slug: string }) {
         <div className="sm:col-span-2">
           <button
             type="submit"
-            className="rounded-md bg-accent px-4 py-2 font-medium text-accent-fg"
+            className="rounded-full bg-accent px-5 py-2.5 font-semibold text-accent-fg hover:opacity-90"
           >
             {t("save")}
           </button>
@@ -171,10 +171,7 @@ export function ConditionNotes({ slug }: { slug: string }) {
       {notes.length > 0 && (
         <ul className="max-w-3xl space-y-3" data-testid="condition-notes">
           {notes.map((n) => (
-            <li
-              key={n.id}
-              className="space-y-1 rounded-lg border border-border bg-surface p-4"
-            >
+            <li key={n.id} className="space-y-1 card p-4">
               <p className="text-sm font-semibold">
                 {format.dateTime(new Date(`${n.date}T00:00:00Z`), {
                   day: "numeric",

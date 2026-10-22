@@ -41,7 +41,34 @@
     "nearUnavailable": "Nie udało się ustalić lokalizacji. Nadal możesz przeglądać wszystkie ośrodki.",
     "distance": "{km} km stąd (w linii prostej)",
     "planTrip": "Zaplanuj wyjazd",
-    "openAvalanche": "Mapa lawinowa"
+    "openAvalanche": "Mapa lawinowa",
+    "tilesLabel": "Narzędzia",
+    "tiles": {
+      "avalanche": {
+        "title": "Mapa lawinowa",
+        "body": "Dzisiejsze oficjalne stopnie zagrożenia w Alpach."
+      },
+      "powder": {
+        "title": "Prognoza puchu",
+        "body": "Gdzie spadnie najwięcej śniegu w ten weekend."
+      },
+      "planner": {
+        "title": "Planer wyjazdu",
+        "body": "Twoje daty, lista ośrodków."
+      },
+      "track": {
+        "title": "Licznik dnia",
+        "body": "Prędkość, dystans i przewyższenie w telefonie."
+      },
+      "resorts": {
+        "title": "Ranking ośrodków",
+        "body": "Teren, śnieg, wysokość i cena według Ciebie."
+      },
+      "safety": {
+        "title": "Bezpieczeństwo",
+        "body": "Lista kontrolna, quiz, ekspozycja i poradnik sprzętowy."
+      }
+    }
   },
   "NotFound": {
     "title": "Nie znaleziono strony",

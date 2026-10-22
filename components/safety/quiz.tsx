@@ -62,7 +62,7 @@ export function Quiz() {
           <button
             type="button"
             onClick={retry}
-            className="rounded-md bg-accent px-4 py-2 font-medium text-accent-fg"
+            className="rounded-full bg-accent px-5 py-2.5 font-semibold text-accent-fg hover:opacity-90"
           >
             {t("retry")}
           </button>
@@ -76,7 +76,7 @@ export function Quiz() {
           <fieldset
             key={q.id}
             disabled={submitted}
-            className="space-y-2 rounded-lg border border-border bg-surface p-4"
+            className="space-y-2 card p-4"
           >
             <legend className="px-1 font-semibold">
               <span className="block text-xs font-normal text-muted">

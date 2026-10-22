@@ -60,10 +60,7 @@ export default async function AspectsPage({
             <li key={paragraph}>{paragraph}</li>
           ))}
         </ol>
-        <p
-          role="note"
-          className="rounded-lg border border-border bg-surface p-3 text-sm"
-        >
+        <p role="note" className="card p-3 text-sm">
           {t("whyNote")}
         </p>
       </section>

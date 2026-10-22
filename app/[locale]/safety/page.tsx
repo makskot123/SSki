@@ -44,7 +44,7 @@ export default async function SafetyPage({
           <li key={key}>
             <Link
               href={href}
-              className="flex h-full flex-col gap-2 rounded-lg border border-border bg-surface p-4 hover:border-accent"
+              className="flex h-full flex-col gap-2 card p-4 hover:border-accent"
             >
               <span className="text-lg font-semibold">
                 {t(`tools.${key}.title`)}
@@ -69,7 +69,7 @@ export default async function SafetyPage({
           {LEVELS.map((level) => (
             <li
               key={level}
-              className="flex flex-wrap items-start gap-3 rounded-lg border border-border bg-surface p-3"
+              className="flex flex-wrap items-start gap-3 card p-3"
             >
               <span className="w-44 shrink-0">
                 <DangerBadge level={level} />

@@ -10,6 +10,9 @@
   --border: #d5dde6;
   --accent: #0b5cad;
   --accent-fg: #ffffff;
+  /* Second surface level (tiles inside cards, table headers) and the soft card shadow. */
+  --surface-2: #eef3f8;
+  --shadow: 0 1px 2px rgb(15 27 42 / 0.05), 0 4px 16px rgb(15 27 42 / 0.06);
 }
 
 :root[data-theme="dark"] {
@@ -20,6 +23,8 @@
   --border: #2a3a4c;
   --accent: #6cb4ff;
   --accent-fg: #0e1620;
+  --surface-2: #1c2a39;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
 }
 
 @theme inline {
@@ -30,14 +35,36 @@
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-fg: var(--accent-fg);
+  --color-surface-2: var(--surface-2);
+  --shadow-card: var(--shadow);
   --font-sans: var(--font-geist-sans), system-ui, sans-serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+/* Anchor targets (#avalanche, #region-list…) land below the sticky header. */
+html {
+  scroll-padding-top: 5rem;
 }
 
 body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
+}
+
+/* Theme switches are instant (see theme-toggle.tsx). */
+[data-theme-switching] *,
+[data-theme-switching] *::before,
+[data-theme-switching] *::after {
+  transition: none !important;
+}
+
+/* The standard card: surface, hairline border, rounded, soft shadow. */
+@utility card {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
 }
 
 /* Side padding (1rem), widened on landscape phones to clear the notch and rounded corners (viewport-fit=cover). */

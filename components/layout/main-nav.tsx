@@ -18,7 +18,7 @@ export function MainNav() {
               <Link
                 href={href}
                 aria-current={active ? "page" : undefined}
-                className="rounded-md px-3 py-1.5 text-sm font-medium hover:bg-surface aria-[current=page]:bg-accent aria-[current=page]:text-accent-fg"
+                className="rounded-full px-3 py-1.5 text-sm font-medium text-muted hover:bg-surface hover:text-fg aria-[current=page]:bg-accent/10 aria-[current=page]:text-accent"
               >
                 {t(key)}
               </Link>

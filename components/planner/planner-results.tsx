@@ -84,7 +84,7 @@ export function PlannerResults({
             return (
               <li
                 key={r.slug}
-                className="flex break-inside-avoid gap-3 rounded-lg border border-border bg-surface p-4"
+                className="flex break-inside-avoid gap-3 card p-4"
               >
                 <div className="min-w-0 flex-1 space-y-2">
                   <div>

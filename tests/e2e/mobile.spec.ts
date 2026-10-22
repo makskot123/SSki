@@ -181,7 +181,9 @@ test.describe("phone app shell", () => {
     for (const url of PAGES) {
       await page.goto(url);
       for (const theme of ["light", "dark"] as const) {
+        // Same as the theme toggle: switch without colour transitions.
         await page.evaluate((t) => {
+          document.documentElement.setAttribute("data-theme-switching", "");
           document.documentElement.dataset.theme = t;
         }, theme);
         const results = await new AxeBuilder({ page })

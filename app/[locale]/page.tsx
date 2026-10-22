@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
+import { Hero } from "@/components/home/hero";
 import { MyResorts, type HomeResort } from "@/components/home/my-resorts";
-import { Link } from "@/i18n/navigation";
+import { QuickTiles } from "@/components/home/quick-tiles";
 import { resolveLocale } from "@/i18n/locale-param";
 import { getAvalancheData } from "@/lib/avalanche";
 import { regionLabel, regionMeta } from "@/lib/avalanche/meta";
@@ -32,26 +33,31 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
     ),
   }));
 
+  const tiles = (
+    [
+      ["/avalanche", "avalanche"],
+      ["/powder", "powder"],
+      ["/planner", "planner"],
+      ["/track", "track"],
+      ["/resorts", "resorts"],
+      ["/safety", "safety"],
+    ] as const
+  ).map(([href, key]) => ({
+    href,
+    icon: key,
+    title: t(`tiles.${key}.title`),
+    body: t(`tiles.${key}.body`),
+  }));
+
   return (
     <div className="space-y-10">
-      <section className="space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">{t("title")}</h1>
-        <p className="max-w-2xl text-lg text-muted">{t("subtitle")}</p>
-        <p className="flex flex-wrap gap-3">
-          <Link
-            href="/planner"
-            className="rounded-md bg-accent px-4 py-2 font-medium text-accent-fg"
-          >
-            {t("planTrip")}
-          </Link>
-          <Link
-            href="/avalanche"
-            className="rounded-md border border-border bg-surface px-4 py-2 font-medium hover:border-accent"
-          >
-            {t("openAvalanche")}
-          </Link>
-        </p>
-      </section>
+      <Hero
+        title={t("title")}
+        subtitle={t("subtitle")}
+        primary={{ href: "/planner", label: t("planTrip") }}
+        secondary={{ href: "/avalanche", label: t("openAvalanche") }}
+      />
+      <QuickTiles tiles={tiles} label={t("tilesLabel")} />
       <MyResorts resorts={resorts} renderedAt={now.toISOString()} />
     </div>
   );

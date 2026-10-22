@@ -52,7 +52,7 @@ export function GearRanking({
 
   return (
     <div className="space-y-6">
-      <div className="space-y-4 rounded-lg border border-border bg-surface p-4">
+      <div className="space-y-4 card p-4">
         <fieldset className="space-y-2">
           <legend className="text-sm font-semibold">{t("presetsLabel")}</legend>
           <div className="flex flex-wrap gap-2">

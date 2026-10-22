@@ -41,7 +41,34 @@
     "nearUnavailable": "Your location could not be found. You can still browse all resorts.",
     "distance": "{km} km away (straight line)",
     "planTrip": "Plan a trip",
-    "openAvalanche": "Avalanche map"
+    "openAvalanche": "Avalanche map",
+    "tilesLabel": "Tools",
+    "tiles": {
+      "avalanche": {
+        "title": "Avalanche map",
+        "body": "Today's official danger levels in the Alps."
+      },
+      "powder": {
+        "title": "Powder forecast",
+        "body": "Where the most snow falls this weekend."
+      },
+      "planner": {
+        "title": "Trip planner",
+        "body": "Your dates, a shortlist of resorts."
+      },
+      "track": {
+        "title": "Ski-day tracker",
+        "body": "Speed, distance and vertical, on your phone."
+      },
+      "resorts": {
+        "title": "Resort ranking",
+        "body": "Weigh terrain, snow, altitude and price."
+      },
+      "safety": {
+        "title": "Safety",
+        "body": "Checklist, quiz, aspects and gear guide."
+      }
+    }
   },
   "NotFound": {
     "title": "Page not found",

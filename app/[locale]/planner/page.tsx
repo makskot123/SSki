@@ -128,7 +128,7 @@ export default async function PlannerPage({
       {/* A plain GET form: works without JavaScript, and the result is a shareable link. */}
       <form
         method="get"
-        className="flex flex-wrap items-end gap-4 rounded-lg border border-border bg-surface p-4 print:hidden"
+        className="flex flex-wrap items-end gap-4 card p-4 print:hidden"
       >
         <label className="flex flex-col gap-1 text-sm font-medium">
           {t("from")}
@@ -169,7 +169,7 @@ export default async function PlannerPage({
         </label>
         <button
           type="submit"
-          className="rounded-md bg-accent px-4 py-2 font-medium text-accent-fg"
+          className="rounded-full bg-accent px-5 py-2.5 font-semibold text-accent-fg hover:opacity-90"
         >
           {t("submit")}
         </button>

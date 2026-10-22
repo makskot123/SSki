@@ -51,7 +51,7 @@ function Stat({
   unit: string;
 }) {
   return (
-    <div className="rounded-2xl border border-border bg-surface p-4">
+    <div className="rounded-2xl bg-surface-2 p-4">
       <dt className="text-xs font-medium uppercase tracking-wide text-muted">
         {label}
       </dt>
@@ -206,10 +206,7 @@ export function SkiTracker() {
 
   return (
     <div className="space-y-8">
-      <section
-        aria-labelledby="live-title"
-        className="overflow-hidden rounded-3xl border border-border bg-surface"
-      >
+      <section aria-labelledby="live-title" className="card overflow-hidden">
         <h2 id="live-title" className="sr-only">
           {t("liveTitle")}
         </h2>
@@ -286,10 +283,7 @@ export function SkiTracker() {
       </section>
 
       {(status === "denied" || status === "unavailable") && (
-        <p
-          role="alert"
-          className="rounded-2xl border border-border bg-surface p-4"
-        >
+        <p role="alert" className="card p-4">
           {t(status === "denied" ? "denied" : "unavailable")}
         </p>
       )}
@@ -323,7 +317,7 @@ export function SkiTracker() {
             {days.map((d) => (
               <li
                 key={d.id}
-                className="flex flex-wrap items-center gap-x-6 gap-y-2 rounded-2xl border border-border bg-surface p-4"
+                className="flex flex-wrap items-center gap-x-6 gap-y-2 card p-4"
               >
                 <p className="w-full font-semibold sm:w-auto sm:flex-1">
                   {date(d.startedAt)}

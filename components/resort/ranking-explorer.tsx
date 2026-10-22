@@ -109,7 +109,7 @@ export function RankingExplorer({
 
         <div
           id="ranking-panel"
-          className={`${panelOpen ? "block" : "hidden"} mt-3 space-y-6 rounded-lg border border-border bg-surface p-4 lg:mt-0 lg:block`}
+          className={`${panelOpen ? "block" : "hidden"} mt-3 space-y-6 card p-4 lg:mt-0 lg:block`}
         >
           <section aria-labelledby="presets-title" className="space-y-2">
             <h2 id="presets-title" className="text-sm font-semibold">
@@ -321,9 +321,7 @@ export function RankingExplorer({
           </div>
         )}
         {visible.length === 0 ? (
-          <p className="rounded-lg border border-border bg-surface p-4">
-            {t("noResults")}
-          </p>
+          <p className="card p-4">{t("noResults")}</p>
         ) : (
           <ol className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
             {visible.map((s, i) => (

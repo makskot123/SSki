@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { FavouriteButton } from "@/components/favourites/favourite-button";
 import { ConditionNotes } from "@/components/resort/condition-notes";
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getFormatter, getTranslations } from "next-intl/server";
 import { ForecastSection } from "@/components/forecast/forecast-section";
 import { ResortAvalancheMap } from "@/components/resort/resort-avalanche-map";
 import {
@@ -50,6 +50,8 @@ export default async function ResortPage({
   if (!resort) notFound();
 
   const t = await getTranslations("ResortDetail");
+  const tr = await getTranslations("Resorts");
+  const format = await getFormatter();
   const newTab = t("opensInNewTab");
   const { bySlug } = await getForecasts();
   const forecast = bySlug[resort.slug];
@@ -79,21 +81,37 @@ export default async function ResortPage({
 
   return (
     <article className="space-y-8">
-      <div className="space-y-3">
+      <header className="card space-y-4 p-5 sm:p-8">
         <Link href="/resorts" className="text-sm text-accent underline">
           ← {t("back")}
         </Link>
         <div className="flex items-start justify-between gap-3">
-          <h1 className="text-4xl font-bold tracking-tight">{resort.name}</h1>
+          <div className="space-y-1">
+            <h1 className="text-4xl font-bold tracking-tight">{resort.name}</h1>
+            <p className="text-muted">
+              {resort.region}, {countryName(resort.country, locale)}
+            </p>
+          </div>
           <FavouriteButton
             slug={resort.slug}
             name={resort.name}
             className="mt-1 shrink-0"
           />
         </div>
-        <p className="text-muted">
-          {resort.region}, {countryName(resort.country, locale)}
-        </p>
+        <ul className="flex flex-wrap gap-2 text-sm">
+          {[
+            [tr("top"), `${format.number(resort.elevation.top)} m`],
+            [tr("vertical"), `${format.number(resort.verticalDrop)} m`],
+          ].map(([label, value]) => (
+            <li
+              key={label}
+              className="rounded-full bg-surface-2 px-3 py-1 tabular-nums"
+            >
+              <span className="text-muted">{label}</span>{" "}
+              <span className="font-semibold">{value}</span>
+            </li>
+          ))}
+        </ul>
         <p className="max-w-3xl text-lg">{resort.description[locale]}</p>
         <p>
           <Link
@@ -103,7 +121,7 @@ export default async function ResortPage({
             {t("compareWith")}
           </Link>
         </p>
-      </div>
+      </header>
 
       <div className="grid gap-8 lg:grid-cols-2">
         <section aria-labelledby="facts" className="space-y-3">

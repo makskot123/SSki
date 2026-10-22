@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8). **M8b built without product data** (see M8b notes below); **M9 and M10 done** (M10 with two scope changes, see M10 notes). Nothing is deployed or pushed from here: publishing is the owner's step. **Phase 3 planned** (Google Play app via TWA, on-device tracker, more resorts; no server), see [§9](#9-phase-3--phone-app-google-play-and-on-device-features); B1 done; next is a visual design pass (owner's request), then B2.
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8). **M8b built without product data** (see M8b notes below); **M9 and M10 done** (M10 with two scope changes, see M10 notes). Nothing is deployed or pushed from here: publishing is the owner's step. **Phase 3 planned** (Google Play app via TWA, on-device tracker, more resorts; no server), see [§9](#9-phase-3--phone-app-google-play-and-on-device-features); B1 and the D1 design pass done; next is B2.
 Date: 2026-10-21
 
 ---
@@ -615,6 +615,14 @@ A "Track" screen: start/pause/stop a ski day; live speed, top speed, distance, d
 *AC:* works without a server; no position is ever sent (e2e checks the network); refuses gracefully without permission; unit tests cover the filtering and totals with recorded tracks; clear note that it must not be read while skiing and that top speeds are GPS estimates. EN/PL.
 
 *B1 notes (2026-10-22):* `/track` (6th tab). GPS fixes are filtered in `lib/tracker` (accuracy over 35 m, jumps over 160 km/h, drift shorter than half the accuracy, altitude changes under 8 m), top speed is the median of the last three speeds, and gaps over 60 s add no moving time. Transient GPS errors (tunnels, gondolas) no longer stop tracking, only a denied permission does. Days are saved in localStorage; positions are never stored or sent (e2e checks every request). The page is precached for use without signal.
+
+**D1 — Design pass (owner's request, 2026-10-22)**
+Look and feel without extra weight: CSS and inline SVG only, no images, fonts or libraries added.
+- Tokens: a second surface level, a soft card shadow and one `card` utility used by every card.
+- Sticky translucent header with a logo mark, a compact EN/PL switch and an icon theme button (accessible name "Dark mode" / "Light mode"). Theme switches are instant, with no colour transitions.
+- Home: a hero with an SVG mountain skyline, six tool tiles, and "Your resorts" / "Near me" as cards.
+- Resort page header card with stat chips; resort cards with rank and score pills; rounded primary buttons; translucent bottom tabs with an active pill. Tablets (under 1024 px) keep the bottom tabs, because six sections no longer fit the header there.
+- Lighthouse afterwards: performance 94–96, accessibility, best practices and SEO 100.
 
 **B2 — Google Play readiness (free part)**
 A privacy policy page (what is stored on the device, that nothing is sent, which third parties are contacted: weather, bulletins, map tiles), `/.well-known/assetlinks.json` served from an environment variable, and a short README guide to generating and publishing the TWA with Bubblewrap.

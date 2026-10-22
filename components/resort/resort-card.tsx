@@ -41,15 +41,15 @@ export function ResortCard({
     });
 
   return (
-    <article className="relative flex h-full flex-col gap-3 rounded-lg border border-border bg-surface p-4 focus-within:ring-2 focus-within:ring-accent hover:border-accent">
+    <article className="relative flex h-full flex-col gap-3 card p-4 focus-within:ring-2 focus-within:ring-accent transition-colors hover:border-accent">
       <header className="space-y-1">
         {rank !== undefined && score !== undefined && (
-          <p className="flex items-baseline justify-between text-sm font-semibold text-accent">
-            <span>
+          <p className="flex items-center justify-between text-sm font-semibold">
+            <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
               <span aria-hidden="true">#{rank}</span>
               <span className="sr-only">{tr("rank", { rank })}</span>
             </span>
-            <span>
+            <span className="rounded-full bg-surface-2 px-2.5 py-0.5 tabular-nums">
               <span aria-hidden="true">{score}/100</span>
               <span className="sr-only">{tr("scoreLabel", { score })}</span>
             </span>

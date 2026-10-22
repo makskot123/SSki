@@ -14,7 +14,7 @@ const AvalancheMap = dynamic(
 
 const DEFAULT_HEIGHT = "h-[26rem] lg:h-[34rem]";
 const boxClass =
-  "flex flex-col items-center justify-center gap-3 rounded-lg border border-border bg-surface p-4 text-center text-sm text-muted";
+  "flex flex-col items-center justify-center gap-3 card p-4 text-center text-sm text-muted";
 
 function MapLoading() {
   const t = useTranslations("Avalanche");
@@ -80,7 +80,7 @@ export function DeferredAvalancheMap({
           ensureGraphicsProbed();
           setRequested(true);
         }}
-        className="rounded-md bg-accent px-4 py-2 font-medium text-accent-fg"
+        className="rounded-full bg-accent px-5 py-2.5 font-semibold text-accent-fg hover:opacity-90"
       >
         {t("loadMap")}
       </button>

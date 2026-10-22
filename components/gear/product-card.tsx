@@ -62,7 +62,7 @@ export function GearProductCard({
   };
 
   return (
-    <article className="space-y-3 rounded-lg border border-border bg-surface p-4">
+    <article className="space-y-3 card p-4">
       <header className="flex flex-wrap items-baseline justify-between gap-2">
         <h3 className="text-lg font-semibold">
           {rank !== undefined && (

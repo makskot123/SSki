@@ -186,7 +186,7 @@ export function ResortAvalancheSection(props: ResortAvalancheProps) {
       <h2 id="avalanche-title" className="text-xl font-semibold">
         {t("title")}
       </h2>
-      <div className="space-y-3 rounded-lg border border-border bg-surface p-4 text-sm">
+      <div className="space-y-3 card p-4 text-sm">
         {body}
         <Disclaimer />
       </div>

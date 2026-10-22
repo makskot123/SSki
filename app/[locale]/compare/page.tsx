@@ -63,10 +63,7 @@ export default async function ComparePage({
     return (
       <div className="space-y-6">
         {header}
-        <p
-          role="status"
-          className="rounded-lg border border-border bg-surface p-4"
-        >
+        <p role="status" className="card p-4">
           {t("needTwo")}
         </p>
         <Link href="/resorts" className="text-accent underline">

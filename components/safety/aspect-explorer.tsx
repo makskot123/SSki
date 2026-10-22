@@ -70,10 +70,7 @@ export function AspectExplorer() {
         </ul>
       </div>
 
-      <div
-        aria-live="polite"
-        className="space-y-2 rounded-lg border border-border bg-surface p-4"
-      >
+      <div aria-live="polite" className="space-y-2 card p-4">
         {mode === "aspect" ? (
           <>
             <h3 className="text-lg font-semibold">{names[aspect]}</h3>

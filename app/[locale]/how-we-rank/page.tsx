@@ -36,9 +36,7 @@ export default async function HowWeRankPage({
         <h2 id="formula" className="text-2xl font-semibold">
           {t("formulaTitle")}
         </h2>
-        <p className="rounded-lg border border-border bg-surface p-4 font-mono text-sm">
-          {t("formula")}
-        </p>
+        <p className="card p-4 font-mono text-sm">{t("formula")}</p>
         <p>{t("formulaBody")}</p>
       </section>
 

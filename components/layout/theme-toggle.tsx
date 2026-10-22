@@ -1,6 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
+import { SectionIcon } from "@/components/ui/section-icon";
 
 export function ThemeToggle() {
   const t = useTranslations("Theme");
@@ -8,7 +9,13 @@ export function ThemeToggle() {
   function toggle() {
     const next =
       document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-    document.documentElement.dataset.theme = next;
+    // Switch instantly: no colour transitions while every surface changes at once.
+    const root = document.documentElement;
+    root.setAttribute("data-theme-switching", "");
+    root.dataset.theme = next;
+    requestAnimationFrame(() =>
+      requestAnimationFrame(() => root.removeAttribute("data-theme-switching")),
+    );
     try {
       localStorage.setItem("theme", next);
     } catch {
@@ -20,12 +27,15 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      // The accessible name starts with the visible word ("Dark mode" / "Light mode"), as WCAG 2.5.3 asks.
-      className="rounded-md border border-border px-3 py-1.5 text-sm hover:bg-surface"
+      className="touch-target inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-surface text-fg hover:border-accent"
     >
-      <span className="dark:hidden">{t("dark")}</span>
-      <span className="hidden dark:inline">{t("light")}</span>
-      <span className="sr-only"> {t("mode")}</span>
+      {/* Icon only; the accessible name says what the button switches to ("Dark mode" / "Light mode"). */}
+      <SectionIcon name="moon" size={18} className="dark:hidden" />
+      <SectionIcon name="sun" size={18} className="hidden dark:block" />
+      <span className="sr-only">
+        <span className="dark:hidden">{t("dark")}</span>
+        <span className="hidden dark:inline">{t("light")}</span> {t("mode")}
+      </span>
     </button>
   );
 }

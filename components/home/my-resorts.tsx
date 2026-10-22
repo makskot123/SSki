@@ -33,7 +33,7 @@ function ResortRow({
   const t = useTranslations("Home");
   const format = useFormatter();
   return (
-    <li className="flex gap-3 rounded-lg border border-border bg-surface p-4">
+    <li className="flex gap-3 rounded-xl bg-surface-2 p-4">
       <div className="min-w-0 flex-1 space-y-2">
         <div>
           <h3 className="font-semibold">
@@ -119,9 +119,12 @@ export function MyResorts({
   }
 
   return (
-    <div className="space-y-10">
-      <section aria-labelledby="my-resorts" className="space-y-3">
-        <h2 id="my-resorts" className="text-2xl font-semibold">
+    <div className="grid gap-6 lg:grid-cols-2">
+      <section
+        aria-labelledby="my-resorts"
+        className="card space-y-3 p-5 sm:p-6"
+      >
+        <h2 id="my-resorts" className="text-xl font-semibold">
           {t("myTitle")}
         </h2>
         <p className="max-w-2xl text-sm text-muted">{t("myIntro")}</p>
@@ -133,7 +136,7 @@ export function MyResorts({
             </Link>
           </p>
         ) : (
-          <ul className="grid gap-3 md:grid-cols-2" data-testid="my-resorts">
+          <ul className="grid gap-3" data-testid="my-resorts">
             {saved.map((r) => (
               <ResortRow key={r.slug} resort={r} renderedAt={renderedAt} />
             ))}
@@ -141,8 +144,8 @@ export function MyResorts({
         )}
       </section>
 
-      <section aria-labelledby="near-me" className="space-y-3">
-        <h2 id="near-me" className="text-2xl font-semibold">
+      <section aria-labelledby="near-me" className="card space-y-3 p-5 sm:p-6">
+        <h2 id="near-me" className="text-xl font-semibold">
           {t("nearTitle")}
         </h2>
         <p className="max-w-2xl text-sm text-muted">{t("nearIntro")}</p>
@@ -150,7 +153,7 @@ export function MyResorts({
           type="button"
           onClick={locate}
           disabled={near.kind === "locating"}
-          className="rounded-md bg-accent px-4 py-2 font-medium text-accent-fg disabled:opacity-60"
+          className="rounded-full bg-accent px-5 py-2.5 font-semibold text-accent-fg hover:opacity-90 disabled:opacity-60"
         >
           {t("nearButton")}
         </button>
@@ -167,7 +170,7 @@ export function MyResorts({
             </p>
           )}
           {near.kind === "found" && (
-            <ol className="grid gap-3 md:grid-cols-2" data-testid="near-me">
+            <ol className="grid gap-3" data-testid="near-me">
               {near.results.map(({ item, km }) => (
                 <ResortRow
                   key={item.slug}
@@ -181,7 +184,9 @@ export function MyResorts({
         </div>
       </section>
 
-      {(saved.length > 0 || near.kind === "found") && <Disclaimer />}
+      {(saved.length > 0 || near.kind === "found") && (
+        <Disclaimer className="lg:col-span-2" />
+      )}
     </div>
   );
 }

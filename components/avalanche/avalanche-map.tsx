@@ -338,7 +338,7 @@ export default function AvalancheMap({
         data-coloured={
           status === "ready" ? Object.keys(levels).length : undefined
         }
-        className={`${fill ? "h-full" : heightClass} w-full overflow-hidden rounded-lg border border-border bg-surface`}
+        className={`${fill ? "h-full" : heightClass} w-full overflow-hidden card`}
       />
       {status === "loading" && (
         <p className="pointer-events-none absolute inset-0 flex items-center justify-center text-sm text-muted">

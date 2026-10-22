@@ -55,10 +55,7 @@ export default async function GearPage({
               picks[k] ? [{ key: k, product: picks[k] }] : [],
             );
             return (
-              <li
-                key={category}
-                className="space-y-3 rounded-lg border border-border bg-surface p-4"
-              >
+              <li key={category} className="space-y-3 card p-4">
                 <h3 className="text-xl font-semibold">
                   {t(`categories.${category}.name`)}
                 </h3>
@@ -119,7 +116,7 @@ export default async function GearPage({
             return (
               <li
                 key={key}
-                className="space-y-2 rounded-lg border border-border bg-surface p-4"
+                className="space-y-2 card p-4"
                 data-testid={`kit-${key}`}
               >
                 <h3 className="text-lg font-semibold">

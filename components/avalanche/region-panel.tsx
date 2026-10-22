@@ -90,7 +90,7 @@ export function RegionPanel({
     <section
       aria-labelledby={titleId}
       aria-live="polite"
-      className="space-y-4 rounded-lg border border-border bg-surface p-4"
+      className="space-y-4 card p-4"
     >
       <h2 id={titleId} className="text-lg font-semibold">
         {t("panelTitle")}
