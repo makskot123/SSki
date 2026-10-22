@@ -1,6 +1,7 @@
 import { useFormatter, useTranslations } from "next-intl";
 import { degToCompass } from "@/lib/weather/map";
 import type { SnowForecast } from "@/lib/weather/types";
+import { TableScroll } from "@/components/ui/table-scroll";
 
 export function ForecastTable({
   forecast,
@@ -18,7 +19,7 @@ export function ForecastTable({
   }
 
   return (
-    <div className="overflow-x-auto rounded-lg border border-border">
+    <TableScroll label={t("caption", { name: resortName })}>
       <table className="w-full min-w-[34rem] text-left text-sm">
         <caption className="sr-only">
           {t("caption", { name: resortName })}
@@ -76,6 +77,6 @@ export function ForecastTable({
           ))}
         </tbody>
       </table>
-    </div>
+    </TableScroll>
   );
 }

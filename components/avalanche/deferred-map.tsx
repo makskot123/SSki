@@ -36,7 +36,13 @@ const INTERACTION_EVENTS = [
  * Renders the map only after the first sign of a real visitor (any input) or a click on the button,
  * so the heavy map library never competes with first paint. The surrounding page works without it.
  */
-export function DeferredAvalancheMap(props: AvalancheMapProps) {
+export function DeferredAvalancheMap({
+  autoStart = false,
+  ...props
+}: AvalancheMapProps & {
+  /** Start the map now (e.g. the visitor opened the full-screen map). Keep it true once set. */
+  autoStart?: boolean;
+}) {
   const t = useTranslations("Avalanche");
   const [requested, setRequested] = useState(false);
   const placeholder = useRef<HTMLDivElement>(null);
@@ -60,12 +66,12 @@ export function DeferredAvalancheMap(props: AvalancheMapProps) {
     };
   }, []);
 
-  if (requested) return <AvalancheMap {...props} />;
+  if (requested || autoStart) return <AvalancheMap {...props} />;
 
   return (
     <div
       ref={placeholder}
-      className={`${boxClass} ${props.heightClass ?? DEFAULT_HEIGHT}`}
+      className={`${boxClass} ${props.fill ? "h-full" : (props.heightClass ?? DEFAULT_HEIGHT)}`}
       data-testid="avalanche-map-placeholder"
     >
       <button

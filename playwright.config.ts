@@ -5,7 +5,24 @@ export default defineConfig({
   fullyParallel: true,
   reporter: "list",
   use: { baseURL: "http://localhost:3000" },
-  projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
+  projects: [
+    {
+      name: "chromium",
+      use: { ...devices["Desktop Chrome"] },
+      testIgnore: /mobile\.spec\.ts/,
+    },
+    // Phone app shell (A5): Safari on iPhone (WebKit) and Chrome on Android.
+    {
+      name: "iphone",
+      use: { ...devices["iPhone 15"] },
+      testMatch: /mobile\.spec\.ts/,
+    },
+    {
+      name: "pixel",
+      use: { ...devices["Pixel 7"] },
+      testMatch: /mobile\.spec\.ts/,
+    },
+  ],
   webServer: [
     {
       // Serves recorded real bulletins, re-dated to "now", so colours and panels can be tested in any season.

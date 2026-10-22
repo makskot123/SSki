@@ -4,6 +4,7 @@ import { Disclaimer } from "@/components/ui/disclaimer";
 import { Link } from "@/i18n/navigation";
 import { resolveLocale } from "@/i18n/locale-param";
 import { DEFAULT_WEIGHTS, FACTOR_KEYS } from "@/lib/scoring";
+import { TableScroll } from "@/components/ui/table-scroll";
 
 export async function generateMetadata({
   params,
@@ -45,7 +46,7 @@ export default async function HowWeRankPage({
         <h2 id="factors" className="text-2xl font-semibold">
           {t("factorsTitle")}
         </h2>
-        <div className="overflow-x-auto rounded-lg border border-border">
+        <TableScroll label={t("factorsTitle")}>
           <table className="w-full text-left text-sm">
             <thead className="bg-surface">
               <tr>
@@ -76,7 +77,7 @@ export default async function HowWeRankPage({
               ))}
             </tbody>
           </table>
-        </div>
+        </TableScroll>
       </section>
 
       <section aria-labelledby="missing" className="space-y-2">

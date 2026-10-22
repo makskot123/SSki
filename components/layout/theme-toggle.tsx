@@ -20,11 +20,12 @@ export function ThemeToggle() {
     <button
       type="button"
       onClick={toggle}
-      aria-label={t("toggle")}
+      // The accessible name starts with the visible word ("Dark mode" / "Light mode"), as WCAG 2.5.3 asks.
       className="rounded-md border border-border px-3 py-1.5 text-sm hover:bg-surface"
     >
       <span className="dark:hidden">{t("dark")}</span>
       <span className="hidden dark:inline">{t("light")}</span>
+      <span className="sr-only"> {t("mode")}</span>
     </button>
   );
 }

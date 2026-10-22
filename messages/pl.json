@@ -12,6 +12,13 @@
     "menu": "Nawigacja główna",
     "skipToContent": "Przejdź do treści"
   },
+  "Tabs": {
+    "home": "Start",
+    "resorts": "Ośrodki",
+    "avalanche": "Lawinomierz",
+    "powder": "Puch",
+    "safety": "Bezpiecznie"
+  },
   "Home": {
     "title": "Znajdź swój następny dzień z puchem",
     "subtitle": "Ranking ośrodków freeride, zagrożenie lawinowe i prognoza śniegu dla Europy.",
@@ -22,9 +29,9 @@
     "back": "Wróć na stronę główną"
   },
   "Theme": {
-    "toggle": "Przełącz tryb ciemny",
     "light": "Jasny",
-    "dark": "Ciemny"
+    "dark": "Ciemny",
+    "mode": "motyw"
   },
   "Locale": {
     "label": "Język",
@@ -274,7 +281,10 @@
     "mapDeferred": "Mapa ładuje się, gdy tylko wejdziesz w interakcję ze stroną, aby strona działała szybko. Lista regionów poniżej zawiera te same informacje.",
     "view3d": "Widok 3D",
     "no3d": "Widok 3D nie jest dostępny na tym urządzeniu: wymaga sprzętowej akceleracji grafiki. Płaska mapa pokazuje te same informacje.",
-    "mapHint3d": "Ctrl + przewijanie (lub dwa palce), aby powiększyć. Przeciągnij prawym przyciskiem lub dwoma palcami w górę i w dół, aby pochylić i obrócić. Teren 3D służy tylko do orientacji: nie pokazuje, jak stromy jest naprawdę stok."
+    "mapHint3d": "Ctrl + przewijanie (lub dwa palce), aby powiększyć. Przeciągnij prawym przyciskiem lub dwoma palcami w górę i w dół, aby pochylić i obrócić. Teren 3D służy tylko do orientacji: nie pokazuje, jak stromy jest naprawdę stok.",
+    "fullScreen": "Pełny ekran",
+    "exitFullScreen": "Zamknij pełny ekran",
+    "fullScreenLabel": "Mapa lawinowa na pełnym ekranie"
   },
   "ResortAvalanche": {
     "title": "Sytuacja lawinowa",

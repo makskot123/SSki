@@ -8,6 +8,7 @@ import { getResorts } from "@/lib/resorts";
 import { getForecasts } from "@/lib/weather";
 import { snowOnDates, weekendDates } from "@/lib/weather/map";
 import { WIND_WARNING_DAYS } from "@/lib/weather/thresholds";
+import { TableScroll } from "@/components/ui/table-scroll";
 
 export const revalidate = 3600;
 
@@ -82,7 +83,7 @@ export default async function PowderPage({
         {incomplete && <p className="text-sm text-muted">{t("incomplete")}</p>}
       </header>
 
-      <div className="overflow-x-auto rounded-lg border border-border">
+      <TableScroll label={t("caption")}>
         <table className="w-full min-w-[36rem] text-left text-sm">
           <caption className="sr-only">{t("caption")}</caption>
           <thead className="bg-surface">
@@ -145,7 +146,7 @@ export default async function PowderPage({
             ))}
           </tbody>
         </table>
-      </div>
+      </TableScroll>
       <p className="text-xs text-muted">{tf("windNote")}</p>
     </div>
   );

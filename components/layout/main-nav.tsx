@@ -2,14 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
-
-const items = [
-  { href: "/", key: "home" },
-  { href: "/resorts", key: "resorts" },
-  { href: "/avalanche", key: "avalanche" },
-  { href: "/powder", key: "powder" },
-  { href: "/safety", key: "safety" },
-] as const;
+import { isActiveSection, NAV_ITEMS } from "@/lib/nav";
 
 export function MainNav() {
   const t = useTranslations("Nav");
@@ -18,9 +11,8 @@ export function MainNav() {
   return (
     <nav aria-label={t("menu")}>
       <ul className="flex flex-wrap gap-1">
-        {items.map(({ href, key }) => {
-          const active =
-            href === "/" ? pathname === "/" : pathname.startsWith(href);
+        {NAV_ITEMS.map(({ href, key }) => {
+          const active = isActiveSection(href, pathname);
           return (
             <li key={href}>
               <Link

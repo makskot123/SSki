@@ -1,13 +1,17 @@
 "use client";
 
 import { useFormatter, useTranslations } from "next-intl";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { DeferredAvalancheMap } from "@/components/avalanche/deferred-map";
 import { RegionList } from "@/components/avalanche/region-list";
 import { RegionPanel } from "@/components/avalanche/region-panel";
 import { MapViewToggle } from "@/components/avalanche/map-view-toggle";
-import { useMapView } from "@/components/avalanche/use-map-view";
+import {
+  ensureGraphicsProbed,
+  useMapView,
+} from "@/components/avalanche/use-map-view";
 import { useNow } from "@/components/avalanche/use-now";
+import { useModalLayer } from "@/components/ui/use-modal-layer";
 import type { RegionMeta } from "@/lib/avalanche/meta";
 import { NO_DATA_FILL } from "@/lib/avalanche/map-style";
 import {
@@ -76,6 +80,15 @@ export function AvalancheExplorer({
   const currentCount = Object.keys(levels).length;
   const mapView = useMapView();
 
+  // Full-screen map (phones especially). The same map instance is enlarged in place, not re-created.
+  const [fullScreen, setFullScreen] = useState(false);
+  // Opening full screen starts the map; it then stays loaded after closing.
+  const [mapStarted, setMapStarted] = useState(false);
+  const mapColumn = useRef<HTMLDivElement>(null);
+  const fullScreenButton = useRef<HTMLButtonElement>(null);
+  const exitFullScreen = useCallback(() => setFullScreen(false), []);
+  useModalLayer(mapColumn, fullScreen, exitFullScreen, fullScreenButton);
+
   // Where the camera should go: the selected region's box, once the region metadata has loaded.
   const box = selectedId ? meta?.regions[selectedId]?.b : undefined;
   const focus = useMemo(
@@ -141,29 +154,73 @@ export function AvalancheExplorer({
       </div>
 
       <div className="grid gap-6 lg:grid-cols-[1fr_24rem]">
-        <div className="space-y-3">
-          <a
-            href="#region-list"
-            className="sr-only focus:not-sr-only focus:inline-block focus:rounded-md focus:bg-accent focus:px-3 focus:py-2 focus:text-accent-fg"
-          >
-            {t("skipToList")}
-          </a>
-          <MapViewToggle
-            available={mapView.available}
-            view={mapView.view}
-            onChange={mapView.setView}
-          />
-          <DeferredAvalancheMap
-            levels={levels}
-            selectedId={selectedId}
-            onSelect={select}
-            view={mapView.view}
-            focus={focus}
-          />
-          <p className="text-xs text-muted">
-            {t(mapView.view === "3d" ? "mapHint3d" : "mapHint")}
-          </p>
-          <Legend />
+        <div
+          ref={mapColumn}
+          role={fullScreen ? "dialog" : undefined}
+          aria-modal={fullScreen || undefined}
+          aria-label={fullScreen ? t("fullScreenLabel") : undefined}
+          data-testid="map-column"
+          data-full-screen={fullScreen || undefined}
+          className={
+            fullScreen
+              ? "fixed inset-0 z-50 flex flex-col gap-2 bg-bg pt-[max(0.75rem,env(safe-area-inset-top))] pb-[max(0.75rem,env(safe-area-inset-bottom))] pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))]"
+              : "space-y-3"
+          }
+        >
+          {!fullScreen && (
+            <a
+              href="#region-list"
+              className="sr-only focus:not-sr-only focus:inline-block focus:rounded-md focus:bg-accent focus:px-3 focus:py-2 focus:text-accent-fg"
+            >
+              {t("skipToList")}
+            </a>
+          )}
+          <div className="flex flex-wrap items-start gap-2">
+            <MapViewToggle
+              available={mapView.available}
+              view={mapView.view}
+              onChange={mapView.setView}
+            />
+            <button
+              ref={fullScreenButton}
+              type="button"
+              onClick={() => {
+                if (!fullScreen) {
+                  ensureGraphicsProbed();
+                  setMapStarted(true);
+                }
+                setFullScreen(!fullScreen);
+              }}
+              className="ml-auto rounded-md border border-border bg-surface px-3 py-1.5 text-sm font-medium hover:border-accent"
+            >
+              {t(fullScreen ? "exitFullScreen" : "fullScreen")}
+            </button>
+          </div>
+          <div className={fullScreen ? "min-h-0 flex-1" : undefined}>
+            <DeferredAvalancheMap
+              levels={levels}
+              selectedId={selectedId}
+              onSelect={select}
+              view={mapView.view}
+              focus={focus}
+              fill={fullScreen}
+              autoStart={mapStarted}
+            />
+          </div>
+          {fullScreen ? (
+            selectedId && (
+              <div className="max-h-[40%] shrink-0 overflow-y-auto">
+                <RegionPanel regionId={selectedId} view={view} meta={meta} />
+              </div>
+            )
+          ) : (
+            <>
+              <p className="text-xs text-muted">
+                {t(mapView.view === "3d" ? "mapHint3d" : "mapHint")}
+              </p>
+              <Legend />
+            </>
+          )}
         </div>
         <RegionPanel regionId={selectedId} view={view} meta={meta} />
       </div>

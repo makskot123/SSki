@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **A0–A4 done** (see §8.8); next is A5.
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **A0–A5 done** (see §8.8); next is A6.
 Date: 2026-10-21
 
 ---
@@ -555,3 +555,11 @@ Findings:
 - Serwist reloads the page when the connection returns by default. Chrome's offline emulation fired that during navigations, so pages "bounced" back, and it would also wipe a half-done quiz. It is switched off (`reloadOnOnline={false}`), with an e2e test.
 - A new version is never activated behind the visitor's back: an "update available" bar offers a reload.
 - The avalanche page shown offline re-checks freshness with the device clock: a page saved two days earlier shows no level (e2e with an offline browser and a moved clock).
+
+**A5 findings (2026-10-22):**
+- Phones (under 768 px, including the installed app) get five bottom tabs; wider screens keep the header menu. Polish tab labels are shortened where needed ("Start", "Bezpiecznie").
+- Touch targets: a global rule for coarse pointers gives buttons, selects, inputs, sliders and checkbox/radio labels at least 44 px; MapLibre's own controls are left alone. An e2e check measures every control on 15 pages on the iPhone 15 (WebKit) and Pixel 7 (Chromium) profiles.
+- Sideways scrolling came from visually hidden table captions (absolutely positioned) escaping their scroll box. All wide tables now use one `TableScroll` wrapper, which is also keyboard-focusable (axe: scrollable-region-focusable on Safari).
+- The full-screen map enlarges the same map instance in place (no reload of tiles). Everything behind it is made `inert`, Escape closes it, and focus returns to the button (Safari does not focus buttons on tap, so the hook falls back to it). Opening it starts the map directly.
+- The theme toggle's accessible name now starts with its visible word ("Dark mode"), as WCAG 2.5.3 asks. The theme follows the system setting live until the visitor picks one.
+- Lighthouse (mobile) after A5: performance 95–96, accessibility, best practices and SEO 100.

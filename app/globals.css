@@ -40,6 +40,31 @@ body {
   font-family: var(--font-sans);
 }
 
+/* Side padding (1rem), widened on landscape phones to clear the notch and rounded corners (viewport-fit=cover). */
+@utility safe-x {
+  padding-left: max(1rem, env(safe-area-inset-left));
+  padding-right: max(1rem, env(safe-area-inset-right));
+}
+
+/*
+ * Touch screens: every control is at least 44 x 44 px (Apple HIG / WCAG 2.5.5); a checkbox or radio counts
+ * its label. Inline links in running text are exempt. MapLibre's own map controls keep their size and are spaced apart.
+ */
+@media (pointer: coarse) {
+  button:not(.maplibregl-ctrl button),
+  select,
+  summary,
+  input:not([type="checkbox"], [type="radio"]),
+  label:has(> input[type="checkbox"], > input[type="radio"]),
+  .touch-target {
+    min-height: 44px;
+  }
+  button:not(.maplibregl-ctrl button),
+  .touch-target {
+    min-width: 44px;
+  }
+}
+
 :focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 2px;

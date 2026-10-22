@@ -12,6 +12,13 @@
     "menu": "Main navigation",
     "skipToContent": "Skip to content"
   },
+  "Tabs": {
+    "home": "Home",
+    "resorts": "Resorts",
+    "avalanche": "Avalanche",
+    "powder": "Powder",
+    "safety": "Safety"
+  },
   "Home": {
     "title": "Find your next powder day",
     "subtitle": "Freeride resort ranking, avalanche danger and snow forecast for Europe.",
@@ -22,9 +29,9 @@
     "back": "Back to home"
   },
   "Theme": {
-    "toggle": "Toggle dark mode",
     "light": "Light",
-    "dark": "Dark"
+    "dark": "Dark",
+    "mode": "mode"
   },
   "Locale": {
     "label": "Language",
@@ -274,7 +281,10 @@
     "mapDeferred": "The map loads as soon as you interact with the page, to keep it fast. The region list below has the same information.",
     "view3d": "3D view",
     "no3d": "3D is not available on this device: it needs hardware graphics acceleration. The flat map shows the same information.",
-    "mapHint3d": "Ctrl + scroll (or two fingers) to zoom. Right-drag, or two fingers up and down, to tilt and rotate. 3D terrain is for orientation only: it cannot show how steep a slope really is."
+    "mapHint3d": "Ctrl + scroll (or two fingers) to zoom. Right-drag, or two fingers up and down, to tilt and rotate. 3D terrain is for orientation only: it cannot show how steep a slope really is.",
+    "fullScreen": "Full screen",
+    "exitFullScreen": "Close full screen",
+    "fullScreenLabel": "Avalanche map, full screen"
   },
   "ResortAvalanche": {
     "title": "Avalanche situation",

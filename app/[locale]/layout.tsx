@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import { SerwistProvider } from "@serwist/turbopack/react";
+import { BottomTabs } from "@/components/layout/bottom-tabs";
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
 import { ThemeScript } from "@/components/layout/theme-script";
@@ -28,6 +29,8 @@ export function generateStaticParams() {
 }
 
 export const viewport: Viewport = {
+  // Draw under the notch / home indicator; the header, tabs and full-screen map add the safe-area insets.
+  viewportFit: "cover",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#f4f7fa" },
     { media: "(prefers-color-scheme: dark)", color: "#0e1620" },
@@ -68,7 +71,7 @@ export default async function LocaleLayout({
         <ThemeScript />
         <InstallCaptureScript />
       </head>
-      <body className="flex min-h-full flex-col">
+      <body className="flex min-h-full flex-col pb-[calc(3.5rem+env(safe-area-inset-bottom))] md:pb-0 print:pb-0">
         {/* No service worker in development: it would cache pages while they are being edited. */}
         <SerwistProvider
           swUrl="/serwist/sw.js"
@@ -88,11 +91,12 @@ export default async function LocaleLayout({
             <SiteHeader />
             <main
               id="main"
-              className="mx-auto w-full max-w-6xl flex-1 px-4 py-8"
+              className="safe-x mx-auto w-full max-w-6xl flex-1 py-8"
             >
               {children}
             </main>
             <SiteFooter />
+            <BottomTabs />
           </NextIntlClientProvider>
         </SerwistProvider>
       </body>

@@ -116,6 +116,8 @@ export interface AvalancheMapProps {
   /** Accessible name; defaults to the Lawinomierz map label. */
   label?: string;
   heightClass?: string;
+  /** Fill the parent's height instead of `heightClass` (the full-screen map). */
+  fill?: boolean;
   /** Flat map or 3D terrain. The caller decides (device capability and the visitor's choice). */
   view?: MapView;
   /** When set (or changed), the camera moves to show this region. */
@@ -140,6 +142,7 @@ export default function AvalancheMap({
   marker,
   label,
   heightClass = "h-[26rem] lg:h-[34rem]",
+  fill = false,
   view = "2d",
   focus = null,
 }: AvalancheMapProps) {
@@ -323,7 +326,7 @@ export default function AvalancheMap({
   }, [focusKey, status]);
 
   return (
-    <div className="relative">
+    <div className={fill ? "relative h-full" : "relative"}>
       <div
         ref={container}
         role="region"
@@ -335,7 +338,7 @@ export default function AvalancheMap({
         data-coloured={
           status === "ready" ? Object.keys(levels).length : undefined
         }
-        className={`${heightClass} w-full overflow-hidden rounded-lg border border-border bg-surface`}
+        className={`${fill ? "h-full" : heightClass} w-full overflow-hidden rounded-lg border border-border bg-surface`}
       />
       {status === "loading" && (
         <p className="pointer-events-none absolute inset-0 flex items-center justify-center text-sm text-muted">

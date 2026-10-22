@@ -14,6 +14,7 @@ import { countryName, monthDayDate } from "@/lib/format";
 import { getResortBySlug, getResorts } from "@/lib/resorts";
 import { getForecasts } from "@/lib/weather";
 import { WIND_WARNING_DAYS } from "@/lib/weather/thresholds";
+import { TableScroll } from "@/components/ui/table-scroll";
 
 export async function generateMetadata({
   params,
@@ -222,7 +223,7 @@ export default async function ComparePage({
         generatedAt={columns[0].forecast.generatedAt}
       />
 
-      <div className="overflow-x-auto rounded-lg border border-border">
+      <TableScroll label={t("caption")}>
         <table className="w-full min-w-[36rem] text-left text-sm">
           <caption className="sr-only">{t("caption")}</caption>
           <thead className="bg-surface">
@@ -262,7 +263,7 @@ export default async function ComparePage({
             ))}
           </tbody>
         </table>
-      </div>
+      </TableScroll>
       <p role="note" className="text-sm text-muted">
         {tr("approxNote")}
       </p>

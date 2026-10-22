@@ -178,7 +178,7 @@ test("unknown resort slug is a 404 and Polish detail page is translated", async 
 
 test("dark mode toggle persists across reload", async ({ page }) => {
   await page.goto("/en");
-  await page.getByRole("button", { name: "Toggle dark mode" }).click();
+  await page.getByRole("button", { name: /^(Dark|Light) mode$/ }).click();
   const theme = await page.locator("html").getAttribute("data-theme");
   await page.reload();
   await expect(page.locator("html")).toHaveAttribute("data-theme", theme!);

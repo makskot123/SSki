@@ -1,6 +1,7 @@
 "use client";
 
 import { useFormatter, useLocale, useTranslations } from "next-intl";
+import { useId } from "react";
 import { AspectRose } from "@/components/avalanche/aspect-rose";
 import { DangerBadge } from "@/components/avalanche/danger-badge";
 import { Disclaimer } from "@/components/ui/disclaimer";
@@ -48,6 +49,8 @@ export function RegionPanel({
   view: AvalancheView;
   meta: RegionMeta | null;
 }) {
+  // The panel can appear twice (page and full-screen map), so ids are unique per instance.
+  const titleId = useId();
   const t = useTranslations("Avalanche");
   const locale = useLocale();
   const format = useFormatter();
@@ -85,11 +88,11 @@ export function RegionPanel({
 
   return (
     <section
-      aria-labelledby="panel-title"
+      aria-labelledby={titleId}
       aria-live="polite"
       className="space-y-4 rounded-lg border border-border bg-surface p-4"
     >
-      <h2 id="panel-title" className="text-lg font-semibold">
+      <h2 id={titleId} className="text-lg font-semibold">
         {t("panelTitle")}
       </h2>
       {regionId === null ? (
@@ -177,6 +180,8 @@ function CurrentBulletin({
   elevation: (band: ElevationBand | undefined) => string;
 }) {
   const t = useTranslations("Avalanche");
+  const ratingsId = useId();
+  const problemsId = useId();
   return (
     <>
       <div className="space-y-1">
@@ -188,8 +193,8 @@ function CurrentBulletin({
         )}
       </div>
 
-      <section aria-labelledby="ratings-title" className="space-y-2">
-        <h4 id="ratings-title" className="text-sm font-semibold">
+      <section aria-labelledby={ratingsId} className="space-y-2">
+        <h4 id={ratingsId} className="text-sm font-semibold">
           {t("ratingsTitle")}
         </h4>
         <ul className="space-y-2">
@@ -209,8 +214,8 @@ function CurrentBulletin({
         </ul>
       </section>
 
-      <section aria-labelledby="problems-title" className="space-y-2">
-        <h4 id="problems-title" className="text-sm font-semibold">
+      <section aria-labelledby={problemsId} className="space-y-2">
+        <h4 id={problemsId} className="text-sm font-semibold">
           {t("problemsTitle")}
         </h4>
         {bulletin.problems.length === 0 ? (

@@ -33,7 +33,7 @@ npm run dev                  # http://localhost:3000 (redirects to /en)
 | `npm run data:snowfall`       | Fills average seasonal snowfall per resort (ERA5, resumable)                 |
 | `npm run icons`               | Renders the app icons (`public/icons`, `app/icon.png`, `app/apple-icon.png`) |
 
-First time running e2e: `npx playwright install chromium`.
+First time running e2e: `npx playwright install chromium webkit` (WebKit runs the iPhone profile in `tests/e2e/mobile.spec.ts`).
 
 ### Windows: `ERR_SWC_NATIVE_CACHE`
 
