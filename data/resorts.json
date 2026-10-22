@@ -64,7 +64,10 @@
     ],
     "links": {
       "official": "https://www.chamonix.com/",
-      "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
+      "avalancheBulletin": "https://meteofrance.com/meteo-montagne",
+      "webcams": [
+        "https://www.chamonix.com/webcams"
+      ]
     },
     "description": {
       "en": "Home of the Vallée Blanche and steep high-alpine descents under Mont Blanc. Serious terrain: guide, glacier and avalanche skills expected.",
@@ -141,7 +144,10 @@
     ],
     "links": {
       "official": "https://www.verbier.ch/",
-      "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
+      "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/",
+      "webcams": [
+        "https://www.verbier.ch/pratique/live/webcams/"
+      ]
     },
     "description": {
       "en": "Large 4 Vallées lift system with famous off-piste from Mont Fort and Tortin; a Freeride World Tour finals venue.",
@@ -216,7 +222,10 @@
     ],
     "links": {
       "official": "https://www.la-grave.com/",
-      "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
+      "avalancheBulletin": "https://meteofrance.com/meteo-montagne",
+      "webcams": [
+        "https://la-grave.com/webcams/"
+      ]
     },
     "description": {
       "en": "Ungroomed, unpatrolled mountain above the village, served by a single cable car. Raw, expert-only terrain with glaciers and big exposure.",
@@ -293,7 +302,10 @@
     ],
     "links": {
       "official": "https://www.engelberg.ch/",
-      "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
+      "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/",
+      "webcams": [
+        "https://www.engelberg.ch/webcams/"
+      ]
     },
     "description": {
       "en": "Titlis offers some of Switzerland's best lift-accessed off-piste, including Laub and Galtiberg, with a big vertical drop.",
@@ -370,7 +382,10 @@
     ],
     "links": {
       "official": "https://www.stantonamarlberg.com/",
-      "avalancheBulletin": "https://avalanche.report/"
+      "avalancheBulletin": "https://avalanche.report/",
+      "webcams": [
+        "https://www.stantonamarlberg.com/de/webcams"
+      ]
     },
     "description": {
       "en": "Arlberg's steep, wind-affected bowls around Valluga and Rendl; a classic freeride destination. The upper Valluga cable car is guide-only.",
@@ -448,7 +463,10 @@
     ],
     "links": {
       "official": "https://www.lechzuers.com/",
-      "avalancheBulletin": "https://www.vorarlberg.at/lawine"
+      "avalancheBulletin": "https://www.vorarlberg.at/lawine",
+      "webcams": [
+        "https://www.lechzuers.com/de/live-infos/webcams"
+      ]
     },
     "description": {
       "en": "Famously snow-sure Arlberg resort with extensive off-piste from Rüfikopf and Zürs; mostly open terrain with real avalanche exposure.",
@@ -676,7 +694,10 @@
     ],
     "links": {
       "official": "https://www.valdisere.com/",
-      "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
+      "avalancheBulletin": "https://meteofrance.com/meteo-montagne",
+      "webcams": [
+        "https://www.valdisere.com/live/webcams/"
+      ]
     },
     "description": {
       "en": "Espace Killy: glacier skiing from Grande Motte and large off-piste areas such as Pays Désert; a long season.",
@@ -1024,7 +1045,10 @@
     },
     "avalancheRegionIds": [],
     "links": {
-      "official": "https://www.banskoski.com/"
+      "official": "https://www.banskoski.com/",
+      "webcams": [
+        "https://www.banskoski.com/en/webcam/bansko"
+      ]
     },
     "description": {
       "en": "Pirin Mountains ski area with a gondola from town and affordable guided off-piste; official avalanche bulletin coverage is limited.",
@@ -1396,7 +1420,10 @@
     ],
     "links": {
       "official": "https://www.kitzsteinhorn.at/",
-      "avalancheBulletin": "https://lawine.salzburg.at/"
+      "avalancheBulletin": "https://lawine.salzburg.at/",
+      "webcams": [
+        "https://www.kitzsteinhorn.at/de/service/informationen/wetter-webcams"
+      ]
     },
     "description": {
       "en": "The Kitzsteinhorn glacier gives early and late-season skiing and high-alpine lift-served off-piste lines.",
@@ -1472,7 +1499,10 @@
     ],
     "links": {
       "official": "https://www.livigno.eu/",
-      "avalancheBulletin": "https://www.aineva.it/"
+      "avalancheBulletin": "https://www.aineva.it/",
+      "webcams": [
+        "https://www.livigno.eu/webcam"
+      ]
     },
     "description": {
       "en": "Duty-free valley at around 1,800 m with reliable cold snow and open off-piste at Carosello and Mottolino.",
@@ -1550,7 +1580,10 @@
     ],
     "links": {
       "official": "https://www.zermatt.ch/",
-      "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/"
+      "avalancheBulletin": "https://www.slf.ch/en/avalanche-bulletin-and-snow-situation/",
+      "webcams": [
+        "https://zermatt.swiss/info/webcams"
+      ]
     },
     "description": {
       "en": "Matterhorn views, Klein Matterhorn at 3,883 m and long off-piste runs such as Stockhorn–Triftji; high, snow-sure and serious.",
@@ -1852,7 +1885,10 @@
     ],
     "links": {
       "official": "https://www.ischgl.com/",
-      "avalancheBulletin": "https://avalanche.report/"
+      "avalancheBulletin": "https://avalanche.report/",
+      "webcams": [
+        "https://www.ischgl.com/en/plan-your-trip/webcams"
+      ]
     },
     "description": {
       "en": "Silvretta Arena with high, snow-reliable terrain and off-piste around Palinkopf, linked to Samnaun in Switzerland.",
@@ -1926,7 +1962,10 @@
     ],
     "links": {
       "official": "https://www.gastein.com/",
-      "avalancheBulletin": "https://lawine.salzburg.at/"
+      "avalancheBulletin": "https://lawine.salzburg.at/",
+      "webcams": [
+        "https://www.gastein.com/webcams/"
+      ]
     },
     "description": {
       "en": "Gastein valley with Sportgastein and Graukogel: high-alpine off-piste and quieter slopes, from moderate to steep terrain.",
@@ -2000,7 +2039,10 @@
     ],
     "links": {
       "official": "https://www.kuehtai.info/",
-      "avalancheBulletin": "https://avalanche.report/"
+      "avalancheBulletin": "https://avalanche.report/",
+      "webcams": [
+        "https://www.kuehtai.info/winter/webcams-wetter/"
+      ]
     },
     "description": {
       "en": "High-altitude Tyrolean resort near Innsbruck with a 2,020 m base: very snow-sure, with open terrain and quick access.",
@@ -2148,7 +2190,10 @@
     ],
     "links": {
       "official": "https://www.les2alpes.com/",
-      "avalancheBulletin": "https://meteofrance.com/meteo-montagne"
+      "avalancheBulletin": "https://meteofrance.com/meteo-montagne",
+      "webcams": [
+        "https://www.les2alpes.com/hiver/live/webcams/"
+      ]
     },
     "description": {
       "en": "Glacier resort topping out near 3,570 m with open lift-served off-piste and a long season.",
@@ -2223,7 +2268,10 @@
     ],
     "links": {
       "official": "https://www.cervinia.it/",
-      "avalancheBulletin": "https://www.aineva.it/"
+      "avalancheBulletin": "https://www.aineva.it/",
+      "webcams": [
+        "https://www.cervinia.it/webcam/"
+      ]
     },
     "description": {
       "en": "High resort under the Matterhorn with a snow-reliable season and off-piste from Plateau Rosa, linked to Zermatt.",

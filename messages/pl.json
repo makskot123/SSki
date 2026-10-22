@@ -127,7 +127,7 @@
     "measures": {
       "terrain": "Nasza redakcyjna ocena od 1 do 5, jak zróżnicowany jest teren off-piste.",
       "vertical": "Przewyższenie w metrach między najwyższym wyciągiem a bazą.",
-      "snowfall": "Średnie opady śniegu od listopada do kwietnia na wysokości szczytu w zimach 2015/16–2024/25, z reanalizy ERA5 przez Open-Meteo.",
+      "snowfall": "Średnie opady śniegu od listopada do kwietnia na wysokości szczytu w zimach 2015/16–2024/25, z reanalizy ERA5 przez Open-Meteo. Zawiera zmodyfikowane informacje Copernicus Climate Change Service.",
       "altitude": "Średnia z wysokości szczytu i bazy, jako wskaźnik pewności śniegu.",
       "steepness": "Górna granica typowego nachylenia terenu off-piste, w stopniach.",
       "liftAccess": "Liczba rejonów freeride dostępnych z wyciągów, które podajemy dla ośrodka.",
@@ -175,7 +175,8 @@
     "noBulletin": "Brak znanego oficjalnego źródła komunikatów lawinowych dla tego rejonu. Zapytaj lokalnych przewodników lub służby ratownictwa górskiego.",
     "opensInNewTab": "(otwiera się w nowej karcie)",
     "approxNote": "Wysokości, ceny i oceny terenu są przybliżonymi szacunkami, jeszcze niesprawdzonymi z oficjalnymi źródłami. Aktualne dane zawsze sprawdzaj na stronie ośrodka.",
-    "compareWith": "Porównaj z innymi ośrodkami"
+    "compareWith": "Porównaj z innymi ośrodkami",
+    "webcams": "Oficjalne kamery internetowe"
   },
   "Footer": {
     "disclaimer": "To nie zastępuje oficjalnego komunikatu lawinowego. Zawsze czytaj pełny komunikat i sprawdzaj warunki na miejscu.",
@@ -915,5 +916,28 @@
     "printChecklistTitle": "Lista kontrolna wyjazdu",
     "printChecklistNote": "Zaznaczaj na papierze. Pełna lista z wyjaśnieniami jest w aplikacji w sekcji Bezpieczeństwo.",
     "howRanked": "Jak powstaje ranking: {snowShare}% prognoza śniegu na Twoje dni, {baseShare}% ocena ośrodka (domyślne wagi). Ranking nigdy nie czyni terenu bezpiecznym."
+  },
+  "Notes": {
+    "title": "Twoje notatki o warunkach",
+    "intro": "Zapisuj tu własne notatki o śniegu i warunkach. Zostają tylko na tym urządzeniu: nie są udostępniane, publikowane ani używane w żadnym rankingu czy stopniu zagrożenia. Nigdy nie zastępuj notatkami, swoimi ani cudzymi, oficjalnego komunikatu lawinowego.",
+    "date": "Data",
+    "snowQuality": "Śnieg",
+    "snowUnset": "Nie określono",
+    "snow": {
+      "powder": "Puch",
+      "crud": "Rozjeżdżony śnieg",
+      "wind_packed": "Śnieg ubity przez wiatr",
+      "crust": "Szreń",
+      "spring": "Firn",
+      "ice": "Lód"
+    },
+    "text": "Notatki",
+    "observations": "Zauważone oznaki niestabilności (opcjonalnie): pęknięcia, odgłos „łup”, świeże lawiny",
+    "observationsShort": "Oznaki niestabilności:",
+    "save": "Zapisz notatkę",
+    "delete": "Usuń notatkę",
+    "errorDate": "Wybierz dzisiejszą lub wcześniejszą datę.",
+    "errorText": "Wpisz notatkę przed zapisaniem.",
+    "errorTooLong": "Notatka może mieć najwyżej {max} znaków."
   }
 }

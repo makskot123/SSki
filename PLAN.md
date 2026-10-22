@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8). **M8b built without product data** (see M8b notes below); **M9 trip planner done**; next is M10 (polish).
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8). **M8b built without product data** (see M8b notes below); **M9 and M10 done** (M10 with two scope changes, see M10 notes). Nothing is deployed or pushed from here: publishing is the owner's step.
 Date: 2026-10-21
 
 ---
@@ -377,6 +377,14 @@ Dates + country/region → shortlist ranked by forecast + current score + avalan
 **M10 — Routes, reviews & condition reports, polish**
 `routes.json` (famous descents, guide flags), reviews and condition reports from mock JSON (form validates with Zod, writes to localStorage in v1 — no server writes), webcam link-outs, README complete, Lighthouse/a11y pass, Vercel deploy.
 *AC:* Lighthouse ≥ 90 (perf/a11y/best practices/SEO) on `/`, `/resorts`, `/avalanche`. README lists all sources and attributions.
+
+*M10 notes (2026-10-22):*
+- **Reviews and condition reports:** no mock reviews are shown, because invented reviews would read as real people's opinions. Instead each resort page has the visitor's own condition notes (date, snow type, signs of instability, text), validated with Zod and stored only in localStorage. They are never sent, shared or used for any ranking or level (e2e checks that no request is made).
+- **Webcams:** official webcam pages for 16 resorts, found from each resort's own homepage and checked to answer 200 with a webcam page. They are shown as link-outs only, never embedded.
+- **Routes (`routes.json`):** deferred. Famous descents are serious, often glaciated terrain, and describing them needs sourced, checked facts (access, glacier, guide requirement), which could not be verified here. Backlog.
+- **README:** a complete sources and attribution table, including the ERA5 / Copernicus credit, which is now also shown on `/how-we-rank`.
+- **Lighthouse:** `/` 98/100/100/100, `/resorts` 95/100/100/100, `/avalanche` 96/100/100/100, `/planner` and resort pages 96/100/100/100.
+- **Vercel deploy:** not done from here. Pushing to `main` deploys, and that is the owner's decision.
 
 **Backlog:** Supabase-backed condition reports + moderation, EAWS aggregate (after permission), more languages (DE/FR/IT), AINEVA/TOPR direct feeds if they appear, route GPX (licensing!), historical danger-level stats per resort, gear guide for skis/boots/bindings (needs a fair, non-subjective scoring first), user gear reviews.
 

@@ -127,7 +127,7 @@
     "measures": {
       "terrain": "Our editorial rating from 1 to 5 for how varied the off-piste terrain is.",
       "vertical": "Vertical drop in metres between the highest lift and the base.",
-      "snowfall": "Average November to April snowfall at summit elevation over the winters 2015/16 to 2024/25, from the ERA5 reanalysis via Open-Meteo.",
+      "snowfall": "Average November to April snowfall at summit elevation over the winters 2015/16 to 2024/25, from the ERA5 reanalysis via Open-Meteo. Contains modified Copernicus Climate Change Service information.",
       "altitude": "Average of top and base elevation, as a proxy for snow reliability.",
       "steepness": "Upper end of the typical off-piste steepness range, in degrees.",
       "liftAccess": "Number of lift-accessed freeride areas we list for the resort.",
@@ -175,7 +175,8 @@
     "noBulletin": "No official avalanche bulletin feed is known for this area. Ask local guides or the mountain rescue service.",
     "opensInNewTab": "(opens in a new tab)",
     "approxNote": "Elevations, prices and terrain ratings are approximate estimates, not yet checked against official sources. Always check the resort's website for current numbers.",
-    "compareWith": "Compare with other resorts"
+    "compareWith": "Compare with other resorts",
+    "webcams": "Official webcams"
   },
   "Footer": {
     "disclaimer": "Not a substitute for the official bulletin. Always read the full bulletin and check conditions on site.",
@@ -915,5 +916,28 @@
     "printChecklistTitle": "Trip checklist",
     "printChecklistNote": "Tick on paper. The full checklist with explanations is in the app under Safety.",
     "howRanked": "How it is ranked: {snowShare}% forecast snow for your dates, {baseShare}% resort score (default weights). A ranking never makes terrain safe."
+  },
+  "Notes": {
+    "title": "Your condition notes",
+    "intro": "Keep your own notes on snow and conditions here. They stay on this device only: they are not shared, published or used for any ranking or danger level. Never use notes, yours or anyone's, instead of the official avalanche bulletin.",
+    "date": "Date",
+    "snowQuality": "Snow",
+    "snowUnset": "Not noted",
+    "snow": {
+      "powder": "Powder",
+      "crud": "Crud",
+      "wind_packed": "Wind-packed",
+      "crust": "Crust",
+      "spring": "Spring snow",
+      "ice": "Ice"
+    },
+    "text": "Notes",
+    "observations": "Signs of instability you saw (optional): cracks, whumpf sounds, recent avalanches",
+    "observationsShort": "Signs of instability:",
+    "save": "Save note",
+    "delete": "Delete note",
+    "errorDate": "Choose today or an earlier date.",
+    "errorText": "Write a note before saving.",
+    "errorTooLong": "Notes can be at most {max} characters."
   }
 }

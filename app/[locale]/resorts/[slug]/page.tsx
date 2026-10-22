@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { FavouriteButton } from "@/components/favourites/favourite-button";
+import { ConditionNotes } from "@/components/resort/condition-notes";
 import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
 import { ForecastSection } from "@/components/forecast/forecast-section";
@@ -151,6 +152,19 @@ export default async function ResortPage({
                   {t("officialSite")} <span className="sr-only">{newTab}</span>
                 </a>
               </li>
+              {/* Link-outs only: webcam images are never embedded or hotlinked. */}
+              {resort.links.webcams?.map((url) => (
+                <li key={url}>
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-accent underline"
+                  >
+                    {t("webcams")} <span className="sr-only">{newTab}</span>
+                  </a>
+                </li>
+              ))}
               <li>
                 {resort.links.avalancheBulletin ? (
                   <a
@@ -208,6 +222,7 @@ export default async function ResortPage({
           />
         </>
       )}
+      <ConditionNotes slug={resort.slug} />
     </article>
   );
 }
