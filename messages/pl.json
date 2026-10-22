@@ -10,14 +10,16 @@
     "powder": "Puch",
     "safety": "Bezpieczeństwo",
     "menu": "Nawigacja główna",
-    "skipToContent": "Przejdź do treści"
+    "skipToContent": "Przejdź do treści",
+    "track": "Licznik"
   },
   "Tabs": {
     "home": "Start",
     "resorts": "Ośrodki",
-    "avalanche": "Lawinomierz",
+    "avalanche": "Lawiny",
     "powder": "Puch",
-    "safety": "Bezpiecznie"
+    "safety": "Bezpiecznie",
+    "track": "Licznik"
   },
   "Favourites": {
     "toggle": "Zapisz {name} w ulubionych",
@@ -939,5 +941,35 @@
     "errorDate": "Wybierz dzisiejszą lub wcześniejszą datę.",
     "errorText": "Wpisz notatkę przed zapisaniem.",
     "errorTooLong": "Notatka może mieć najwyżej {max} znaków."
+  },
+  "Tracker": {
+    "title": "Licznik dnia na nartach",
+    "intro": "Prędkość, dystans i przewyższenie z Twojego dnia na nartach, mierzone GPS-em telefonu.",
+    "liveTitle": "Bieżący dzień na nartach",
+    "speed": "Prędkość",
+    "topSpeed": "Prędkość maks.",
+    "distance": "Dystans",
+    "descent": "Zjazd w pionie",
+    "movingTime": "Czas w ruchu",
+    "start": "Zacznij dzień",
+    "pause": "Pauza",
+    "resume": "Wznów",
+    "stop": "Zakończ",
+    "paused": "Wstrzymano",
+    "gpsSearching": "Szukanie sygnału GPS…",
+    "gpsGood": "Dobry sygnał GPS",
+    "gpsFair": "Słaby sygnał GPS: wyniki są mniej dokładne",
+    "denied": "Nie zezwolono na dostęp do lokalizacji, więc licznik nie może nic zmierzyć. Możesz na to zezwolić w ustawieniach przeglądarki lub aplikacji.",
+    "unavailable": "Nie udało się odczytać lokalizacji na tym urządzeniu. Spróbuj ponownie na zewnątrz, z widokiem na niebo.",
+    "saved": "Zapisano dzień: {distance} km, {descent} m zjazdu w pionie.",
+    "safetyNote": "Sprawdzaj wyniki na postoju, nigdy podczas jazdy. Prędkości to szacunki z GPS i mogą być niedokładne. Jedź pod kontrolą i z prędkością dopasowaną do warunków i ludzi wokół.",
+    "privacyNote": "Twoje pozycje są używane tylko na tym urządzeniu do obliczenia wyników. Nie są nigdzie wysyłane ani zapisywane; zapisywane są tu tylko podsumowania dni.",
+    "screenNote": "Aplikacja webowa mierzy tylko wtedy, gdy jest otwarta, więc podczas pomiaru ekran pozostaje włączony, jeśli telefon na to pozwala. To zużywa baterię: na długie dni weź powerbank.",
+    "historyTitle": "Twoje dni na nartach",
+    "historyEmpty": "Nie zapisano jeszcze żadnego dnia.",
+    "topShort": "maks. {speed} km/h",
+    "delete": "Usuń",
+    "deleteLabel": "Usuń dzień z {date}",
+    "gpsLost": "Utracono sygnał GPS: nadal nasłuchuję"
   }
 }

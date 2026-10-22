@@ -10,14 +10,16 @@
     "powder": "Powder",
     "safety": "Safety",
     "menu": "Main navigation",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "track": "Tracker"
   },
   "Tabs": {
     "home": "Home",
     "resorts": "Resorts",
     "avalanche": "Avalanche",
     "powder": "Powder",
-    "safety": "Safety"
+    "safety": "Safety",
+    "track": "Track"
   },
   "Favourites": {
     "toggle": "Save {name} as a favourite",
@@ -939,5 +941,35 @@
     "errorDate": "Choose today or an earlier date.",
     "errorText": "Write a note before saving.",
     "errorTooLong": "Notes can be at most {max} characters."
+  },
+  "Tracker": {
+    "title": "Ski-day tracker",
+    "intro": "Speed, distance and vertical for your ski day, measured by your phone's GPS.",
+    "liveTitle": "Current ski day",
+    "speed": "Speed",
+    "topSpeed": "Top speed",
+    "distance": "Distance",
+    "descent": "Descent",
+    "movingTime": "Moving time",
+    "start": "Start ski day",
+    "pause": "Pause",
+    "resume": "Resume",
+    "stop": "Finish",
+    "paused": "Paused",
+    "gpsSearching": "Looking for GPS…",
+    "gpsGood": "GPS signal good",
+    "gpsFair": "GPS signal weak: numbers are less precise",
+    "denied": "Location access was not allowed, so the tracker cannot measure anything. You can allow it in your browser or app settings.",
+    "unavailable": "Your location could not be read on this device. Try again outside, with a clear view of the sky.",
+    "saved": "Ski day saved: {distance} km, {descent} m of descent.",
+    "safetyNote": "Look at the numbers when you stop, never while skiing. Speeds are GPS estimates and can be off. Ski in control and at a speed that suits the conditions and the people around you.",
+    "privacyNote": "Your positions are used only on this device to work out the numbers. They are not sent anywhere and not stored; only each day's totals are saved here.",
+    "screenNote": "A web app can only measure while it is open, so the screen stays on while tracking where your phone allows it. This uses battery: take a power bank on long days.",
+    "historyTitle": "Your ski days",
+    "historyEmpty": "No ski days saved yet.",
+    "topShort": "top {speed} km/h",
+    "delete": "Delete",
+    "deleteLabel": "Delete the ski day of {date}",
+    "gpsLost": "GPS signal lost: still listening"
   }
 }

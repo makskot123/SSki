@@ -18,8 +18,8 @@ describe("isActiveSection", () => {
     expect(isActiveSection("/powder", "/powderhound")).toBe(false);
   });
 
-  it("has five sections, as the bottom tab bar expects", () => {
-    expect(NAV_ITEMS).toHaveLength(5);
+  it("has six sections, as the bottom tab bar expects", () => {
+    expect(NAV_ITEMS).toHaveLength(6);
   });
 });
 

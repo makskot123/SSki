@@ -25,6 +25,8 @@ const OFFLINE_PAGES = [
   "/safety/quiz",
   "/safety/aspects",
   "/safety/gear",
+  // The tracker is used on the mountain, often without signal.
+  "/track",
 ];
 
 export const { dynamic, dynamicParams, revalidate, generateStaticParams, GET } =

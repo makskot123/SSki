@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8). **M8b built without product data** (see M8b notes below); **M9 and M10 done** (M10 with two scope changes, see M10 notes). Nothing is deployed or pushed from here: publishing is the owner's step. **Phase 3 planned** (Google Play app via TWA, on-device tracker, more resorts; no server), see [§9](#9-phase-3--phone-app-google-play-and-on-device-features); B1 in progress.
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **Phase 2 A0–A6 done** (see §8.8). **M8b built without product data** (see M8b notes below); **M9 and M10 done** (M10 with two scope changes, see M10 notes). Nothing is deployed or pushed from here: publishing is the owner's step. **Phase 3 planned** (Google Play app via TWA, on-device tracker, more resorts; no server), see [§9](#9-phase-3--phone-app-google-play-and-on-device-features); B1 done; next is a visual design pass (owner's request), then B2.
 Date: 2026-10-21
 
 ---
@@ -613,6 +613,8 @@ Earning money makes the project **commercial**, which changes some free terms (s
 **B1 — Ski-day tracker (on device)**
 A "Track" screen: start/pause/stop a ski day; live speed, top speed, distance, descent (vertical metres down), moving time. Uses the browser's location only while the screen is on, keeps the screen awake while tracking (Wake Lock, where supported), and stores finished days on the device only. Pure, unit-tested logic in `lib/tracker` filters GPS noise (inaccurate fixes, impossible jumps).
 *AC:* works without a server; no position is ever sent (e2e checks the network); refuses gracefully without permission; unit tests cover the filtering and totals with recorded tracks; clear note that it must not be read while skiing and that top speeds are GPS estimates. EN/PL.
+
+*B1 notes (2026-10-22):* `/track` (6th tab). GPS fixes are filtered in `lib/tracker` (accuracy over 35 m, jumps over 160 km/h, drift shorter than half the accuracy, altitude changes under 8 m), top speed is the median of the last three speeds, and gaps over 60 s add no moving time. Transient GPS errors (tunnels, gondolas) no longer stop tracking, only a denied permission does. Days are saved in localStorage; positions are never stored or sent (e2e checks every request). The page is precached for use without signal.
 
 **B2 — Google Play readiness (free part)**
 A privacy policy page (what is stored on the device, that nothing is sent, which third parties are contacted: weather, bulletins, map tiles), `/.well-known/assetlinks.json` served from an environment variable, and a short README guide to generating and publishing the TWA with Bubblewrap.

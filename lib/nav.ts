@@ -4,6 +4,7 @@ export const NAV_ITEMS = [
   { href: "/resorts", key: "resorts" },
   { href: "/avalanche", key: "avalanche" },
   { href: "/powder", key: "powder" },
+  { href: "/track", key: "track" },
   { href: "/safety", key: "safety" },
 ] as const;
 

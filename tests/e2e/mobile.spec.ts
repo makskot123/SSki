@@ -18,6 +18,8 @@ const PAGES = [
   "/en/safety/gear/transceiver",
   "/en/how-we-rank",
   "/en/planner",
+  "/en/track",
+  "/pl/track",
   "/pl",
   "/pl/resorts",
   "/pl/avalanche",
@@ -98,7 +100,7 @@ test.describe("phone app shell", () => {
     const tabs = page.getByTestId("bottom-tabs");
     await expect(tabs).toBeVisible();
     await expect(page.locator("header nav")).toBeHidden();
-    await expect(tabs.getByRole("link")).toHaveCount(5);
+    await expect(tabs.getByRole("link")).toHaveCount(6);
     await expect(tabs.getByRole("link", { name: "Home" })).toHaveAttribute(
       "aria-current",
       "page",
