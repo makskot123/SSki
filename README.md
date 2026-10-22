@@ -18,19 +18,20 @@ npm run dev                  # http://localhost:3000 (redirects to /en)
 
 ## Scripts
 
-| Script                        | What it does                                                          |
-| ----------------------------- | --------------------------------------------------------------------- |
-| `npm run dev`                 | Dev server                                                            |
-| `npm run build`               | Production build                                                      |
-| `npm run start`               | Serve the production build                                            |
-| `npm run lint`                | ESLint                                                                |
-| `npm run typecheck`           | Generates Next route types, then `tsc --noEmit`                       |
-| `npm test`                    | Unit tests (Vitest)                                                   |
-| `npm run test:e2e`            | Playwright smoke + axe accessibility tests (builds and serves app)    |
-| `npm run format`              | Prettier                                                              |
-| `npm run data:regions`        | Rebuilds the simplified region polygons and metadata in `public/data` |
-| `npm run data:regions-assign` | Assigns EAWS region ids to every resort in `data/resorts.json`        |
-| `npm run data:snowfall`       | Fills average seasonal snowfall per resort (ERA5, resumable)          |
+| Script                        | What it does                                                                 |
+| ----------------------------- | ---------------------------------------------------------------------------- |
+| `npm run dev`                 | Dev server                                                                   |
+| `npm run build`               | Production build                                                             |
+| `npm run start`               | Serve the production build                                                   |
+| `npm run lint`                | ESLint                                                                       |
+| `npm run typecheck`           | Generates Next route types, then `tsc --noEmit`                              |
+| `npm test`                    | Unit tests (Vitest)                                                          |
+| `npm run test:e2e`            | Playwright smoke + axe accessibility tests (builds and serves app)           |
+| `npm run format`              | Prettier                                                                     |
+| `npm run data:regions`        | Rebuilds the simplified region polygons and metadata in `public/data`        |
+| `npm run data:regions-assign` | Assigns EAWS region ids to every resort in `data/resorts.json`               |
+| `npm run data:snowfall`       | Fills average seasonal snowfall per resort (ERA5, resumable)                 |
+| `npm run icons`               | Renders the app icons (`public/icons`, `app/icon.png`, `app/apple-icon.png`) |
 
 First time running e2e: `npx playwright install chromium`.
 
@@ -41,6 +42,15 @@ First time running e2e: `npx playwright install chromium`.
 ```powershell
 $env:SWC_NATIVE_BINDING_CACHE = "$PWD\.swc-cache"
 ```
+
+## Installable app (PWA)
+
+FreerideAtlas installs as an app from the browser, free and without an app store:
+
+- **Android / desktop Chrome or Edge:** use the "Install the app" button in the footer, or the browser's install icon.
+- **iPhone / iPad:** in Safari, tap Share, then Add to Home Screen.
+
+The service worker (Serwist, `app/sw.ts`, built by `app/serwist/[path]/route.ts`) is only active in production builds (`npm run build && npm run start`). It precaches the safety pages, checklist, quiz and the offline page in both languages, caches other pages as they are visited, and keeps map tiles in capped caches. Offline, avalanche levels are re-checked against the device clock and shown only while the bulletin is valid. A new version waits until the visitor clicks Reload.
 
 ## Data API (v1)
 

@@ -677,5 +677,19 @@
         "explanation": "Komunikaty wskazują wystawy i wysokości, które są najbardziej niebezpieczne. Czytaj je uważnie i łącz ze stromością stoków na swojej trasie."
       }
     }
+  },
+  "Pwa": {
+    "offline": "Jesteś offline. Strony i dane pochodzą z ostatniej wizyty: sprawdź podane godziny. Stopnie zagrożenia lawinowego są pokazywane tylko, gdy komunikat jest wciąż ważny.",
+    "install": "Zainstaluj aplikację",
+    "installIos": "Aby zainstalować na iPhonie lub iPadzie: stuknij Udostępnij, a potem Do ekranu początkowego.",
+    "notNow": "Nie teraz",
+    "updateAvailable": "Nowa wersja FreerideAtlas jest gotowa.",
+    "reload": "Odśwież",
+    "offlineTitle": "Jesteś offline",
+    "offlineBody": "Ta strona nie została jeszcze zapisana na Twoim urządzeniu. Te narzędzia działają bez połączenia:",
+    "offlineChecklist": "Lista sprzętu i wyjazdu",
+    "offlineQuiz": "Quiz o bezpieczeństwie lawinowym",
+    "offlineSafety": "Bezpieczeństwo: stopnie zagrożenia, wystawa i stromość",
+    "offlineAvalanche": "Stopnie zagrożenia lawinowego wymagają aktualnego komunikatu. Bez połączenia przeczytaj zapisany oficjalny komunikat lub zapytaj na miejscu przed jazdą poza trasami."
   }
 }

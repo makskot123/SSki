@@ -677,5 +677,19 @@
         "explanation": "Bulletins name the aspects and elevations that are most dangerous. Read them carefully and combine them with the steepness of the slopes on your route."
       }
     }
+  },
+  "Pwa": {
+    "offline": "You are offline. Pages and data are from your last visit: check the times shown. Avalanche levels are only shown while their bulletin is still valid.",
+    "install": "Install the app",
+    "installIos": "To install on iPhone or iPad: tap Share, then Add to Home Screen.",
+    "notNow": "Not now",
+    "updateAvailable": "A new version of FreerideAtlas is ready.",
+    "reload": "Reload",
+    "offlineTitle": "You are offline",
+    "offlineBody": "This page has not been saved on your device yet. These tools work without a connection:",
+    "offlineChecklist": "Gear and trip checklist",
+    "offlineQuiz": "Avalanche safety quiz",
+    "offlineSafety": "Safety: danger levels, aspect and steepness",
+    "offlineAvalanche": "Avalanche levels need a current bulletin. Without a connection, read the official bulletin you saved or ask on site before going off-piste."
   }
 }

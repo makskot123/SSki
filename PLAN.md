@@ -1,6 +1,6 @@
 # FreerideAtlas — Implementation Plan
 
-Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **A0–A3 done** (see §8.8); next is A4.
+Status: **Phase 1 built (M1–M8)**. **Phase 2 scope decided** (3D avalanche map + free installable web app, nothing paid), see [§8](#8-phase-2--3d-avalanche-map-and-free-web-app). **A0–A4 done** (see §8.8); next is A5.
 Date: 2026-10-21
 
 ---
@@ -548,3 +548,10 @@ Findings:
 - **The GPU is only probed when the map starts** or 3D is requested. Probing on page load created a WebGL context during hydration and pushed Lighthouse blocking time from ~200 to ~750 ms (score 78). With the deferred probe: 93–95. A unit test guards this.
 - The full elevation credit expanded the attribution box over the bottom of the map. The map now shows a short credit with a link (Mapzen / AWS Terrain Tiles, EU-DEM © Copernicus, © offene Daten Österreichs, USGS), and the README holds the full required wording.
 - MapLibre's attribution links were distinguishable by colour only (axe: link-in-text-block); they are now underlined.
+
+**A4 findings (2026-10-22):**
+- Lighthouse 12 no longer has a PWA category. Installability is checked in e2e instead, with Chrome's own `Page.getInstallabilityErrors` (must be empty). Lighthouse after A4: performance 95–97, accessibility, best practices and SEO 100.
+- Serwist only serves an offline fallback that is **precached**, so `/en/offline` and `/pl/offline` are in the precache list with the safety pages (one revision per commit). The MapLibre bundle (~1 MB) and the full region polygons are left out of the install download and cached when the map is first used.
+- Serwist reloads the page when the connection returns by default. Chrome's offline emulation fired that during navigations, so pages "bounced" back, and it would also wipe a half-done quiz. It is switched off (`reloadOnOnline={false}`), with an e2e test.
+- A new version is never activated behind the visitor's back: an "update available" bar offers a reload.
+- The avalanche page shown offline re-checks freshness with the device clock: a page saved two days earlier shows no level (e2e with an offline browser and a moved clock).

@@ -18,14 +18,17 @@
     "data:regions-assign": "node scripts/assign-regions.ts",
     "data:regions": "node scripts/build-regions.ts",
     "bench:map:serve": "node tools/map-bench/server.mjs",
-    "bench:map": "node tools/map-bench/run.mjs"
+    "bench:map": "node tools/map-bench/run.mjs",
+    "icons": "node scripts/build-icons.mjs"
   },
   "dependencies": {
+    "@serwist/turbopack": "^9.5.13",
     "maplibre-gl": "^6.15.0",
     "next": "16.4.2",
     "next-intl": "^4.14.9",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "serwist": "^9.5.13",
     "zod": "^4.6.7"
   },
   "devDependencies": {
@@ -41,6 +44,7 @@
     "@types/topojson-client": "^3.1.5",
     "@types/topojson-server": "^3.0.4",
     "@types/topojson-simplify": "^3.0.3",
+    "esbuild": "^0.28.2",
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
     "eslint-config-prettier": "^10.1.8",
