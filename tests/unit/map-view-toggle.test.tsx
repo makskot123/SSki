@@ -9,7 +9,7 @@ import {
 } from "@testing-library/react";
 import { NextIntlClientProvider } from "next-intl";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import { MapViewToggle } from "@/components/avalanche/avalanche-explorer";
+import { MapViewToggle } from "@/components/avalanche/map-view-toggle";
 import { MAP_VIEW_STORAGE_KEY } from "@/lib/map/view-preference";
 import en from "@/messages/en.json";
 

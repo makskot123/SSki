@@ -1,41 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test, type Page } from "@playwright/test";
-
-/*
- * Playwright's Chromium renders WebGL in software (SwiftShader), which the app correctly refuses for 3D.
- * To test the 3D path, these tests make the renderer report a hardware GPU name. Rendering itself still
- * works (slowly); the tests check state, not pixels.
- */
-async function pretendHardwareGpu(page: Page) {
-  await page.addInitScript(() => {
-    const UNMASKED_RENDERER = 0x9246;
-    for (const proto of [
-      WebGL2RenderingContext.prototype,
-      WebGLRenderingContext.prototype,
-    ]) {
-      const original = proto.getParameter;
-      proto.getParameter = function (this: WebGLRenderingContext, p: number) {
-        return p === UNMASKED_RENDERER
-          ? "Test GPU (e2e)"
-          : original.call(this, p);
-      } as typeof original;
-    }
-  });
-}
-
-async function startMap(page: Page) {
-  // Wait for hydration, then any mouse movement starts the map (it is deferred until interaction).
-  await expect(page.getByTestId("avalanche-map-placeholder")).toHaveAttribute(
-    "data-armed",
-    "true",
-  );
-  await page.mouse.move(150, 250);
-  const map = page.getByTestId("avalanche-map");
-  await expect(map).toHaveAttribute("data-map-status", /ready|error/, {
-    timeout: 30_000,
-  });
-  return map;
-}
+import { pretendHardwareGpu, startMap } from "./map-helpers";
 
 const toggle = (page: Page) => page.getByRole("button", { name: "3D view" });
 

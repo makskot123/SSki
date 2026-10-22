@@ -3,6 +3,8 @@
 import { useTranslations } from "next-intl";
 import { useMemo } from "react";
 import { DeferredAvalancheMap } from "@/components/avalanche/deferred-map";
+import { MapViewToggle } from "@/components/avalanche/map-view-toggle";
+import { useMapView } from "@/components/avalanche/use-map-view";
 import { useNow } from "@/components/avalanche/use-now";
 import { useRouter } from "@/i18n/navigation";
 import {
@@ -29,7 +31,10 @@ export function ResortAvalancheMap({
   renderedAt: string;
 }) {
   const t = useTranslations("ResortAvalanche");
+  const ta = useTranslations("Avalanche");
   const router = useRouter();
+  // The same 2D/3D choice as the avalanche page (one preference per device).
+  const mapView = useMapView();
   const browserNow = useNow();
 
   const levels = useMemo(() => {
@@ -47,21 +52,30 @@ export function ResortAvalancheMap({
       <h2 id="resort-map-title" className="text-xl font-semibold">
         {t("mapTitle")}
       </h2>
+      <MapViewToggle
+        available={mapView.available}
+        view={mapView.view}
+        onChange={mapView.setView}
+      />
       <DeferredAvalancheMap
         levels={levels}
+        view={mapView.view}
         selectedId={null}
         focusIds={regionIds}
         onSelect={(id) => router.push(`/avalanche#r=${encodeURIComponent(id)}`)}
-        initialView={{ center: [position.lon, position.lat], zoom: 8.5 }}
+        initialView={{ center: [position.lon, position.lat], zoom: 9.8 }}
         marker={{
           lon: position.lon,
           lat: position.lat,
           label: t("markerLabel", { name: resortName }),
         }}
         label={t("mapLabel", { name: resortName })}
-        heightClass="h-72"
+        heightClass="h-80 lg:h-96"
       />
       <p className="text-xs text-muted">{t("mapNote")}</p>
+      {mapView.view === "3d" && (
+        <p className="text-xs text-muted">{ta("mapHint3d")}</p>
+      )}
     </section>
   );
 }
